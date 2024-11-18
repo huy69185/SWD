@@ -1,0 +1,9 @@
+2024-11-18 15:53:37.794 +07:00 [INF] Application has started.
+2024-11-18 15:53:37.817 +07:00 [INF] JWT Authentication scheme has been added.
+2024-11-18 15:53:37.886 +07:00 [INF] Global exception handling middleware has been added.
+2024-11-18 15:53:37.887 +07:00 [INF] Request logging middleware has been added.
+2024-11-18 15:53:44.739 +07:00 [INF] Received GET request for /api/Products
+2024-11-18 15:53:44.785 +07:00 [DBG] Configured SQL Server with retry on failure.
+2024-11-18 15:53:45.728 +07:00 [INF] Completed GET request for /api/Products
+2024-11-18 15:53:45.730 +07:00 [INF] Request 1 completed on 2024-11-18
+2024-11-18 15:53:54.787 +07:00 [INF] Application is shutting down.
