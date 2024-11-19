@@ -27,41 +27,37 @@ namespace eCommerce.ShareLibrary.Middleware
 
                 switch (context.Response.StatusCode)
                 {
-                    case StatusCodes.Status400BadRequest:
-                        title = "Bad Request";
-                        message = "The request is invalid.";
-                        statusCode = StatusCodes.Status400BadRequest;
-                        break;
-
                     case StatusCodes.Status404NotFound:
                         title = "Not Found";
                         message = "The requested resource was not found.";
                         statusCode = StatusCodes.Status404NotFound;
+                        await HandleExceptionAsync(context, title, message, statusCode);
                         break;
 
                     case StatusCodes.Status429TooManyRequests:
                         title = "Warning";
                         message = "To many request made.";
                         statusCode = StatusCodes.Status429TooManyRequests;
+                        await HandleExceptionAsync(context, title, message, statusCode);
                         break;
 
                     case StatusCodes.Status401Unauthorized:
                         title = "Alert";
                         message = "You are not authorized to access.";
                         statusCode = StatusCodes.Status401Unauthorized;
+                        await HandleExceptionAsync(context, title, message, statusCode);
                         break;
 
                     case StatusCodes.Status403Forbidden:
                         title = "Out of access.";
                         message = "You are not allowed/required to access.";
                         statusCode = StatusCodes.Status403Forbidden;
+                        await HandleExceptionAsync(context, title, message, statusCode);
                         break;
 
                     default:
                         break;
                 }
-
-                await HandleExceptionAsync(context, title, message, statusCode);
              }
             catch (Exception ex)
             {
@@ -83,36 +79,14 @@ namespace eCommerce.ShareLibrary.Middleware
         private static async Task HandleExceptionAsync(HttpContext context, string title, string message, int statusCode)
         {
             //Display message to client
-            context.Response.ContentType = "application/json";
+            //context.Response.ContentType = "application/json";
 
-            if (statusCode == StatusCodes.Status400BadRequest && context.Items.TryGetValue("InvalidModelState", out var modelStateObj) && modelStateObj is ModelStateDictionary modelState)
+            await context.Response.WriteAsync(JsonSerializer.Serialize(new ProblemDetails()
             {
-                var errors = modelState
-                .Where(ms => ms.Value?.Errors.Count > 0)
-                .ToDictionary(
-                    kvp => kvp.Key,
-                    kvp => kvp.Value?.Errors.Select(e => e.ErrorMessage).ToArray()
-                );
-
-                var problemDetails = new ProblemDetails
-                {
-                    Detail = message,
-                    Status = statusCode,
-                    Title = title,
-                    Extensions = { { "errors", errors } }
-                };
-
-                await context.Response.WriteAsJsonAsync(problemDetails);
-            }
-            else
-            {
-                await context.Response.WriteAsync(JsonSerializer.Serialize(new ProblemDetails()
-                {
-                    Detail = message,
-                    Status = statusCode,
-                    Title = title
-                }), CancellationToken.None);
-            }
+                Detail = message,
+                Status = statusCode,
+                Title = title
+            }), CancellationToken.None);
         }
     }
 }
