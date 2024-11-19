@@ -9,11 +9,11 @@ using ProductAPI.DAO.Data;
 
 #nullable disable
 
-namespace ProductAPI.DAO.Data.Migrations
+namespace ProductAPI.DAO.Migrations
 {
     [DbContext(typeof(ProductDbContext))]
-    [Migration("20241119055029_ChangeProductIdType")]
-    partial class ChangeProductIdType
+    [Migration("20241119064729_InitializeDb")]
+    partial class InitializeDb
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

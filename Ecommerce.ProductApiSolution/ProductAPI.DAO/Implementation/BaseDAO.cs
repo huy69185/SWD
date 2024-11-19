@@ -30,7 +30,7 @@ namespace ProductAPI.DAO.Implementation
             {
                 LogHandler.LogToFile($"[BaseDAO][AddAsync] Start adding new entity to database");
 
-                Response response;
+                Response response = new Response(false, $"Error occured while adding new entity");
 
                 if (entity != null)
                 {
@@ -41,8 +41,6 @@ namespace ProductAPI.DAO.Implementation
                         response = new Response(true, $"{entity.Id} is added to database successfully");
                     }
                 }
-
-                response = new Response(false, $"Error occured while adding new entity");
 
                 LogHandler.LogToFile($"[BaseDAO][AddAsync] End adding new entity to database");
                 return response;
@@ -60,7 +58,7 @@ namespace ProductAPI.DAO.Implementation
             try
             {
                 LogHandler.LogToFile($"[BaseDAO][AddRangeAsync] Start adding new entities to database");
-                Response response;
+                Response response = new Response(false, $"Error occured while adding new entity");
 
                 if (entities.Any())
                 {
@@ -71,8 +69,7 @@ namespace ProductAPI.DAO.Implementation
                         response = new Response(true, $"{entities.Count()} is added to database successfully");
                     }
                 }
-
-                response = new Response(false, $"Error occured while adding new entities");
+                
                 LogHandler.LogToFile($"[BaseDAO][AddRangeAsync] End adding new entities to database");
                 return response;
             }
@@ -113,7 +110,7 @@ namespace ProductAPI.DAO.Implementation
             try
             {
                 LogHandler.LogToFile($"[BaseDAO][DeleteAsync] Start deleting entities from database");
-                Response response;
+                Response response = new Response(false, $"Error occured while deleting entities"); ;
                 if (entities != null)
                 {
                     _context.RemoveRange(entities);
@@ -123,7 +120,7 @@ namespace ProductAPI.DAO.Implementation
                         response = new Response(true, $"{entities.Length} is deleted successfully");
                     }
                 }
-                response = new Response(false, $"Error occured while deleting entities");
+                
                 LogHandler.LogToFile($"[BaseDAO][DeleteAsync] End deleting entities from database");
                 return response;
             }
@@ -254,7 +251,7 @@ namespace ProductAPI.DAO.Implementation
             try
             {
                 LogHandler.LogToFile($"[BaseDAO][UpdateAsync] Start updating entity in database");
-                Response response;
+                Response response = new Response(false, $"Error occured while updating entity");
                 if (entity != null)
                 {
                     _context.Update(entity);
@@ -265,7 +262,6 @@ namespace ProductAPI.DAO.Implementation
                         response = new Response(true, $"{entity.Id} is updated successfully");
                     }
                 }
-                response = new Response(false, $"Error occured while updating entity");
 
                 LogHandler.LogToFile($"[BaseDAO][UpdateAsync] End updating entity in database");
                 return response;
@@ -283,7 +279,7 @@ namespace ProductAPI.DAO.Implementation
             try
             {
                 LogHandler.LogToFile($"[BaseDAO][UpdateRangeAsync] Start updating entities in database");
-                Response response;
+                Response response = new Response(false, $"Error occured while updating entities");
                 if (entities != null && entities.Any())
                 {
                     _context.UpdateRange(entities);
@@ -294,7 +290,6 @@ namespace ProductAPI.DAO.Implementation
                         response = new Response(true, $"{entities.Count()} is updated successfully");
                     }
                 }
-                response = new Response(false, $"Error occured while updating entities");
 
                 LogHandler.LogToFile($"[BaseDAO][UpdateRangeAsync] End updating entities in database");
                 return response;
@@ -311,7 +306,7 @@ namespace ProductAPI.DAO.Implementation
             try
             {
                 LogHandler.LogToFile($"[BaseDAO][DeleteAsync] Start deleting entity from database");
-                Response response;
+                Response response = new Response(false, $"Error occured while deleting entity");
                 var contest = await GetAsync(id);
                 if (contest != null)
                 {
@@ -323,7 +318,6 @@ namespace ProductAPI.DAO.Implementation
                         response = new Response(true, $"{contest.Id} is deleted successfully");
                     }
                 }
-                response = new Response(false, $"Error occured while deleting entity");
 
                 LogHandler.LogToFile($"[BaseDAO][DeleteAsync] End deleting entity from database");
                 return response;
@@ -341,7 +335,7 @@ namespace ProductAPI.DAO.Implementation
             try
             {
                 LogHandler.LogToFile($"[BaseDAO][DeleteAsync] Start deleting entity from database");
-                Response response;
+                Response response = new Response(false, $"Error occured while deleting entity");
 
                 _context.Remove(entity);
                 bool isSuccess = _context.SaveChangesAsync().GetAwaiter().GetResult() > 0;
@@ -350,7 +344,6 @@ namespace ProductAPI.DAO.Implementation
                 {
                     response = new Response(true, $"{entity.Id} is deleted successfully");
                 }
-                response = new Response(false, $"Error occured while deleting entity");
 
                 LogHandler.LogToFile($"[BaseDAO][DeleteAsync] End deleting entity from database");
                 return response;
