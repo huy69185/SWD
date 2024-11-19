@@ -24,10 +24,14 @@ namespace ProductApi.Presentation.Controllers
         }
 
         [HttpGet("{id:int}")]
-        public async Task<ActionResult<ProductDTO>> GetProduct(int id)
+        public async Task<ActionResult<ProductDTO>> GetProduct(string id)
         {
             //Get single product from repo
-            var product = await productInterface.FindByIdAsync(id);
+            if (Guid.TryParse(id, out var guid))
+            {
+                return BadRequest("Invalid product ID format");
+            }
+            var product = await productInterface.FindByIdAsync(guid);
             if (product is null)
                 return NotFound("Product requested not found");
             //Convert from entity to DTO and return
@@ -44,14 +48,18 @@ namespace ProductApi.Presentation.Controllers
             }
             //Conver to entity
             var getEntity = ProductConversion.ToEntity(product);
-            var response = await productInterface.CreateAsync(getEntity);
+            var response = await productInterface.AddAsync(getEntity);
             return response.Flag is true? Ok(response) : BadRequest(response);
         }
 
         [HttpPut("{id:int}")]
-        public async Task<ActionResult<Response>> UpdateProduct(int id, [FromBody] UpdateProductDTO updateProductDTO)
+        public async Task<ActionResult<Response>> UpdateProduct(string id, [FromBody] UpdateProductDTO updateProductDTO)
         {
-            var existingProduct = await productInterface.FindByIdAsync(id);
+            if (Guid.TryParse(id, out var guid))
+            {
+                return BadRequest("Invalid product ID format");
+            }
+            var existingProduct = await productInterface.FindByIdAsync(guid);
             if (existingProduct is null)
             {
                 return NotFound($"Product with ID {id} not found");
@@ -71,10 +79,14 @@ namespace ProductApi.Presentation.Controllers
         }
 
         [HttpDelete("{id:int}")]
-        public async Task<ActionResult<Response>> DeleteProduct(int id)
+        public async Task<ActionResult<Response>> DeleteProduct(string id)
         {
+            if (Guid.TryParse(id, out var guid))
+            {
+                return BadRequest("Invalid product ID format");
+            }
             //Check Model
-            var product = await productInterface.FindByIdAsync(id);
+            var product = await productInterface.FindByIdAsync(guid);
             if (product is null)
             {
                 return NotFound($"Product with ID {id} not found");

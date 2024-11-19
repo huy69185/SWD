@@ -22,7 +22,7 @@ namespace ProductApi.Application.DTOs.Conversions
             if(product is not null || products is null)
             {
                 var singleProduct = new ProductDTO(
-                    product!.Id, 
+                    product!.Id.ToString(), 
                     product.Name!, 
                     product.Quantity,
                     product.Price);
@@ -32,7 +32,7 @@ namespace ProductApi.Application.DTOs.Conversions
             if(products is null || product is null)
             {
                 var _products = products!.Select(p =>
-                    new ProductDTO(p.Id, p.Name!, p.Quantity, p.Price)).ToList();
+                    new ProductDTO(p!.Id.ToString(), p.Name!, p.Quantity, p.Price)).ToList();
                 return (null, _products);                
             }
             return(null,null);

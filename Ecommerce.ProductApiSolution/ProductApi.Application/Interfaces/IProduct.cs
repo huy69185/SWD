@@ -8,5 +8,5 @@ using System.Threading.Tasks;
 
 namespace ProductApi.Application.Interfaces
 {
-    public interface IProduct: IGenericInterface<Product>{ }
+    public interface IProduct: IGenericRepository<Product>{ }
 }

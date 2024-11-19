@@ -1,0 +1,4 @@
+2024-11-19 13:31:52.503 +07:00 [INF] Application has started.
+2024-11-19 13:31:52.699 +07:00 [INF] JWT Authentication scheme has been added.
+2024-11-19 13:31:52.892 +07:00 [INF] Global exception handling middleware has been added.
+2024-11-19 13:31:52.897 +07:00 [INF] Request logging middleware has been added.

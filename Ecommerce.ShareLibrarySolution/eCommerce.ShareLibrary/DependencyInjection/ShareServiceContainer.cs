@@ -11,8 +11,8 @@ namespace eCommerce.ShareLibrary.DependencyInjection
 {
     public static class ShareServiceContainer
     {
-        public static IServiceCollection AddSharedService<TContext>
-            (this IServiceCollection services, IConfiguration config, string fileName) where TContext : DbContext
+        public static IServiceCollection AddSharedService
+            (this IServiceCollection services, IConfiguration config, string fileName)
         {
             // Get the current date and format it as 'yyyy-MM-dd'
             string currentDate = DateTime.Now.ToString("yyyy-MM-dd");
@@ -35,6 +35,7 @@ namespace eCommerce.ShareLibrary.DependencyInjection
             // Log application startup
             Log.Information("Application has started.");
 
+/*
             // Add Generic DbContext
             services.AddDbContext<TContext>(option => option.UseSqlServer(
                 config.GetConnectionString("eCommerceConnection"),
@@ -43,7 +44,7 @@ namespace eCommerce.ShareLibrary.DependencyInjection
                     sqlserverOption.EnableRetryOnFailure();
                     Log.Debug("Configured SQL Server with retry on failure.");
                 }));
-
+*/
             // Add JWT authentication scheme
             JWTAuthencationScheme.AddJWTAuthencationScheme(services, config);
             Log.Information("JWT Authentication scheme has been added.");

@@ -3,138 +3,71 @@ using eCommerce.ShareLibrary.Response;
 using Microsoft.EntityFrameworkCore;
 using ProductApi.Application.Interfaces;
 using ProductApi.Domain.Entities;
-using ProductApi.Infrastructure.Data;
+using ProductAPI.DAO.Implementation;
 using System.Linq.Expressions;
-
 
 namespace ProductApi.Infrastructure.Repositories
 {
-    internal class ProductRepository(ProductDbContext context) : IProduct
+    public class ProductRepository : IProduct
     {
-        public async Task<Response> CreateAsync(Product entity)
+        public Task<Response> AddAsync(Product entity, CancellationToken cancellationToken = default)
         {
-            try
-            {
-                //Check if product is already exist
-                var getProduct = await GetByAsync(_ => _.Name!.Equals(entity.Name));
-                if (getProduct is not null && !string.IsNullOrEmpty(getProduct.Name))
-                    return new Response(false, $"{entity.Name} is already added");
-                var currentEntity = context.Products.Add(entity).Entity;
-                await context.SaveChangesAsync();
-                if (currentEntity is not null && currentEntity.Id > 0)
-                    return new Response(true, $"{entity.Name} is added to database successfully");
-                else return new Response(false, $"Error occured while adding {entity.Name}");
-            }
-            catch (Exception ex)
-            {
-                //Log the original exception
-                LogException.LogExceptions(ex);
-                //Display the scary message to client
-                return new Response(false, "Error occurred adding new product");
-            }
+            return ProductDAO.Instance.AddAsync(entity, cancellationToken);
         }
 
-        public async Task<Response> DeleteAsync(Product entity)
+        public Task<Response> AddRangeAsync(IEnumerable<Product> entities, CancellationToken cancellationToken = default)
         {
-            try
-            {
-                //check if product is not found
-                var product = FindByIdAsync(entity.Id);
-                if(product is null ) return new Response(false,$"{entity.Name} not found");
-
-                context.Products.Remove(entity);
-                await context.SaveChangesAsync();
-                return new Response(true,$"{entity.Name} is deleted successfully");
-            }
-            catch(Exception ex)
-            {
-                //Log the original exception
-                LogException.LogExceptions(ex);
-                //Display the scary message to client
-                return new Response(false, "Error occurred deleting product");
-            }
+            return ProductDAO.Instance.AddRangeAsync(entities, cancellationToken);
         }
 
-        public async Task<Product> FindByIdAsync(int id)
+        public Task<int> CountAsync(Expression<Func<Product, bool>>? filter = null, CancellationToken cancellationToken = default)
         {
-            try
-            {
-                var product = await context.Products.FindAsync(id);
-                return product is not null ? product : null!;
-            }
-            catch (Exception ex)
-            {
-                //Log the original exception
-                LogException.LogExceptions(ex);
-                //Display the scary message to client
-                throw new Exception("Error occurred retrieving product");
-            }
+            return ProductDAO.Instance.CountAsync(filter, cancellationToken);
         }
 
-        public async Task<IEnumerable<Product>> GetAllAsync()
+        public Task<Response> DeleteAsync(Guid id)
         {
-            try
-            {
-                var products = await context.Products.AsNoTracking().ToListAsync();
-                return products is not null ? products : null!;
-            }
-            catch (Exception ex)
-            {
-                //Log the original exception
-                LogException.LogExceptions(ex);
-                //Display the scary message to client
-                throw new InvalidOperationException("Error occurred retrieving product");
-            }
+            return ProductDAO.Instance.DeleteAsync(id);
         }
 
-        public async Task<Product> GetByAsync(Expression<Func<Product, bool>> predicate)
+        public Task<Response> DeleteAsync(params Product[] entities)
         {
-            try 
-            {
-                var product = await context.Products.Where(predicate).FirstOrDefaultAsync()!;
-                return product is not null ? product : null!;
-            }
-            catch (Exception ex)
-            {
-                //Log the original exception
-                LogException.LogExceptions(ex);
-                //Display the scary message to client
-                throw new InvalidOperationException("Error occurred retrieving product");
-            }
+            return ProductDAO.Instance.DeleteAsync(entities);
         }
 
-        public async Task<Response> UpdateAsync(Product entity)
+        public Task<Response> DeleteAsync(Product entity)
         {
-            try
-            {
-                // Find product by id
-                var existingProduct = await FindByIdAsync(entity.Id);
-                if (existingProduct is null)
-                {
-                    return new Response(false, $"{entity.Name} not found");
-                }
-
-                // check duplicate name
-                var duplicateProduct = await GetByAsync(p => p.Name == entity.Name && p.Id != entity.Id);
-                if (duplicateProduct is not null)
-                {
-                    return new Response(false, $"A product with the name '{entity.Name}' already exists.");
-                }
-
-                // update product
-                context.Entry(existingProduct).State = EntityState.Detached;
-                context.Products.Update(entity);
-                await context.SaveChangesAsync();
-                return new Response(true, $"{entity.Name} is updated successfully");
-            }
-            catch (Exception ex)
-            {
-                //Log the original exception
-                LogException.LogExceptions(ex);
-                //Display the scary message to client
-                return new Response(false, "Error occurred while updating product");
-            }
+            return ProductDAO.Instance.DeleteAsync(entity);
         }
 
+        public Task<IEnumerable<Product>> GetAllAsync(Expression<Func<Product, bool>>? filter = null, string? includeProperties = null, CancellationToken cancellationToken = default)
+        {
+            return ProductDAO.Instance.GetAllAsync(filter, includeProperties, cancellationToken);
+        }
+
+        public Task<Product?> FindByIdAsync(Guid id, string? includeProperties = null, CancellationToken cancellationToken = default)
+        {
+            return ProductDAO.Instance.GetAsync(id, includeProperties, cancellationToken);
+        }
+
+        public Task<Product?> GetAsync(Expression<Func<Product, bool>> filter, CancellationToken cancellationToken = default)
+        {
+            return ProductDAO.Instance.GetAsync(filter, cancellationToken);
+        }
+
+        public Task<IEnumerable<Product>> GetWithPaginationAsync(int pageNum = 0, int pageSize = 0, Expression<Func<Product, bool>>? filter = null, string? includeProperties = null, CancellationToken cancellationToken = default)
+        {
+            return ProductDAO.Instance.GetWithPaginationAsync(pageNum, pageSize, filter, includeProperties, cancellationToken);
+        }
+
+        public Task<Response> UpdateAsync(Product entity)
+        {
+            return ProductDAO.Instance.UpdateAsync(entity);
+        }
+
+        public Task<Response> UpdateRangeAsync(IEnumerable<Product> entities)
+        {
+            return ProductDAO.Instance.UpdateRangeAsync(entities);
+        }
     }
 }
