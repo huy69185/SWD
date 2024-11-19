@@ -2,3 +2,70 @@
 2024-11-19 13:31:52.699 +07:00 [INF] JWT Authentication scheme has been added.
 2024-11-19 13:31:52.892 +07:00 [INF] Global exception handling middleware has been added.
 2024-11-19 13:31:52.897 +07:00 [INF] Request logging middleware has been added.
+2024-11-19 13:45:46.355 +07:00 [INF] Application has started.
+2024-11-19 13:45:46.427 +07:00 [INF] JWT Authentication scheme has been added.
+2024-11-19 13:47:58.335 +07:00 [INF] Application has started.
+2024-11-19 13:47:58.497 +07:00 [INF] JWT Authentication scheme has been added.
+2024-11-19 13:48:00.313 +07:00 [INF] Global exception handling middleware has been added.
+2024-11-19 13:48:00.315 +07:00 [INF] Request logging middleware has been added.
+2024-11-19 13:48:57.822 +07:00 [INF] Received POST request for /api/Products
+2024-11-19 13:48:57.904 +07:00 [INF] Completed POST request for /api/Products
+2024-11-19 13:48:57.907 +07:00 [INF] Request 1 completed on 2024-11-19
+2024-11-19 13:48:57.953 +07:00 [INF] Headers are read-only, response has already started.
+2024-11-19 13:48:57.955 +07:00 [WRN] Headers are read-only, response has already started.
+2024-11-19 13:48:57.957 +07:00 [DBG] Headers are read-only, response has already started.
+2024-11-19 13:49:06.559 +07:00 [INF] Received POST request for /api/Products
+2024-11-19 13:49:06.563 +07:00 [INF] Completed POST request for /api/Products
+2024-11-19 13:49:06.565 +07:00 [INF] Request 2 completed on 2024-11-19
+2024-11-19 13:49:06.590 +07:00 [INF] Headers are read-only, response has already started.
+2024-11-19 13:49:06.593 +07:00 [WRN] Headers are read-only, response has already started.
+2024-11-19 13:49:06.595 +07:00 [DBG] Headers are read-only, response has already started.
+2024-11-19 13:49:26.321 +07:00 [INF] Received GET request for /api/Products
+2024-11-19 13:49:26.358 +07:00 [INF] [BaseDAO][GetAllAsync] Start retrieving all entities from database
+2024-11-19 13:49:26.754 +07:00 [INF] [BaseDAO][GetAllAsync] End retrieving all entities from database
+2024-11-19 13:49:26.758 +07:00 [INF] Completed GET request for /api/Products
+2024-11-19 13:49:26.760 +07:00 [INF] Request 3 completed on 2024-11-19
+2024-11-19 13:49:26.819 +07:00 [INF] Headers are read-only, response has already started.
+2024-11-19 13:49:26.821 +07:00 [WRN] Headers are read-only, response has already started.
+2024-11-19 13:49:26.823 +07:00 [DBG] Headers are read-only, response has already started.
+2024-11-19 13:52:30.813 +07:00 [INF] Received POST request for /api/Products
+2024-11-19 13:52:54.388 +07:00 [INF] Application has started.
+2024-11-19 13:52:54.439 +07:00 [INF] JWT Authentication scheme has been added.
+2024-11-19 13:52:55.186 +07:00 [INF] Global exception handling middleware has been added.
+2024-11-19 13:52:55.187 +07:00 [INF] Request logging middleware has been added.
+2024-11-19 13:53:14.088 +07:00 [INF] Received POST request for /api/Products
+2024-11-19 13:53:24.498 +07:00 [INF] Completed POST request for /api/Products
+2024-11-19 13:53:24.501 +07:00 [INF] Request 1 completed on 2024-11-19
+2024-11-19 13:53:24.529 +07:00 [INF] Headers are read-only, response has already started.
+2024-11-19 13:53:24.531 +07:00 [WRN] Headers are read-only, response has already started.
+2024-11-19 13:53:24.532 +07:00 [DBG] Headers are read-only, response has already started.
+2024-11-19 13:53:33.349 +07:00 [INF] Received POST request for /api/Products
+2024-11-19 13:53:38.513 +07:00 [INF] [BaseDAO][AddAsync] Start adding new entity to database
+2024-11-19 13:53:38.781 +07:00 [INF] [BaseDAO][AddAsync] End adding new entity to database
+2024-11-19 13:53:38.785 +07:00 [INF] Completed POST request for /api/Products
+2024-11-19 13:53:38.787 +07:00 [INF] Request 2 completed on 2024-11-19
+2024-11-19 13:53:38.810 +07:00 [INF] Headers are read-only, response has already started.
+2024-11-19 13:53:38.813 +07:00 [WRN] Headers are read-only, response has already started.
+2024-11-19 13:53:38.814 +07:00 [DBG] Headers are read-only, response has already started.
+2024-11-19 13:53:49.490 +07:00 [INF] Received POST request for /api/Products
+2024-11-19 13:54:02.245 +07:00 [INF] [BaseDAO][AddAsync] Start adding new entity to database
+2024-11-19 13:54:02.287 +07:00 [INF] [BaseDAO][AddAsync] End adding new entity to database
+2024-11-19 13:54:16.098 +07:00 [INF] Completed POST request for /api/Products
+2024-11-19 13:54:16.100 +07:00 [INF] Request 3 completed on 2024-11-19
+2024-11-19 13:54:16.123 +07:00 [INF] Headers are read-only, response has already started.
+2024-11-19 13:54:16.125 +07:00 [WRN] Headers are read-only, response has already started.
+2024-11-19 13:54:16.127 +07:00 [DBG] Headers are read-only, response has already started.
+2024-11-19 13:54:21.394 +07:00 [INF] Received POST request for /api/Products
+2024-11-19 13:54:27.244 +07:00 [INF] [BaseDAO][AddAsync] Start adding new entity to database
+2024-11-19 13:58:02.767 +07:00 [INF] Application has started.
+2024-11-19 13:58:02.812 +07:00 [INF] JWT Authentication scheme has been added.
+2024-11-19 13:58:03.809 +07:00 [INF] Global exception handling middleware has been added.
+2024-11-19 13:58:03.811 +07:00 [INF] Request logging middleware has been added.
+2024-11-19 13:58:23.607 +07:00 [INF] Received POST request for /api/Products
+2024-11-19 13:58:30.349 +07:00 [INF] [BaseDAO][AddAsync] Start adding new entity to database
+2024-11-19 13:58:35.335 +07:00 [INF] [BaseDAO][AddAsync] End adding new entity to database
+2024-11-19 13:58:42.326 +07:00 [INF] Completed POST request for /api/Products
+2024-11-19 13:58:42.329 +07:00 [INF] Request 1 completed on 2024-11-19
+2024-11-19 13:58:42.355 +07:00 [INF] Headers are read-only, response has already started.
+2024-11-19 13:58:42.357 +07:00 [WRN] Headers are read-only, response has already started.
+2024-11-19 13:58:42.358 +07:00 [DBG] Headers are read-only, response has already started.

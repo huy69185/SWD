@@ -8,7 +8,7 @@ using ProductAPI.DAO.Data;
 
 #nullable disable
 
-namespace ProductAPI.DAO.Data.Migrations
+namespace ProductAPI.DAO.Migrations
 {
     [DbContext(typeof(ProductDbContext))]
     partial class ProductDbContextModelSnapshot : ModelSnapshot
