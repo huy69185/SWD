@@ -23,7 +23,7 @@ namespace ProductApi.Presentation.Controllers
             return list!.Any() ? Ok(list) : NotFound("No product found");
         }
 
-        [HttpGet("{id:int}")]
+        [HttpGet("{id:guid}")]
         public async Task<ActionResult<ProductDTO>> GetProduct(string id)
         {
             //Get single product from repo
@@ -52,10 +52,10 @@ namespace ProductApi.Presentation.Controllers
             return response.Flag is true? Ok(response) : BadRequest(response);
         }
 
-        [HttpPut("{id:int}")]
+        [HttpPut("{id:guid}")]
         public async Task<ActionResult<Response>> UpdateProduct(string id, [FromBody] UpdateProductDTO updateProductDTO)
         {
-            if (Guid.TryParse(id, out var guid))
+            if (!Guid.TryParse(id, out var guid))
             {
                 return BadRequest("Invalid product ID format");
             }
@@ -78,10 +78,10 @@ namespace ProductApi.Presentation.Controllers
             return response.Flag is true ? Ok(response) : BadRequest(response);
         }
 
-        [HttpDelete("{id:int}")]
+        [HttpDelete("{id:guid}")]
         public async Task<ActionResult<Response>> DeleteProduct(string id)
         {
-            if (Guid.TryParse(id, out var guid))
+            if (!Guid.TryParse(id, out var guid))
             {
                 return BadRequest("Invalid product ID format");
             }

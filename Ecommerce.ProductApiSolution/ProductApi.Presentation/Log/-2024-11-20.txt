@@ -10,3 +10,275 @@
 2024-11-20 09:05:50.105 +07:00 [INF] JWT Authentication scheme has been added.
 2024-11-20 09:05:52.098 +07:00 [INF] Global exception handling middleware has been added.
 2024-11-20 09:05:52.101 +07:00 [INF] Request logging middleware has been added.
+2024-11-20 10:38:04.425 +07:00 [INF] Application has started.
+2024-11-20 10:38:04.566 +07:00 [INF] JWT Authentication scheme has been added.
+2024-11-20 10:38:06.143 +07:00 [INF] Global exception handling middleware has been added.
+2024-11-20 10:38:06.144 +07:00 [INF] Request logging middleware has been added.
+2024-11-20 10:38:54.262 +07:00 [INF] Received POST request for /api/Products
+2024-11-20 10:38:54.329 +07:00 [INF] [BaseDAO][AddAsync] Start adding new entity to database
+2024-11-20 10:38:54.533 +07:00 [INF] [BaseDAO][AddAsync] End adding new entity to database
+2024-11-20 10:38:54.540 +07:00 [INF] Completed POST request for /api/Products
+2024-11-20 10:38:54.542 +07:00 [INF] Request 1 completed on 2024-11-20
+2024-11-20 10:39:19.873 +07:00 [INF] Received GET request for /api/Products
+2024-11-20 10:39:19.883 +07:00 [INF] [BaseDAO][GetAllAsync] Start retrieving all entities from database
+2024-11-20 10:39:20.021 +07:00 [INF] [BaseDAO][GetAllAsync] End retrieving all entities from database
+2024-11-20 10:39:20.028 +07:00 [INF] Completed GET request for /api/Products
+2024-11-20 10:39:20.030 +07:00 [INF] Request 2 completed on 2024-11-20
+2024-11-20 10:41:22.518 +07:00 [INF] Application has started.
+2024-11-20 10:41:22.608 +07:00 [INF] JWT Authentication scheme has been added.
+2024-11-20 10:41:23.789 +07:00 [INF] Global exception handling middleware has been added.
+2024-11-20 10:41:23.794 +07:00 [INF] Request logging middleware has been added.
+2024-11-20 10:42:56.873 +07:00 [INF] Application has started.
+2024-11-20 10:42:56.933 +07:00 [INF] JWT Authentication scheme has been added.
+2024-11-20 10:42:58.292 +07:00 [INF] Global exception handling middleware has been added.
+2024-11-20 10:42:58.294 +07:00 [INF] Request logging middleware has been added.
+2024-11-20 10:43:07.144 +07:00 [INF] Received GET request for /api/Products
+2024-11-20 10:43:07.192 +07:00 [INF] [BaseDAO][GetAllAsync] Start retrieving all entities from database
+2024-11-20 10:43:07.488 +07:00 [INF] [BaseDAO][GetAllAsync] End retrieving all entities from database
+2024-11-20 10:43:07.521 +07:00 [INF] Completed GET request for /api/Products
+2024-11-20 10:43:07.525 +07:00 [INF] Request 1 completed on 2024-11-20
+2024-11-20 10:44:19.325 +07:00 [INF] Application has started.
+2024-11-20 10:44:19.390 +07:00 [INF] JWT Authentication scheme has been added.
+2024-11-20 10:44:20.320 +07:00 [INF] Global exception handling middleware has been added.
+2024-11-20 10:44:20.322 +07:00 [INF] Request logging middleware has been added.
+2024-11-20 10:44:30.519 +07:00 [INF] Received GET request for /api/Products
+2024-11-20 10:44:30.562 +07:00 [INF] [BaseDAO][GetAllAsync] Start retrieving all entities from database
+2024-11-20 10:44:30.780 +07:00 [INF] [BaseDAO][GetAllAsync] End retrieving all entities from database
+2024-11-20 10:44:30.808 +07:00 [INF] Completed GET request for /api/Products
+2024-11-20 10:44:30.811 +07:00 [INF] Request 1 completed on 2024-11-20
+2024-11-20 10:44:43.413 +07:00 [INF] Received DELETE request for /api/Products/590754fc-0696-404f-bc36-6f96883647a0
+2024-11-20 10:44:43.440 +07:00 [INF] Completed DELETE request for /api/Products/590754fc-0696-404f-bc36-6f96883647a0
+2024-11-20 10:44:43.442 +07:00 [INF] Request 2 completed on 2024-11-20
+2024-11-20 10:44:45.219 +07:00 [INF] Received DELETE request for /api/Products/590754fc-0696-404f-bc36-6f96883647a0
+2024-11-20 10:44:45.226 +07:00 [INF] Completed DELETE request for /api/Products/590754fc-0696-404f-bc36-6f96883647a0
+2024-11-20 10:44:45.229 +07:00 [INF] Request 3 completed on 2024-11-20
+2024-11-20 10:45:25.099 +07:00 [INF] Application has started.
+2024-11-20 10:45:25.119 +07:00 [INF] JWT Authentication scheme has been added.
+2024-11-20 10:45:25.644 +07:00 [INF] Global exception handling middleware has been added.
+2024-11-20 10:45:25.645 +07:00 [INF] Request logging middleware has been added.
+2024-11-20 10:45:38.376 +07:00 [INF] Received DELETE request for /api/Products/string%201
+2024-11-20 10:45:38.380 +07:00 [INF] Completed DELETE request for /api/Products/string%201
+2024-11-20 10:45:38.382 +07:00 [INF] Request 1 completed on 2024-11-20
+2024-11-20 10:45:39.851 +07:00 [INF] Received DELETE request for /api/Products/string%201
+2024-11-20 10:45:39.852 +07:00 [INF] Completed DELETE request for /api/Products/string%201
+2024-11-20 10:45:39.853 +07:00 [INF] Request 2 completed on 2024-11-20
+2024-11-20 10:45:45.544 +07:00 [INF] Received DELETE request for /api/Products/string%201
+2024-11-20 10:45:45.545 +07:00 [INF] Completed DELETE request for /api/Products/string%201
+2024-11-20 10:45:45.547 +07:00 [INF] Request 3 completed on 2024-11-20
+2024-11-20 10:45:50.624 +07:00 [INF] Received GET request for /api/Products
+2024-11-20 10:45:50.659 +07:00 [INF] [BaseDAO][GetAllAsync] Start retrieving all entities from database
+2024-11-20 10:45:50.858 +07:00 [INF] [BaseDAO][GetAllAsync] End retrieving all entities from database
+2024-11-20 10:45:50.876 +07:00 [INF] Completed GET request for /api/Products
+2024-11-20 10:45:50.877 +07:00 [INF] Request 4 completed on 2024-11-20
+2024-11-20 10:45:52.369 +07:00 [INF] Received GET request for /api/Products
+2024-11-20 10:45:52.371 +07:00 [INF] [BaseDAO][GetAllAsync] Start retrieving all entities from database
+2024-11-20 10:45:52.376 +07:00 [INF] [BaseDAO][GetAllAsync] End retrieving all entities from database
+2024-11-20 10:45:52.377 +07:00 [INF] Completed GET request for /api/Products
+2024-11-20 10:45:52.379 +07:00 [INF] Request 5 completed on 2024-11-20
+2024-11-20 10:46:20.295 +07:00 [INF] Received PUT request for /api/Products/590754fc-0696-404f-bc36-6f96883647a0
+2024-11-20 10:46:20.327 +07:00 [INF] Completed PUT request for /api/Products/590754fc-0696-404f-bc36-6f96883647a0
+2024-11-20 10:46:20.328 +07:00 [INF] Request 6 completed on 2024-11-20
+2024-11-20 10:46:21.848 +07:00 [INF] Received PUT request for /api/Products/590754fc-0696-404f-bc36-6f96883647a0
+2024-11-20 10:46:21.851 +07:00 [INF] Completed PUT request for /api/Products/590754fc-0696-404f-bc36-6f96883647a0
+2024-11-20 10:46:21.852 +07:00 [INF] Request 7 completed on 2024-11-20
+2024-11-20 10:46:50.467 +07:00 [INF] Application has started.
+2024-11-20 10:46:50.535 +07:00 [INF] JWT Authentication scheme has been added.
+2024-11-20 10:46:51.339 +07:00 [INF] Global exception handling middleware has been added.
+2024-11-20 10:46:51.340 +07:00 [INF] Request logging middleware has been added.
+2024-11-20 10:47:03.634 +07:00 [INF] Received DELETE request for /api/Products/S001
+2024-11-20 10:47:03.640 +07:00 [INF] Completed DELETE request for /api/Products/S001
+2024-11-20 10:47:03.644 +07:00 [INF] Request 1 completed on 2024-11-20
+2024-11-20 10:47:04.792 +07:00 [INF] Received DELETE request for /api/Products/S001
+2024-11-20 10:47:04.795 +07:00 [INF] Completed DELETE request for /api/Products/S001
+2024-11-20 10:47:04.798 +07:00 [INF] Request 2 completed on 2024-11-20
+2024-11-20 10:47:16.260 +07:00 [INF] Received GET request for /api/Products
+2024-11-20 10:47:16.299 +07:00 [INF] [BaseDAO][GetAllAsync] Start retrieving all entities from database
+2024-11-20 10:47:16.524 +07:00 [INF] [BaseDAO][GetAllAsync] End retrieving all entities from database
+2024-11-20 10:47:16.548 +07:00 [INF] Completed GET request for /api/Products
+2024-11-20 10:47:16.551 +07:00 [INF] Request 3 completed on 2024-11-20
+2024-11-20 10:48:08.815 +07:00 [INF] Application has started.
+2024-11-20 10:48:08.862 +07:00 [INF] JWT Authentication scheme has been added.
+2024-11-20 10:48:09.644 +07:00 [INF] Global exception handling middleware has been added.
+2024-11-20 10:48:09.646 +07:00 [INF] Request logging middleware has been added.
+2024-11-20 10:48:16.160 +07:00 [INF] Received GET request for /api/Products
+2024-11-20 10:48:16.204 +07:00 [INF] [BaseDAO][GetAllAsync] Start retrieving all entities from database
+2024-11-20 10:48:16.430 +07:00 [INF] [BaseDAO][GetAllAsync] End retrieving all entities from database
+2024-11-20 10:48:16.455 +07:00 [INF] Completed GET request for /api/Products
+2024-11-20 10:48:16.458 +07:00 [INF] Request 1 completed on 2024-11-20
+2024-11-20 10:48:28.869 +07:00 [INF] Received DELETE request for /api/Products/590754fc-0696-404f-bc36-6f96883647a0
+2024-11-20 10:48:28.893 +07:00 [INF] [BaseDAO][GetAsync] Start retrieving entity from database
+2024-11-20 10:48:28.982 +07:00 [INF] [BaseDAO][GetAsync] End retrieving entity from database
+2024-11-20 10:48:28.986 +07:00 [INF] [BaseDAO][DeleteAsync] Start deleting entity from database
+2024-11-20 10:48:29.102 +07:00 [INF] [BaseDAO][DeleteAsync] End deleting entity from database
+2024-11-20 10:48:29.106 +07:00 [INF] Completed DELETE request for /api/Products/590754fc-0696-404f-bc36-6f96883647a0
+2024-11-20 10:48:29.109 +07:00 [INF] Request 2 completed on 2024-11-20
+2024-11-20 10:49:24.630 +07:00 [INF] Application has started.
+2024-11-20 10:49:24.694 +07:00 [INF] JWT Authentication scheme has been added.
+2024-11-20 10:49:25.526 +07:00 [INF] Global exception handling middleware has been added.
+2024-11-20 10:49:25.528 +07:00 [INF] Request logging middleware has been added.
+2024-11-20 10:49:44.896 +07:00 [INF] Received POST request for /api/Products
+2024-11-20 10:49:44.983 +07:00 [INF] [BaseDAO][AddAsync] Start adding new entity to database
+2024-11-20 10:49:45.180 +07:00 [INF] [BaseDAO][AddAsync] End adding new entity to database
+2024-11-20 10:49:45.191 +07:00 [INF] Completed POST request for /api/Products
+2024-11-20 10:49:45.194 +07:00 [INF] Request 1 completed on 2024-11-20
+2024-11-20 10:49:58.072 +07:00 [INF] Received GET request for /api/Products
+2024-11-20 10:49:58.087 +07:00 [INF] [BaseDAO][GetAllAsync] Start retrieving all entities from database
+2024-11-20 10:49:58.258 +07:00 [INF] [BaseDAO][GetAllAsync] End retrieving all entities from database
+2024-11-20 10:49:58.270 +07:00 [INF] Completed GET request for /api/Products
+2024-11-20 10:49:58.273 +07:00 [INF] Request 2 completed on 2024-11-20
+2024-11-20 10:50:10.179 +07:00 [INF] Received DELETE request for /api/Products/s002
+2024-11-20 10:50:10.182 +07:00 [INF] Completed DELETE request for /api/Products/s002
+2024-11-20 10:50:10.185 +07:00 [INF] Request 3 completed on 2024-11-20
+2024-11-20 10:50:11.460 +07:00 [INF] Received DELETE request for /api/Products/s002
+2024-11-20 10:50:11.465 +07:00 [INF] Completed DELETE request for /api/Products/s002
+2024-11-20 10:50:11.469 +07:00 [INF] Request 4 completed on 2024-11-20
+2024-11-20 10:50:29.273 +07:00 [INF] Received DELETE request for /api/Products/s002
+2024-11-20 10:50:29.275 +07:00 [INF] Completed DELETE request for /api/Products/s002
+2024-11-20 10:50:29.279 +07:00 [INF] Request 5 completed on 2024-11-20
+2024-11-20 10:50:32.102 +07:00 [INF] Received DELETE request for /api/Products/s002
+2024-11-20 10:50:32.107 +07:00 [INF] Completed DELETE request for /api/Products/s002
+2024-11-20 10:50:32.111 +07:00 [INF] Request 6 completed on 2024-11-20
+2024-11-20 10:51:02.298 +07:00 [INF] Received DELETE request for /api/Products/s111
+2024-11-20 10:51:02.302 +07:00 [INF] Completed DELETE request for /api/Products/s111
+2024-11-20 10:51:02.306 +07:00 [INF] Request 7 completed on 2024-11-20
+2024-11-20 10:51:03.518 +07:00 [INF] Received DELETE request for /api/Products/s111
+2024-11-20 10:51:03.522 +07:00 [INF] Completed DELETE request for /api/Products/s111
+2024-11-20 10:51:03.525 +07:00 [INF] Request 8 completed on 2024-11-20
+2024-11-20 10:51:13.675 +07:00 [INF] Application has started.
+2024-11-20 10:51:13.737 +07:00 [INF] JWT Authentication scheme has been added.
+2024-11-20 10:51:14.775 +07:00 [INF] Global exception handling middleware has been added.
+2024-11-20 10:51:14.776 +07:00 [INF] Request logging middleware has been added.
+2024-11-20 10:51:22.188 +07:00 [INF] Received DELETE request for /api/Products/s222
+2024-11-20 10:51:22.197 +07:00 [INF] Completed DELETE request for /api/Products/s222
+2024-11-20 10:51:22.200 +07:00 [INF] Request 1 completed on 2024-11-20
+2024-11-20 10:51:41.670 +07:00 [INF] Received GET request for /api/Products
+2024-11-20 10:51:41.714 +07:00 [INF] [BaseDAO][GetAllAsync] Start retrieving all entities from database
+2024-11-20 10:51:41.944 +07:00 [INF] [BaseDAO][GetAllAsync] End retrieving all entities from database
+2024-11-20 10:51:41.969 +07:00 [INF] Completed GET request for /api/Products
+2024-11-20 10:51:41.971 +07:00 [INF] Request 2 completed on 2024-11-20
+2024-11-20 10:51:54.657 +07:00 [INF] Received DELETE request for /api/Products/c984a7de-e318-4cf0-91c1-1e401d0ea356
+2024-11-20 10:52:13.976 +07:00 [INF] [BaseDAO][GetAsync] Start retrieving entity from database
+2024-11-20 10:52:14.157 +07:00 [INF] [BaseDAO][GetAsync] End retrieving entity from database
+2024-11-20 10:52:15.970 +07:00 [INF] [BaseDAO][DeleteAsync] Start deleting entity from database
+2024-11-20 10:52:16.097 +07:00 [INF] [BaseDAO][DeleteAsync] End deleting entity from database
+2024-11-20 10:52:19.709 +07:00 [INF] Completed DELETE request for /api/Products/c984a7de-e318-4cf0-91c1-1e401d0ea356
+2024-11-20 10:52:20.306 +07:00 [INF] Request 3 completed on 2024-11-20
+2024-11-20 10:52:37.687 +07:00 [INF] Received DELETE request for /api/Products/s22
+2024-11-20 10:52:37.690 +07:00 [INF] Completed DELETE request for /api/Products/s22
+2024-11-20 10:52:37.692 +07:00 [INF] Request 4 completed on 2024-11-20
+2024-11-20 10:53:45.681 +07:00 [INF] Received POST request for /api/Products
+2024-11-20 10:53:45.714 +07:00 [INF] [BaseDAO][AddAsync] Start adding new entity to database
+2024-11-20 10:53:45.739 +07:00 [INF] [BaseDAO][AddAsync] End adding new entity to database
+2024-11-20 10:53:45.742 +07:00 [INF] Completed POST request for /api/Products
+2024-11-20 10:53:45.744 +07:00 [INF] Request 5 completed on 2024-11-20
+2024-11-20 10:53:46.845 +07:00 [INF] Received POST request for /api/Products
+2024-11-20 10:53:46.849 +07:00 [INF] [BaseDAO][AddAsync] Start adding new entity to database
+2024-11-20 10:53:46.855 +07:00 [INF] [BaseDAO][AddAsync] End adding new entity to database
+2024-11-20 10:53:46.858 +07:00 [INF] Completed POST request for /api/Products
+2024-11-20 10:53:46.861 +07:00 [INF] Request 6 completed on 2024-11-20
+2024-11-20 10:54:23.323 +07:00 [INF] Received PUT request for /api/Products/09f6c309-c96c-44bf-8257-e9772cb05c14
+2024-11-20 10:54:23.343 +07:00 [INF] Completed PUT request for /api/Products/09f6c309-c96c-44bf-8257-e9772cb05c14
+2024-11-20 10:54:23.346 +07:00 [INF] Request 7 completed on 2024-11-20
+2024-11-20 10:54:24.601 +07:00 [INF] Received PUT request for /api/Products/09f6c309-c96c-44bf-8257-e9772cb05c14
+2024-11-20 10:54:24.605 +07:00 [INF] Completed PUT request for /api/Products/09f6c309-c96c-44bf-8257-e9772cb05c14
+2024-11-20 10:54:24.608 +07:00 [INF] Request 8 completed on 2024-11-20
+2024-11-20 10:55:06.322 +07:00 [INF] Received PUT request for /api/Products/09f6c309-c96c-44bf-8257-e9772cb05c14
+2024-11-20 10:55:31.061 +07:00 [INF] Completed PUT request for /api/Products/09f6c309-c96c-44bf-8257-e9772cb05c14
+2024-11-20 10:55:31.491 +07:00 [INF] Request 9 completed on 2024-11-20
+2024-11-20 10:55:35.906 +07:00 [INF] Received PUT request for /api/Products/09f6c309-c96c-44bf-8257-e9772cb05c14
+2024-11-20 10:55:39.934 +07:00 [INF] [BaseDAO][GetAsync] Start retrieving entity from database
+2024-11-20 10:55:41.614 +07:00 [INF] [BaseDAO][GetAsync] End retrieving entity from database
+2024-11-20 10:55:46.672 +07:00 [INF] [BaseDAO][UpdateAsync] Start updating entity in database
+2024-11-20 10:55:46.702 +07:00 [INF] The instance of entity type 'Product' cannot be tracked because another instance with the same key value for {'Id'} is already being tracked. When attaching existing entities, ensure that only one entity instance with a given key value is attached. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see the conflicting key values.
+2024-11-20 10:55:46.706 +07:00 [WRN] The instance of entity type 'Product' cannot be tracked because another instance with the same key value for {'Id'} is already being tracked. When attaching existing entities, ensure that only one entity instance with a given key value is attached. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see the conflicting key values.
+2024-11-20 10:55:46.708 +07:00 [DBG] The instance of entity type 'Product' cannot be tracked because another instance with the same key value for {'Id'} is already being tracked. When attaching existing entities, ensure that only one entity instance with a given key value is attached. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see the conflicting key values.
+2024-11-20 10:55:54.562 +07:00 [INF] Completed PUT request for /api/Products/09f6c309-c96c-44bf-8257-e9772cb05c14
+2024-11-20 10:55:55.020 +07:00 [INF] Request 10 completed on 2024-11-20
+2024-11-20 10:58:40.913 +07:00 [INF] Received PUT request for /api/Products/09f6c309-c96c-44bf-8257-e9772cb05c14
+2024-11-20 10:58:43.498 +07:00 [INF] [BaseDAO][GetAsync] Start retrieving entity from database
+2024-11-20 10:58:43.523 +07:00 [INF] [BaseDAO][GetAsync] End retrieving entity from database
+2024-11-20 10:58:52.617 +07:00 [INF] [BaseDAO][UpdateAsync] Start updating entity in database
+2024-11-20 10:59:54.567 +07:00 [INF] Application has started.
+2024-11-20 10:59:54.629 +07:00 [INF] JWT Authentication scheme has been added.
+2024-11-20 10:59:55.515 +07:00 [INF] Global exception handling middleware has been added.
+2024-11-20 10:59:55.525 +07:00 [INF] Request logging middleware has been added.
+2024-11-20 11:00:05.040 +07:00 [INF] Received GET request for /api/Products
+2024-11-20 11:00:05.095 +07:00 [INF] [BaseDAO][GetAllAsync] Start retrieving all entities from database
+2024-11-20 11:00:05.355 +07:00 [INF] [BaseDAO][GetAllAsync] End retrieving all entities from database
+2024-11-20 11:00:05.380 +07:00 [INF] Completed GET request for /api/Products
+2024-11-20 11:00:05.384 +07:00 [INF] Request 1 completed on 2024-11-20
+2024-11-20 11:00:31.580 +07:00 [INF] Received PUT request for /api/Products/09f6c309-c96c-44bf-8257-e9772cb05c14
+2024-11-20 11:00:34.719 +07:00 [INF] [BaseDAO][GetAsync] Start retrieving entity from database
+2024-11-20 11:00:34.845 +07:00 [INF] [BaseDAO][GetAsync] End retrieving entity from database
+2024-11-20 11:00:44.791 +07:00 [INF] [BaseDAO][UpdateAsync] Start updating entity in database
+2024-11-20 11:00:48.508 +07:00 [INF] [BaseDAO][UpdateAsync] End updating entity in database
+2024-11-20 11:00:52.345 +07:00 [INF] Completed PUT request for /api/Products/09f6c309-c96c-44bf-8257-e9772cb05c14
+2024-11-20 11:00:52.905 +07:00 [INF] Request 2 completed on 2024-11-20
+2024-11-20 11:01:09.567 +07:00 [INF] Received GET request for /api/Products
+2024-11-20 11:01:09.572 +07:00 [INF] [BaseDAO][GetAllAsync] Start retrieving all entities from database
+2024-11-20 11:01:09.580 +07:00 [INF] [BaseDAO][GetAllAsync] End retrieving all entities from database
+2024-11-20 11:01:09.587 +07:00 [INF] Completed GET request for /api/Products
+2024-11-20 11:01:09.590 +07:00 [INF] Request 3 completed on 2024-11-20
+2024-11-20 11:01:28.461 +07:00 [INF] Received PUT request for /api/Products/09f6c309-c96c-44bf-8257-e9772cb05c14
+2024-11-20 11:01:30.317 +07:00 [INF] [BaseDAO][GetAsync] Start retrieving entity from database
+2024-11-20 11:01:30.326 +07:00 [INF] [BaseDAO][GetAsync] End retrieving entity from database
+2024-11-20 11:01:32.050 +07:00 [INF] [BaseDAO][UpdateAsync] Start updating entity in database
+2024-11-20 11:01:32.052 +07:00 [INF] [BaseDAO][UpdateAsync] End updating entity in database
+2024-11-20 11:01:32.055 +07:00 [INF] Completed PUT request for /api/Products/09f6c309-c96c-44bf-8257-e9772cb05c14
+2024-11-20 11:01:32.058 +07:00 [INF] Request 4 completed on 2024-11-20
+2024-11-20 11:01:42.578 +07:00 [INF] Received PUT request for /api/Products/09f6c309-c96c-44bf-8257-e9772cb05c14
+2024-11-20 11:01:47.331 +07:00 [INF] [BaseDAO][GetAsync] Start retrieving entity from database
+2024-11-20 11:01:47.335 +07:00 [INF] [BaseDAO][GetAsync] End retrieving entity from database
+2024-11-20 11:01:56.002 +07:00 [INF] [BaseDAO][UpdateAsync] Start updating entity in database
+2024-11-20 11:01:56.004 +07:00 [INF] [BaseDAO][UpdateAsync] End updating entity in database
+2024-11-20 11:02:08.772 +07:00 [INF] Completed PUT request for /api/Products/09f6c309-c96c-44bf-8257-e9772cb05c14
+2024-11-20 11:02:09.844 +07:00 [INF] Request 5 completed on 2024-11-20
+2024-11-20 11:02:24.500 +07:00 [INF] Received PUT request for /api/Products/09f6c309-c96c-44bf-8257-e9772cb05c14
+2024-11-20 11:02:27.124 +07:00 [INF] [BaseDAO][GetAsync] Start retrieving entity from database
+2024-11-20 11:02:27.131 +07:00 [INF] [BaseDAO][GetAsync] End retrieving entity from database
+2024-11-20 11:02:40.839 +07:00 [INF] [BaseDAO][UpdateAsync] Start updating entity in database
+2024-11-20 11:06:43.660 +07:00 [INF] Application has started.
+2024-11-20 11:06:43.726 +07:00 [INF] JWT Authentication scheme has been added.
+2024-11-20 11:06:44.829 +07:00 [INF] Global exception handling middleware has been added.
+2024-11-20 11:06:44.833 +07:00 [INF] Request logging middleware has been added.
+2024-11-20 11:06:54.395 +07:00 [INF] Received GET request for /api/Products
+2024-11-20 11:06:54.443 +07:00 [INF] [BaseDAO][GetAllAsync] Start retrieving all entities from database
+2024-11-20 11:06:54.673 +07:00 [INF] [BaseDAO][GetAllAsync] End retrieving all entities from database
+2024-11-20 11:06:54.699 +07:00 [INF] Completed GET request for /api/Products
+2024-11-20 11:06:54.704 +07:00 [INF] Request 1 completed on 2024-11-20
+2024-11-20 11:07:18.692 +07:00 [INF] Received PUT request for /api/Products/09f6c309-c96c-44bf-8257-e9772cb05c14
+2024-11-20 11:07:31.396 +07:00 [INF] [BaseDAO][GetAsync] Start retrieving entity from database
+2024-11-20 11:07:35.202 +07:00 [INF] [BaseDAO][GetAsync] End retrieving entity from database
+2024-11-20 11:08:27.139 +07:00 [INF] [BaseDAO][UpdateAsync] Start updating entity in database
+2024-11-20 11:13:36.716 +07:00 [INF] Application has started.
+2024-11-20 11:13:36.786 +07:00 [INF] JWT Authentication scheme has been added.
+2024-11-20 11:13:37.975 +07:00 [INF] Global exception handling middleware has been added.
+2024-11-20 11:13:37.978 +07:00 [INF] Request logging middleware has been added.
+2024-11-20 11:13:44.812 +07:00 [INF] Received GET request for /api/Products
+2024-11-20 11:13:44.859 +07:00 [INF] [BaseDAO][GetAllAsync] Start retrieving all entities from database
+2024-11-20 11:13:45.116 +07:00 [INF] [BaseDAO][GetAllAsync] End retrieving all entities from database
+2024-11-20 11:13:45.144 +07:00 [INF] Completed GET request for /api/Products
+2024-11-20 11:13:45.148 +07:00 [INF] Request 1 completed on 2024-11-20
+2024-11-20 11:14:07.168 +07:00 [INF] Received PUT request for /api/Products/e90cd63a-b4fe-4231-98e0-2d747a0219ee
+2024-11-20 11:14:11.334 +07:00 [INF] [BaseDAO][GetAsync] Start retrieving entity from database
+2024-11-20 11:14:11.471 +07:00 [INF] [BaseDAO][GetAsync] End retrieving entity from database
+2024-11-20 11:14:22.231 +07:00 [INF] [BaseDAO][UpdateAsync] Start updating entity in database
+2024-11-20 11:15:45.642 +07:00 [INF] [BaseDAO][UpdateAsync] End updating entity in database
+2024-11-20 11:15:45.663 +07:00 [INF] Completed PUT request for /api/Products/e90cd63a-b4fe-4231-98e0-2d747a0219ee
+2024-11-20 11:15:45.666 +07:00 [INF] Request 2 completed on 2024-11-20
+2024-11-20 11:18:18.110 +07:00 [INF] Application has started.
+2024-11-20 11:18:18.177 +07:00 [INF] JWT Authentication scheme has been added.
+2024-11-20 11:18:19.247 +07:00 [INF] Global exception handling middleware has been added.
+2024-11-20 11:18:19.249 +07:00 [INF] Request logging middleware has been added.
+2024-11-20 11:18:26.017 +07:00 [INF] Received GET request for /api/Products
+2024-11-20 11:18:26.068 +07:00 [INF] [BaseDAO][GetAllAsync] Start retrieving all entities from database
+2024-11-20 11:18:26.321 +07:00 [INF] [BaseDAO][GetAllAsync] End retrieving all entities from database
+2024-11-20 11:18:26.361 +07:00 [INF] Completed GET request for /api/Products
+2024-11-20 11:18:26.366 +07:00 [INF] Request 1 completed on 2024-11-20
+2024-11-20 11:18:53.286 +07:00 [INF] Received PUT request for /api/Products/e90cd63a-b4fe-4231-98e0-2d747a0219ee
+2024-11-20 11:18:57.028 +07:00 [INF] [BaseDAO][GetAsync] Start retrieving entity from database
+2024-11-20 11:18:57.148 +07:00 [INF] [BaseDAO][GetAsync] End retrieving entity from database
+2024-11-20 11:19:06.854 +07:00 [INF] [BaseDAO][UpdateAsync] Start updating entity in database
+2024-11-20 11:19:21.440 +07:00 [INF] [BaseDAO][UpdateAsync] End updating entity in database
+2024-11-20 11:19:27.412 +07:00 [INF] Completed PUT request for /api/Products/e90cd63a-b4fe-4231-98e0-2d747a0219ee
+2024-11-20 11:19:28.031 +07:00 [INF] Request 2 completed on 2024-11-20
