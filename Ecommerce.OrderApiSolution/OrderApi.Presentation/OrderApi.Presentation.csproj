@@ -14,4 +14,8 @@
     <Folder Include="Controllers\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\OderApi.Infrastructure\OderApi.Infrastructure.csproj" />
+  </ItemGroup>
+
 </Project>
