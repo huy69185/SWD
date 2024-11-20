@@ -5,6 +5,7 @@ using Serilog;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using eCommerce.ShareLibrary.Middleware;
+using System.IO;
 using System.Threading.Tasks;
 
 namespace eCommerce.ShareLibrary.DependencyInjection
@@ -14,37 +15,29 @@ namespace eCommerce.ShareLibrary.DependencyInjection
         public static IServiceCollection AddSharedService
             (this IServiceCollection services, IConfiguration config, string fileName)
         {
-            // Get the current date and format it as 'yyyy-MM-dd'
             string currentDate = DateTime.Now.ToString("yyyy-MM-dd");
+            string logDirectory = Path.Combine(Directory.GetCurrentDirectory(), "Log");
+            string logFilePath = Path.Combine(logDirectory, $"{fileName}-{currentDate}.txt");
 
-            // Define the log file path with the current date in the filename
-            string logFilePath = $"{fileName}-{currentDate}.txt";
+            // Ensure the Log directory exists
+            if (!Directory.Exists(logDirectory))
+            {
+                Directory.CreateDirectory(logDirectory);
+            }
 
             // Configure Serilog for detailed logging
             Log.Logger = new LoggerConfiguration()
-                .MinimumLevel.Debug() // Log everything from Debug level and above
-                .WriteTo.Debug() // Write logs to the Debug output window
-                .WriteTo.Console() // Write logs to the Console
+                .MinimumLevel.Debug()
+                .WriteTo.Debug()
+                .WriteTo.Console()
                 .WriteTo.File(
-                    path: logFilePath, // Use the constructed file path with date
-                    restrictedToMinimumLevel: Serilog.Events.LogEventLevel.Debug, // Log everything from Debug level
+                    path: logFilePath,
+                    restrictedToMinimumLevel: Serilog.Events.LogEventLevel.Debug,
                     outputTemplate: "{Timestamp:yyyy-MM-dd HH:mm:ss.fff zzz} [{Level:u3}] {Message:lj}{NewLine}{Exception}",
-                    shared: true) // Allow shared access to the log file
+                    shared: true)
                 .CreateLogger();
-
-            // Log application startup
             Log.Information("Application has started.");
 
-/*
-            // Add Generic DbContext
-            services.AddDbContext<TContext>(option => option.UseSqlServer(
-                config.GetConnectionString("eCommerceConnection"),
-                sqlserverOption =>
-                {
-                    sqlserverOption.EnableRetryOnFailure();
-                    Log.Debug("Configured SQL Server with retry on failure.");
-                }));
-*/
             // Add JWT authentication scheme
             JWTAuthencationScheme.AddJWTAuthencationScheme(services, config);
             Log.Information("JWT Authentication scheme has been added.");
@@ -86,19 +79,10 @@ namespace eCommerce.ShareLibrary.DependencyInjection
 
         public async Task InvokeAsync(HttpContext context)
         {
-            // Increment the request counter
             int requestNumber = ++_requestCounter;
-
-            // Log the HTTP method and request path
             Log.Information("Received {Method} request for {Path}", context.Request.Method, context.Request.Path);
-
-            // Call the next middleware in the pipeline
             await _next(context);
-
-            // Log when the request is completed
             Log.Information("Completed {Method} request for {Path}", context.Request.Method, context.Request.Path);
-
-            // Add a separator line with the request number
             Log.Information("Request {RequestNumber} completed on {Date}", requestNumber, DateTime.Now.ToString("yyyy-MM-dd"));
         }
     }
