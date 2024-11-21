@@ -1,5 +1,5 @@
 ﻿using Microsoft.OpenApi.Models;
-using ProductApi.Infrastructure.DependencyInjection;
+using ProductApi.Presentation.DependencyInjection;
 using ProductAPI.DAO.DbInitialize;
 using System.Text.Json.Serialization;
 
