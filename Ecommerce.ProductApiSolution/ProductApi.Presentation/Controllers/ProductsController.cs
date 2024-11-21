@@ -44,7 +44,7 @@ namespace ProductApi.Presentation.Controllers
             //Check model state is all data annotations are pass
             if (!ModelState.IsValid)
             {
-                return BadRequest(ModelState);
+                return BadRequest();
             }
             //Conver to entity
             var getEntity = ProductConversion.ToEntity(product);
