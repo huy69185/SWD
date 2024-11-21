@@ -251,16 +251,27 @@ namespace ProductAPI.DAO.Implementation
             try
             {
                 LogHandler.LogToFile($"[BaseDAO][UpdateAsync] Start updating entity in database");
-                Response response = new Response(false, $"Error occured while updating entity");
+                Response response = new Response(false, "Error occurred while updating entity");
+
                 if (entity != null)
                 {
-                    _context.Update(entity);
-                    bool isSuccess = _context.SaveChangesAsync().GetAwaiter().GetResult() > 0;
+                    _context.Set<T>().Update(entity);
+
+                    int result = await _context.SaveChangesAsync();
+                    bool isSuccess = (result > 0);
 
                     if (isSuccess)
                     {
                         response = new Response(true, $"{entity.Id} is updated successfully");
                     }
+                    else
+                    {
+                        response = new Response(false, "No changes were made to the database.");
+                    }
+                }
+                else
+                {
+                    response = new Response(false, "The entity provided is null.");
                 }
 
                 LogHandler.LogToFile($"[BaseDAO][UpdateAsync] End updating entity in database");
@@ -268,11 +279,11 @@ namespace ProductAPI.DAO.Implementation
             }
             catch (Exception ex)
             {
-                //Log the original exception
                 LogHandler.LogExceptions(ex);
                 return new Response(false, ex.Message);
             }
         }
+
 
         public async Task<Response> UpdateRangeAsync(IEnumerable<T> entities)
         {

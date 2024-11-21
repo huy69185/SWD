@@ -45,10 +45,16 @@ namespace ProductApi.Infrastructure.Repositories
             return ProductDAO.Instance.GetAllAsync(filter, includeProperties, cancellationToken);
         }
 
-        public Task<Product?> FindByIdAsync(Guid id, string? includeProperties = null, CancellationToken cancellationToken = default)
+        public async Task<Product?> FindByIdAsync<TKey>(TKey id, string? includeProperties = null, CancellationToken cancellationToken = default)
         {
-            return ProductDAO.Instance.GetAsync(id, includeProperties, cancellationToken);
+            if (id is Guid guid)
+            {
+                return await ProductDAO.Instance.GetAsync(guid, includeProperties, cancellationToken);
+            }
+
+            throw new ArgumentException("TKey must be of type Guid.", nameof(id));
         }
+
 
         public Task<Product?> GetAsync(Expression<Func<Product, bool>> filter, CancellationToken cancellationToken = default)
         {
