@@ -73,7 +73,10 @@ namespace eCommerce.ShareLibrary.DependencyInjection
                 config.GetConnectionString("DefaultConnection"),
                 sqlserverOption =>
                 {
-                    sqlserverOption.EnableRetryOnFailure();
+                    sqlserverOption.EnableRetryOnFailure(
+                        maxRetryCount: 3,
+                        maxRetryDelay: TimeSpan.FromSeconds(30), 
+                        errorNumbersToAdd: null);
                     Log.Debug("Configured SQL Server with retry on failure.");
                 }));
 
