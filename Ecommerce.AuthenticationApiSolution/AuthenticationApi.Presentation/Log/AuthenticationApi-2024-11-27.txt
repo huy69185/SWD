@@ -1,0 +1,81 @@
+2024-11-27 23:15:19.737 +07:00 [INF] Application has started.
+2024-11-27 23:15:19.879 +07:00 [INF] JWT Authentication scheme has been added.
+2024-11-27 23:15:20.282 +07:00 [DBG] Configured SQL Server with retry on failure.
+2024-11-27 23:16:54.694 +07:00 [INF] Application has started.
+2024-11-27 23:16:54.709 +07:00 [INF] JWT Authentication scheme has been added.
+2024-11-27 23:16:54.781 +07:00 [DBG] Configured SQL Server with retry on failure.
+2024-11-27 23:17:42.336 +07:00 [INF] Application has started.
+2024-11-27 23:17:42.395 +07:00 [INF] JWT Authentication scheme has been added.
+2024-11-27 23:17:42.544 +07:00 [INF] Global exception handling middleware has been added.
+2024-11-27 23:17:42.546 +07:00 [INF] Request logging middleware has been added.
+2024-11-27 23:17:48.042 +07:00 [INF] Received GET request for /swagger
+2024-11-27 23:17:48.074 +07:00 [INF] Completed GET request for /swagger
+2024-11-27 23:17:48.077 +07:00 [INF] Request 1 completed on 2024-11-27
+2024-11-27 23:17:48.099 +07:00 [INF] Received GET request for /swagger/index.html
+2024-11-27 23:17:48.144 +07:00 [INF] Completed GET request for /swagger/index.html
+2024-11-27 23:17:48.147 +07:00 [INF] Request 2 completed on 2024-11-27
+2024-11-27 23:17:48.175 +07:00 [INF] Received GET request for /swagger/swagger-ui-bundle.js
+2024-11-27 23:17:48.175 +07:00 [INF] Received GET request for /swagger/swagger-ui-standalone-preset.js
+2024-11-27 23:17:48.175 +07:00 [INF] Received GET request for /swagger/swagger-ui.css
+2024-11-27 23:17:48.225 +07:00 [INF] Completed GET request for /swagger/swagger-ui.css
+2024-11-27 23:17:48.228 +07:00 [INF] Completed GET request for /swagger/swagger-ui-standalone-preset.js
+2024-11-27 23:17:48.230 +07:00 [INF] Request 3 completed on 2024-11-27
+2024-11-27 23:17:48.232 +07:00 [INF] Request 3 completed on 2024-11-27
+2024-11-27 23:17:48.302 +07:00 [INF] Completed GET request for /swagger/swagger-ui-bundle.js
+2024-11-27 23:17:48.306 +07:00 [INF] Request 3 completed on 2024-11-27
+2024-11-27 23:17:48.514 +07:00 [INF] Received GET request for /swagger/v1/swagger.json
+2024-11-27 23:17:48.558 +07:00 [INF] Received GET request for /swagger/favicon-32x32.png
+2024-11-27 23:17:48.562 +07:00 [INF] Completed GET request for /swagger/favicon-32x32.png
+2024-11-27 23:17:48.565 +07:00 [INF] Request 5 completed on 2024-11-27
+2024-11-27 23:17:48.617 +07:00 [INF] Completed GET request for /swagger/v1/swagger.json
+2024-11-27 23:17:48.619 +07:00 [INF] Request 4 completed on 2024-11-27
+2024-11-27 23:37:22.391 +07:00 [INF] Application has started.
+2024-11-27 23:37:22.447 +07:00 [INF] JWT Authentication scheme has been added.
+2024-11-27 23:37:22.610 +07:00 [INF] Global exception handling middleware has been added.
+2024-11-27 23:37:22.613 +07:00 [INF] Request logging middleware has been added.
+2024-11-27 23:37:24.251 +07:00 [INF] Received GET request for /swagger/index.html
+2024-11-27 23:37:24.324 +07:00 [INF] Completed GET request for /swagger/index.html
+2024-11-27 23:37:24.328 +07:00 [INF] Request 1 completed on 2024-11-27
+2024-11-27 23:37:24.548 +07:00 [INF] Received GET request for /swagger/v1/swagger.json
+2024-11-27 23:37:24.640 +07:00 [INF] Completed GET request for /swagger/v1/swagger.json
+2024-11-27 23:37:24.642 +07:00 [INF] Request 2 completed on 2024-11-27
+2024-11-27 23:37:59.105 +07:00 [INF] Application has started.
+2024-11-27 23:37:59.175 +07:00 [INF] JWT Authentication scheme has been added.
+2024-11-27 23:37:59.320 +07:00 [INF] Global exception handling middleware has been added.
+2024-11-27 23:37:59.322 +07:00 [INF] Request logging middleware has been added.
+2024-11-27 23:38:00.565 +07:00 [INF] Received GET request for /swagger/index.html
+2024-11-27 23:38:00.636 +07:00 [INF] Completed GET request for /swagger/index.html
+2024-11-27 23:38:00.639 +07:00 [INF] Request 1 completed on 2024-11-27
+2024-11-27 23:38:00.768 +07:00 [INF] Received GET request for /swagger/v1/swagger.json
+2024-11-27 23:38:00.873 +07:00 [INF] Completed GET request for /swagger/v1/swagger.json
+2024-11-27 23:38:00.875 +07:00 [INF] Request 2 completed on 2024-11-27
+2024-11-27 23:39:01.257 +07:00 [INF] Received POST request for /api/Authentication/register
+2024-11-27 23:39:01.563 +07:00 [DBG] Configured SQL Server with retry on failure.
+2024-11-27 23:39:01.815 +07:00 [INF] Completed POST request for /api/Authentication/register
+2024-11-27 23:39:01.819 +07:00 [INF] Request 3 completed on 2024-11-27
+2024-11-27 23:39:24.882 +07:00 [INF] Received POST request for /api/Authentication/register
+2024-11-27 23:39:24.884 +07:00 [DBG] Configured SQL Server with retry on failure.
+2024-11-27 23:39:27.100 +07:00 [INF] Completed POST request for /api/Authentication/register
+2024-11-27 23:39:27.102 +07:00 [INF] Request 4 completed on 2024-11-27
+2024-11-27 23:40:02.479 +07:00 [INF] Received POST request for /api/Authentication/login
+2024-11-27 23:40:02.489 +07:00 [DBG] Configured SQL Server with retry on failure.
+2024-11-27 23:40:03.222 +07:00 [INF] Completed POST request for /api/Authentication/login
+2024-11-27 23:40:03.225 +07:00 [INF] Request 5 completed on 2024-11-27
+2024-11-27 23:42:46.071 +07:00 [INF] Application has started.
+2024-11-27 23:42:46.118 +07:00 [INF] JWT Authentication scheme has been added.
+2024-11-27 23:42:46.298 +07:00 [INF] Global exception handling middleware has been added.
+2024-11-27 23:42:46.300 +07:00 [INF] Request logging middleware has been added.
+2024-11-27 23:42:47.600 +07:00 [INF] Received GET request for /swagger/index.html
+2024-11-27 23:42:47.671 +07:00 [INF] Completed GET request for /swagger/index.html
+2024-11-27 23:42:47.675 +07:00 [INF] Request 1 completed on 2024-11-27
+2024-11-27 23:42:47.765 +07:00 [INF] Received GET request for /swagger/v1/swagger.json
+2024-11-27 23:42:47.860 +07:00 [INF] Completed GET request for /swagger/v1/swagger.json
+2024-11-27 23:42:47.863 +07:00 [INF] Request 2 completed on 2024-11-27
+2024-11-27 23:43:04.843 +07:00 [INF] Received GET request for /api/Authentication/45013888-3163-4D70-8769-33F1946456F
+2024-11-27 23:43:04.915 +07:00 [DBG] Configured SQL Server with retry on failure.
+2024-11-27 23:43:04.997 +07:00 [INF] Completed GET request for /api/Authentication/45013888-3163-4D70-8769-33F1946456F
+2024-11-27 23:43:04.999 +07:00 [INF] Request 3 completed on 2024-11-27
+2024-11-27 23:43:15.957 +07:00 [INF] Received GET request for /api/Authentication/45013888-3163-4D70-8769-33F1946456F2
+2024-11-27 23:43:15.960 +07:00 [DBG] Configured SQL Server with retry on failure.
+2024-11-27 23:43:16.870 +07:00 [INF] Completed GET request for /api/Authentication/45013888-3163-4D70-8769-33F1946456F2
+2024-11-27 23:43:16.873 +07:00 [INF] Request 4 completed on 2024-11-27
