@@ -17,10 +17,37 @@ namespace eCommerce.ShareLibrary.Middleware
     {
         public async Task InvokeAsync(HttpContext context)
         {
+            //Declare default variables
+            string message = "Sorry, internal server error occurred. Kindly try again";
+            int statusCode = (int)HttpStatusCode.InternalServerError;
 
             try
             {
                 await next(context);
+
+                if (!context.Response.HasStarted)
+                {
+                    switch (context.Response.StatusCode)
+                    {
+                        case StatusCodes.Status429TooManyRequests:
+                            message = "To many request made.";
+                            statusCode = StatusCodes.Status429TooManyRequests;
+                            await ModifyHeaderAsync(context, message, statusCode);
+                            break;
+                        case StatusCodes.Status401Unauthorized:
+                            message = "You are not authorized to access.";
+                            statusCode = StatusCodes.Status401Unauthorized;
+                            await ModifyHeaderAsync(context, message, statusCode);
+                            break;
+                        case StatusCodes.Status403Forbidden:
+                            message = "You are not allowed/required to access.";
+                            statusCode = StatusCodes.Status403Forbidden;
+                            await ModifyHeaderAsync(context, message, statusCode);
+                            break;
+                        default:
+                            break;
+                    }
+                }
             }
             catch (Exception ex)
             {
@@ -30,9 +57,9 @@ namespace eCommerce.ShareLibrary.Middleware
                 //Check if exception time out ==> status 408
                 if (ex is TaskCanceledException || ex is TimeoutException)
                 {
-                    var message = "Request time out!!!Please try again";
-                    var statusCode = StatusCodes.Status408RequestTimeout;
-                    await HandleExceptionAsync(context, message, statusCode);
+                    message = "Request time out!!!Please try again";
+                    statusCode = StatusCodes.Status408RequestTimeout;
+                    await ModifyHeaderAsync(context, message, statusCode);
                 }
                 else
                 {
@@ -41,7 +68,7 @@ namespace eCommerce.ShareLibrary.Middleware
             }
         }
 
-        private static async Task HandleExceptionAsync(HttpContext context, string message, int statusCode)
+        private static async Task ModifyHeaderAsync(HttpContext context, string message, int statusCode)
         {
             if (!context.Response.HasStarted)
             {

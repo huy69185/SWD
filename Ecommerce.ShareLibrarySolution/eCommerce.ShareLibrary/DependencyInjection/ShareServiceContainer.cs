@@ -64,6 +64,24 @@ namespace eCommerce.ShareLibrary.DependencyInjection
 
             return app;
         }
+
+        public static IServiceCollection AddSharedDbContext<TContext>
+            (this IServiceCollection services, IConfiguration config) where TContext : DbContext
+        {
+            // Add Generic DbContext
+            services.AddDbContext<TContext>(option => option.UseSqlServer(
+                config.GetConnectionString("DefaultConnection"),
+                sqlserverOption =>
+                {
+                    sqlserverOption.EnableRetryOnFailure(
+                        maxRetryCount: 3,
+                        maxRetryDelay: TimeSpan.FromSeconds(30), 
+                        errorNumbersToAdd: null);
+                    Log.Debug("Configured SQL Server with retry on failure.");
+                }));
+
+            return services;
+        }
     }
 
     // Middleware to log request details

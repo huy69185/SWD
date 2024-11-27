@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Serilog;
 namespace eCommerce.ShareLibrary.Logs
 {
-    public class LogHandler
+    public static class LogHandler
     {
         public static void LogExceptions(Exception ex)
         {
