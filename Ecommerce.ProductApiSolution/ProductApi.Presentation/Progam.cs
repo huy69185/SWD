@@ -1,12 +1,17 @@
-﻿using Microsoft.OpenApi.Models;
-using ProductApi.Presentation.DependencyInjection;
+﻿using eCommerce.ShareLibrary.Filter;
+using Microsoft.OpenApi.Models;
+using ProductApi.Infrastructure.DependencyInjection;
 using ProductAPI.DAO.DbInitialize;
 using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
 
-builder.Services.AddControllers()
+builder.Services.AddControllers(options =>
+    {
+        // Add ValidationFilter globally
+        options.Filters.Add<ValidationFilter>();
+    })
     .ConfigureApiBehaviorOptions(options =>
     {
         options.SuppressModelStateInvalidFilter = true;
