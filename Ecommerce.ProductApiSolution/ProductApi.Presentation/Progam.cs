@@ -61,7 +61,7 @@ builder.Services.AddSwaggerGen(c =>
 builder.Services.AddInfrastructureService(builder.Configuration);
 var app = builder.Build();
 
-SeedDatabase();
+// SeedDatabase();
 
 app.UseSwagger();
 app.UseSwaggerUI();
