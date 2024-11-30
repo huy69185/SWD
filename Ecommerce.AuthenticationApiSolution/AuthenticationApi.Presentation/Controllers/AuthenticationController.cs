@@ -2,6 +2,7 @@
 using AuthenticationApi.Application.Interfaces;
 using eCommerce.ShareLibrary.Response;
 using eCommerce.ShareLibrary.Validation;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -9,6 +10,7 @@ namespace AuthenticationApi.Presentation.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [AllowAnonymous]
     public class AuthenticationController(IUserRepository userRepository) : ControllerBase
     {
         [HttpPost("register")]
@@ -54,6 +56,7 @@ namespace AuthenticationApi.Presentation.Controllers
         }
 
         [HttpGet("{userId}")]
+        [Authorize]
         public async Task<IActionResult> GetUser([FromRoute, GuidValidation] string userId)
         {
             var result = await userRepository.GetUserDTO(Guid.Parse(userId));

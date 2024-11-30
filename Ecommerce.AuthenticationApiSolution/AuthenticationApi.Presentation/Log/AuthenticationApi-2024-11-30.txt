@@ -1,0 +1,54 @@
+2024-11-30 18:21:43.685 +07:00 [INF] Application has started.
+2024-11-30 18:21:43.980 +07:00 [INF] JWT Authentication scheme has been added.
+2024-11-30 18:21:44.376 +07:00 [INF] Global exception handling middleware has been added.
+2024-11-30 18:21:44.379 +07:00 [INF] Request logging middleware has been added.
+2024-11-30 18:21:47.809 +07:00 [INF] Received GET request for /swagger/index.html
+2024-11-30 18:21:47.887 +07:00 [INF] Completed GET request for /swagger/index.html
+2024-11-30 18:21:47.890 +07:00 [INF] Request 1 completed on 2024-11-30
+2024-11-30 18:21:47.983 +07:00 [INF] Received GET request for /swagger/v1/swagger.json
+2024-11-30 18:21:48.092 +07:00 [INF] Completed GET request for /swagger/v1/swagger.json
+2024-11-30 18:21:48.097 +07:00 [INF] Request 2 completed on 2024-11-30
+2024-11-30 18:24:00.883 +07:00 [INF] Received GET request for /swagger/index.html
+2024-11-30 18:24:00.888 +07:00 [INF] Completed GET request for /swagger/index.html
+2024-11-30 18:24:00.892 +07:00 [INF] Request 3 completed on 2024-11-30
+2024-11-30 18:24:00.899 +07:00 [INF] Received GET request for /swagger/swagger-ui-bundle.js
+2024-11-30 18:24:00.899 +07:00 [INF] Received GET request for /swagger/swagger-ui.css
+2024-11-30 18:24:00.905 +07:00 [INF] Received GET request for /swagger/swagger-ui-standalone-preset.js
+2024-11-30 18:24:01.050 +07:00 [INF] Completed GET request for /swagger/swagger-ui.css
+2024-11-30 18:24:01.052 +07:00 [INF] Request 5 completed on 2024-11-30
+2024-11-30 18:24:01.269 +07:00 [INF] Completed GET request for /swagger/swagger-ui-standalone-preset.js
+2024-11-30 18:24:01.272 +07:00 [INF] Request 6 completed on 2024-11-30
+2024-11-30 18:24:01.309 +07:00 [INF] Completed GET request for /swagger/swagger-ui-bundle.js
+2024-11-30 18:24:01.315 +07:00 [INF] Request 4 completed on 2024-11-30
+2024-11-30 18:24:01.506 +07:00 [INF] Received GET request for /swagger/v1/swagger.json
+2024-11-30 18:24:01.511 +07:00 [INF] Completed GET request for /swagger/v1/swagger.json
+2024-11-30 18:24:01.514 +07:00 [INF] Request 7 completed on 2024-11-30
+2024-11-30 18:24:01.584 +07:00 [INF] Received GET request for /swagger/favicon-32x32.png
+2024-11-30 18:24:01.587 +07:00 [INF] Completed GET request for /swagger/favicon-32x32.png
+2024-11-30 18:24:01.590 +07:00 [INF] Request 8 completed on 2024-11-30
+2024-11-30 18:24:27.110 +07:00 [INF] Application has started.
+2024-11-30 18:24:27.176 +07:00 [INF] JWT Authentication scheme has been added.
+2024-11-30 18:24:27.289 +07:00 [INF] Global exception handling middleware has been added.
+2024-11-30 18:24:27.291 +07:00 [INF] Request logging middleware has been added.
+2024-11-30 18:24:29.039 +07:00 [INF] Received GET request for /swagger/index.html
+2024-11-30 18:24:29.112 +07:00 [INF] Completed GET request for /swagger/index.html
+2024-11-30 18:24:29.115 +07:00 [INF] Request 1 completed on 2024-11-30
+2024-11-30 18:24:29.212 +07:00 [INF] Received GET request for /swagger/v1/swagger.json
+2024-11-30 18:24:29.305 +07:00 [INF] Completed GET request for /swagger/v1/swagger.json
+2024-11-30 18:24:29.308 +07:00 [INF] Request 2 completed on 2024-11-30
+2024-11-30 18:25:00.446 +07:00 [INF] Application has started.
+2024-11-30 18:25:00.507 +07:00 [INF] JWT Authentication scheme has been added.
+2024-11-30 18:25:00.646 +07:00 [INF] Global exception handling middleware has been added.
+2024-11-30 18:25:00.649 +07:00 [INF] Request logging middleware has been added.
+2024-11-30 18:25:01.262 +07:00 [INF] Received GET request for /swagger/index.html
+2024-11-30 18:25:01.325 +07:00 [INF] Completed GET request for /swagger/index.html
+2024-11-30 18:25:01.328 +07:00 [INF] Request 1 completed on 2024-11-30
+2024-11-30 18:25:01.515 +07:00 [INF] Received GET request for /swagger/v1/swagger.json
+2024-11-30 18:25:01.598 +07:00 [INF] Completed GET request for /swagger/v1/swagger.json
+2024-11-30 18:25:01.600 +07:00 [INF] Request 2 completed on 2024-11-30
+2024-11-30 18:25:01.935 +07:00 [INF] Received GET request for /swagger/index.html
+2024-11-30 18:25:01.940 +07:00 [INF] Completed GET request for /swagger/index.html
+2024-11-30 18:25:01.942 +07:00 [INF] Request 3 completed on 2024-11-30
+2024-11-30 18:25:02.163 +07:00 [INF] Received GET request for /swagger/v1/swagger.json
+2024-11-30 18:25:02.170 +07:00 [INF] Completed GET request for /swagger/v1/swagger.json
+2024-11-30 18:25:02.174 +07:00 [INF] Request 4 completed on 2024-11-30

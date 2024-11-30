@@ -1,4 +1,5 @@
 ﻿using eCommerce.ShareLibrary.Response;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ProductApi.Application.DTOs;
@@ -9,6 +10,7 @@ namespace ProductApi.Presentation.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [AllowAnonymous]
     public class ProductsController(IProduct productInterface) : ControllerBase
     {
         [HttpGet]
@@ -39,6 +41,7 @@ namespace ProductApi.Presentation.Controllers
             return _product is not null ? Ok(_product) : NotFound("Product not found");
         }
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult<Response>> CreateProduct(ProductDTO product)
         {
             //Check model state is all data annotations are pass
@@ -53,6 +56,7 @@ namespace ProductApi.Presentation.Controllers
         }
 
         [HttpPut("{id:guid}")]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult<Response>> UpdateProduct(string id, [FromBody] UpdateProductDTO updateProductDTO)
         {
             if (!Guid.TryParse(id, out var guid))
@@ -79,6 +83,7 @@ namespace ProductApi.Presentation.Controllers
         }
 
         [HttpDelete("{id:guid}")]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult<Response>> DeleteProduct(string id)
         {
             if (!Guid.TryParse(id, out var guid))
