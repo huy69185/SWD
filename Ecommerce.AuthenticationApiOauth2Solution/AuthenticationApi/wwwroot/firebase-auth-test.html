@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Firebase Authentication Test</title>
+
+    <script type="module">
+        // Import Firebase từ CDN v9+
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+        import { getAuth, signInWithPopup, GoogleAuthProvider, FacebookAuthProvider } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+
+        // 🔥 Cấu hình Firebase
+        const firebaseConfig = {
+            apiKey: "AIzaSyDfQLykHAh8WaX3Kfur4NFOzliazPfgEO4",
+            authDomain: "myauthproject-e87d7.firebaseapp.com",
+            projectId: "myauthproject-e87d7",
+            storageBucket: "myauthproject-e87d7.appspot.com",
+            messagingSenderId: "958360482745",
+            appId: "1:958360482745:web:your-app-id"
+        };
+
+        // Khởi tạo Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+
+        // 🔹 Đăng nhập bằng Google
+        window.signInWithGoogle = async function () {
+            const provider = new GoogleAuthProvider();
+            try {
+                const result = await signInWithPopup(auth, provider);
+                const token = await result.user.getIdToken();
+                document.getElementById("idToken").innerText = token;
+                console.log("Google ID Token:", token);
+            } catch (error) {
+                console.error("Lỗi đăng nhập Google:", error);
+            }
+        };
+
+        // 🔹 Đăng nhập bằng Facebook
+        window.signInWithFacebook = async function () {
+            const provider = new FacebookAuthProvider();
+            try {
+                const result = await signInWithPopup(auth, provider);
+                const token = await result.user.getIdToken();
+                document.getElementById("idToken").innerText = token;
+                console.log("Facebook ID Token:", token);
+            } catch (error) {
+                console.error("Lỗi đăng nhập Facebook:", error);
+            }
+        };
+
+        // 🔹 Gửi token lên API của bạn
+        window.sendTokenToAPI = function () {
+            const idToken = document.getElementById("idToken").innerText;
+            if (idToken === "Chưa có") {
+                alert("Bạn cần đăng nhập trước!");
+                return;
+            }
+
+            fetch("http://localhost:5000/api/auth/oauth", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    provider: "google",
+                    idToken: idToken,
+                    accessToken: "none"
+                })
+            })
+                .then(response => response.json())
+                .then(data => console.log("Kết quả từ API:", data))
+                .catch(error => console.error("Lỗi khi gửi token:", error));
+        };
+    </script>
+</head>
+<body>
+
+    <h2>Firebase Authentication Test</h2>
+    <button onclick="signInWithGoogle()">Đăng nhập bằng Google</button>
+    <button onclick="signInWithFacebook()">Đăng nhập bằng Facebook</button>
+
+    <h3>Kết quả:</h3>
+    <p><b>ID Token:</b> <span id="idToken">Chưa có</span></p>
+
+    <button onclick="sendTokenToAPI()">Gửi Token đến API</button>
+
+</body>
+</html>
