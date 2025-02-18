@@ -1,0 +1,466 @@
+2025-02-16 11:41:12.350 +07:00 [INF] Application has started.
+2025-02-16 11:41:12.401 +07:00 [INF] JWT Authentication scheme has been added.
+2025-02-16 11:41:12.489 +07:00 [INF] Global exception handling middleware has been added.
+2025-02-16 11:41:12.489 +07:00 [INF] Request logging middleware has been added.
+2025-02-16 11:41:13.470 +07:00 [INF] Received GET request for /swagger
+2025-02-16 11:41:13.636 +07:00 [INF] Completed GET request for /swagger
+2025-02-16 11:41:13.639 +07:00 [INF] Request 1 completed on 2025-02-16
+2025-02-16 11:41:13.786 +07:00 [INF] Received GET request for /favicon.ico
+2025-02-16 11:41:13.797 +07:00 [INF] Completed GET request for /favicon.ico
+2025-02-16 11:41:13.798 +07:00 [INF] Request 2 completed on 2025-02-16
+2025-02-16 11:45:46.321 +07:00 [INF] Application is shutting down.
+2025-02-16 11:45:52.018 +07:00 [INF] Application has started.
+2025-02-16 11:45:52.050 +07:00 [INF] JWT Authentication scheme has been added.
+2025-02-16 11:45:52.138 +07:00 [INF] Global exception handling middleware has been added.
+2025-02-16 11:45:52.139 +07:00 [INF] Request logging middleware has been added.
+2025-02-16 11:46:32.290 +07:00 [INF] Application is shutting down.
+2025-02-16 11:46:34.104 +07:00 [INF] Application has started.
+2025-02-16 11:46:34.133 +07:00 [INF] JWT Authentication scheme has been added.
+2025-02-16 11:46:34.199 +07:00 [INF] Global exception handling middleware has been added.
+2025-02-16 11:46:34.201 +07:00 [INF] Request logging middleware has been added.
+2025-02-16 11:46:34.767 +07:00 [INF] Received GET request for /swagger
+2025-02-16 11:46:34.813 +07:00 [INF] Completed GET request for /swagger
+2025-02-16 11:46:34.815 +07:00 [INF] Request 1 completed on 2025-02-16
+2025-02-16 11:47:31.810 +07:00 [INF] Application has started.
+2025-02-16 11:47:31.828 +07:00 [INF] JWT Authentication scheme has been added.
+2025-02-16 11:47:31.880 +07:00 [INF] Global exception handling middleware has been added.
+2025-02-16 11:47:31.882 +07:00 [INF] Request logging middleware has been added.
+2025-02-16 11:48:52.284 +07:00 [INF] Application is shutting down.
+2025-02-16 11:49:10.597 +07:00 [INF] Application has started.
+2025-02-16 11:49:10.620 +07:00 [INF] JWT Authentication scheme has been added.
+2025-02-16 11:49:10.678 +07:00 [INF] Global exception handling middleware has been added.
+2025-02-16 11:49:10.680 +07:00 [INF] Request logging middleware has been added.
+2025-02-16 11:49:11.280 +07:00 [INF] Received GET request for /swagger
+2025-02-16 11:49:11.306 +07:00 [INF] Completed GET request for /swagger
+2025-02-16 11:49:11.309 +07:00 [INF] Request 1 completed on 2025-02-16
+2025-02-16 11:49:37.637 +07:00 [INF] Application is shutting down.
+2025-02-16 11:49:40.787 +07:00 [INF] Application has started.
+2025-02-16 11:49:40.806 +07:00 [INF] JWT Authentication scheme has been added.
+2025-02-16 11:49:40.862 +07:00 [INF] Global exception handling middleware has been added.
+2025-02-16 11:49:40.864 +07:00 [INF] Request logging middleware has been added.
+2025-02-16 11:49:41.402 +07:00 [INF] Received GET request for /swagger
+2025-02-16 11:49:41.420 +07:00 [INF] Completed GET request for /swagger
+2025-02-16 11:49:41.424 +07:00 [INF] Request 1 completed on 2025-02-16
+2025-02-16 11:51:47.340 +07:00 [INF] Application is shutting down.
+2025-02-16 11:52:03.358 +07:00 [INF] Application has started.
+2025-02-16 11:52:03.382 +07:00 [INF] JWT Authentication scheme has been added.
+2025-02-16 11:52:03.442 +07:00 [INF] Global exception handling middleware has been added.
+2025-02-16 11:52:03.443 +07:00 [INF] Request logging middleware has been added.
+2025-02-16 11:53:10.312 +07:00 [INF] Application has started.
+2025-02-16 11:53:10.332 +07:00 [INF] JWT Authentication scheme has been added.
+2025-02-16 11:53:10.389 +07:00 [INF] Global exception handling middleware has been added.
+2025-02-16 11:53:10.391 +07:00 [INF] Request logging middleware has been added.
+2025-02-16 12:01:19.706 +07:00 [INF] Application has started.
+2025-02-16 12:01:19.729 +07:00 [INF] JWT Authentication scheme has been added.
+2025-02-16 12:01:19.791 +07:00 [INF] Global exception handling middleware has been added.
+2025-02-16 12:01:19.792 +07:00 [INF] Request logging middleware has been added.
+2025-02-16 12:07:21.275 +07:00 [INF] Application has started.
+2025-02-16 12:07:21.293 +07:00 [INF] JWT Authentication scheme has been added.
+2025-02-16 12:07:21.355 +07:00 [INF] Global exception handling middleware has been added.
+2025-02-16 12:07:21.355 +07:00 [INF] Request logging middleware has been added.
+2025-02-16 12:07:21.905 +07:00 [INF] Received GET request for /swagger/index.html
+2025-02-16 12:07:21.975 +07:00 [INF] Completed GET request for /swagger/index.html
+2025-02-16 12:07:21.977 +07:00 [INF] Request 1 completed on 2025-02-16
+2025-02-16 12:07:51.664 +07:00 [INF] Received GET request for /swagger/index.html
+2025-02-16 12:07:51.669 +07:00 [INF] Completed GET request for /swagger/index.html
+2025-02-16 12:07:51.671 +07:00 [INF] Request 2 completed on 2025-02-16
+2025-02-16 12:08:16.738 +07:00 [INF] Application is shutting down.
+2025-02-16 12:09:07.221 +07:00 [INF] Application has started.
+2025-02-16 12:09:07.241 +07:00 [INF] JWT Authentication scheme has been added.
+2025-02-16 12:09:07.300 +07:00 [INF] Global exception handling middleware has been added.
+2025-02-16 12:09:07.302 +07:00 [INF] Request logging middleware has been added.
+2025-02-16 12:09:07.768 +07:00 [INF] Received GET request for /swagger/index.html
+2025-02-16 12:09:07.792 +07:00 [INF] Completed GET request for /swagger/index.html
+2025-02-16 12:09:07.794 +07:00 [INF] Request 1 completed on 2025-02-16
+2025-02-16 12:11:05.558 +07:00 [INF] Received GET request for /swagger/index.html
+2025-02-16 12:11:05.563 +07:00 [INF] Completed GET request for /swagger/index.html
+2025-02-16 12:11:05.564 +07:00 [INF] Request 2 completed on 2025-02-16
+2025-02-16 12:12:42.363 +07:00 [INF] Application is shutting down.
+2025-02-16 12:12:55.832 +07:00 [INF] Application has started.
+2025-02-16 12:12:55.857 +07:00 [INF] JWT Authentication scheme has been added.
+2025-02-16 12:12:55.916 +07:00 [INF] Global exception handling middleware has been added.
+2025-02-16 12:12:55.917 +07:00 [INF] Request logging middleware has been added.
+2025-02-16 12:12:56.668 +07:00 [INF] Received GET request for /swagger/index.html
+2025-02-16 12:12:56.720 +07:00 [INF] Completed GET request for /swagger/index.html
+2025-02-16 12:12:56.722 +07:00 [INF] Request 1 completed on 2025-02-16
+2025-02-16 12:14:28.533 +07:00 [INF] Application is shutting down.
+2025-02-16 12:18:47.347 +07:00 [INF] Application has started.
+2025-02-16 12:18:47.365 +07:00 [INF] JWT Authentication scheme has been added.
+2025-02-16 12:18:47.420 +07:00 [INF] Global exception handling middleware has been added.
+2025-02-16 12:18:47.421 +07:00 [INF] Request logging middleware has been added.
+2025-02-16 12:18:47.771 +07:00 [INF] Received GET request for /swagger/index.html
+2025-02-16 12:18:47.800 +07:00 [INF] Completed GET request for /swagger/index.html
+2025-02-16 12:18:47.805 +07:00 [INF] Request 1 completed on 2025-02-16
+2025-02-16 12:18:54.952 +07:00 [INF] Application is shutting down.
+2025-02-16 12:20:08.278 +07:00 [INF] Application has started.
+2025-02-16 12:20:08.296 +07:00 [INF] JWT Authentication scheme has been added.
+2025-02-16 12:20:08.354 +07:00 [INF] Global exception handling middleware has been added.
+2025-02-16 12:20:08.356 +07:00 [INF] Request logging middleware has been added.
+2025-02-16 12:20:08.829 +07:00 [INF] Received GET request for /swagger/index.html
+2025-02-16 12:20:08.851 +07:00 [INF] Completed GET request for /swagger/index.html
+2025-02-16 12:20:08.854 +07:00 [INF] Request 1 completed on 2025-02-16
+2025-02-16 12:23:07.785 +07:00 [INF] Application is shutting down.
+2025-02-16 12:24:12.149 +07:00 [INF] Application has started.
+2025-02-16 12:24:12.173 +07:00 [INF] JWT Authentication scheme has been added.
+2025-02-16 12:24:12.234 +07:00 [INF] Global exception handling middleware has been added.
+2025-02-16 12:24:12.235 +07:00 [INF] Request logging middleware has been added.
+2025-02-16 12:24:12.622 +07:00 [INF] Received GET request for /
+2025-02-16 12:24:12.630 +07:00 [INF] Completed GET request for /
+2025-02-16 12:24:12.632 +07:00 [INF] Request 1 completed on 2025-02-16
+2025-02-16 12:24:12.642 +07:00 [INF] Received GET request for /index.html
+2025-02-16 12:24:12.688 +07:00 [INF] Completed GET request for /index.html
+2025-02-16 12:24:12.690 +07:00 [INF] Request 2 completed on 2025-02-16
+2025-02-16 12:24:12.696 +07:00 [INF] Received GET request for /swagger-ui.css
+2025-02-16 12:24:12.696 +07:00 [INF] Received GET request for /index.css
+2025-02-16 12:24:12.697 +07:00 [INF] Received GET request for /swagger-ui-bundle.js
+2025-02-16 12:24:12.697 +07:00 [INF] Received GET request for /swagger-ui-standalone-preset.js
+2025-02-16 12:24:12.697 +07:00 [INF] Received GET request for /index.js
+2025-02-16 12:24:12.701 +07:00 [INF] Completed GET request for /index.js
+2025-02-16 12:24:12.702 +07:00 [INF] Completed GET request for /index.css
+2025-02-16 12:24:12.703 +07:00 [INF] Request 7 completed on 2025-02-16
+2025-02-16 12:24:12.704 +07:00 [INF] Request 3 completed on 2025-02-16
+2025-02-16 12:24:12.711 +07:00 [INF] Completed GET request for /swagger-ui.css
+2025-02-16 12:24:12.711 +07:00 [INF] Completed GET request for /swagger-ui-standalone-preset.js
+2025-02-16 12:24:12.713 +07:00 [INF] Request 4 completed on 2025-02-16
+2025-02-16 12:24:12.714 +07:00 [INF] Request 6 completed on 2025-02-16
+2025-02-16 12:24:12.718 +07:00 [INF] Completed GET request for /swagger-ui-bundle.js
+2025-02-16 12:24:12.720 +07:00 [INF] Request 5 completed on 2025-02-16
+2025-02-16 12:24:12.953 +07:00 [INF] Received GET request for /swagger/v1/swagger.json
+2025-02-16 12:24:12.967 +07:00 [INF] Completed GET request for /swagger/v1/swagger.json
+2025-02-16 12:24:12.968 +07:00 [INF] Request 8 completed on 2025-02-16
+2025-02-16 12:24:12.975 +07:00 [INF] Received GET request for /favicon-32x32.png
+2025-02-16 12:24:12.977 +07:00 [INF] Completed GET request for /favicon-32x32.png
+2025-02-16 12:24:12.977 +07:00 [INF] Request 9 completed on 2025-02-16
+2025-02-16 12:29:05.421 +07:00 [INF] Application has started.
+2025-02-16 12:29:05.443 +07:00 [INF] JWT Authentication scheme has been added.
+2025-02-16 12:29:05.508 +07:00 [INF] Global exception handling middleware has been added.
+2025-02-16 12:29:05.509 +07:00 [INF] Request logging middleware has been added.
+2025-02-16 12:29:06.447 +07:00 [INF] Received GET request for /index.html
+2025-02-16 12:29:06.509 +07:00 [INF] Completed GET request for /index.html
+2025-02-16 12:29:06.511 +07:00 [INF] Request 1 completed on 2025-02-16
+2025-02-16 12:29:06.520 +07:00 [INF] Received GET request for /index.js
+2025-02-16 12:29:06.527 +07:00 [INF] Completed GET request for /index.js
+2025-02-16 12:29:06.529 +07:00 [INF] Request 2 completed on 2025-02-16
+2025-02-16 12:29:06.778 +07:00 [INF] Received GET request for /swagger/v1/swagger.json
+2025-02-16 12:29:06.795 +07:00 [INF] Completed GET request for /swagger/v1/swagger.json
+2025-02-16 12:29:06.796 +07:00 [INF] Request 3 completed on 2025-02-16
+2025-02-16 12:34:13.166 +07:00 [INF] Received POST request for /api/auth/oauth
+2025-02-16 12:34:13.615 +07:00 [INF] Completed POST request for /api/auth/oauth
+2025-02-16 12:34:13.615 +07:00 [INF] Request 4 completed on 2025-02-16
+2025-02-16 12:37:17.622 +07:00 [INF] Received POST request for /api/auth/oauth
+2025-02-16 12:37:17.633 +07:00 [INF] Completed POST request for /api/auth/oauth
+2025-02-16 12:37:17.635 +07:00 [INF] Request 5 completed on 2025-02-16
+2025-02-16 12:48:40.228 +07:00 [INF] Received POST request for /api/auth/oauth
+2025-02-16 12:48:40.239 +07:00 [INF] Completed POST request for /api/auth/oauth
+2025-02-16 12:48:40.240 +07:00 [INF] Request 6 completed on 2025-02-16
+2025-02-16 12:49:56.516 +07:00 [INF] Received POST request for /api/auth/oauth
+2025-02-16 12:49:56.522 +07:00 [INF] Completed POST request for /api/auth/oauth
+2025-02-16 12:49:56.522 +07:00 [INF] Request 7 completed on 2025-02-16
+2025-02-16 12:50:35.931 +07:00 [INF] Application is shutting down.
+2025-02-16 12:50:48.558 +07:00 [INF] Application has started.
+2025-02-16 12:50:48.579 +07:00 [INF] JWT Authentication scheme has been added.
+2025-02-16 12:50:48.636 +07:00 [INF] Global exception handling middleware has been added.
+2025-02-16 12:50:48.638 +07:00 [INF] Request logging middleware has been added.
+2025-02-16 12:51:01.420 +07:00 [INF] Application is shutting down.
+2025-02-16 12:51:03.004 +07:00 [INF] Application has started.
+2025-02-16 12:51:03.024 +07:00 [INF] JWT Authentication scheme has been added.
+2025-02-16 12:51:03.083 +07:00 [INF] Global exception handling middleware has been added.
+2025-02-16 12:51:03.085 +07:00 [INF] Request logging middleware has been added.
+2025-02-16 12:51:03.648 +07:00 [INF] Received GET request for /index.html
+2025-02-16 12:51:03.709 +07:00 [INF] Completed GET request for /index.html
+2025-02-16 12:51:03.712 +07:00 [INF] Request 1 completed on 2025-02-16
+2025-02-16 12:51:03.724 +07:00 [INF] Received GET request for /index.js
+2025-02-16 12:51:03.728 +07:00 [INF] Completed GET request for /index.js
+2025-02-16 12:51:03.730 +07:00 [INF] Request 2 completed on 2025-02-16
+2025-02-16 12:51:03.844 +07:00 [INF] Received GET request for /swagger/v1/swagger.json
+2025-02-16 12:51:03.854 +07:00 [INF] Completed GET request for /swagger/v1/swagger.json
+2025-02-16 12:51:03.856 +07:00 [INF] Request 3 completed on 2025-02-16
+2025-02-16 13:05:48.534 +07:00 [INF] Received GET request for /index.html
+2025-02-16 13:05:48.536 +07:00 [INF] Completed GET request for /index.html
+2025-02-16 13:05:48.537 +07:00 [INF] Request 4 completed on 2025-02-16
+2025-02-16 13:05:48.556 +07:00 [INF] Received GET request for /index.js
+2025-02-16 13:05:48.559 +07:00 [INF] Completed GET request for /index.js
+2025-02-16 13:05:48.561 +07:00 [INF] Request 5 completed on 2025-02-16
+2025-02-16 13:05:48.812 +07:00 [INF] Received GET request for /swagger/v1/swagger.json
+2025-02-16 13:05:48.820 +07:00 [INF] Completed GET request for /swagger/v1/swagger.json
+2025-02-16 13:05:48.823 +07:00 [INF] Request 6 completed on 2025-02-16
+2025-02-16 13:06:19.967 +07:00 [INF] Application is shutting down.
+2025-02-16 13:12:17.713 +07:00 [INF] Application has started.
+2025-02-16 13:12:17.733 +07:00 [INF] JWT Authentication scheme has been added.
+2025-02-16 13:12:17.790 +07:00 [INF] Global exception handling middleware has been added.
+2025-02-16 13:12:17.792 +07:00 [INF] Request logging middleware has been added.
+2025-02-16 13:12:18.257 +07:00 [INF] Received GET request for /index.html
+2025-02-16 13:12:18.322 +07:00 [INF] Completed GET request for /index.html
+2025-02-16 13:12:18.324 +07:00 [INF] Request 1 completed on 2025-02-16
+2025-02-16 13:12:18.334 +07:00 [INF] Received GET request for /index.js
+2025-02-16 13:12:18.339 +07:00 [INF] Completed GET request for /index.js
+2025-02-16 13:12:18.341 +07:00 [INF] Request 2 completed on 2025-02-16
+2025-02-16 13:12:18.561 +07:00 [INF] Received GET request for /swagger/v1/swagger.json
+2025-02-16 13:12:18.570 +07:00 [INF] Completed GET request for /swagger/v1/swagger.json
+2025-02-16 13:12:18.571 +07:00 [INF] Request 3 completed on 2025-02-16
+2025-02-16 13:12:51.408 +07:00 [INF] Application has started.
+2025-02-16 13:12:51.425 +07:00 [INF] JWT Authentication scheme has been added.
+2025-02-16 13:12:51.476 +07:00 [INF] Global exception handling middleware has been added.
+2025-02-16 13:12:51.477 +07:00 [INF] Request logging middleware has been added.
+2025-02-16 13:12:51.993 +07:00 [INF] Received GET request for /firebase-auth-test.html
+2025-02-16 13:12:52.024 +07:00 [INF] Completed GET request for /firebase-auth-test.html
+2025-02-16 13:12:52.026 +07:00 [INF] Request 1 completed on 2025-02-16
+2025-02-16 13:13:57.137 +07:00 [INF] Application is shutting down.
+2025-02-16 13:15:05.922 +07:00 [INF] Application has started.
+2025-02-16 13:15:05.940 +07:00 [INF] JWT Authentication scheme has been added.
+2025-02-16 13:15:05.998 +07:00 [INF] Global exception handling middleware has been added.
+2025-02-16 13:15:06.000 +07:00 [INF] Request logging middleware has been added.
+2025-02-16 13:15:06.381 +07:00 [INF] Received GET request for /index.html
+2025-02-16 13:15:06.442 +07:00 [INF] Completed GET request for /index.html
+2025-02-16 13:15:06.446 +07:00 [INF] Request 1 completed on 2025-02-16
+2025-02-16 13:15:06.459 +07:00 [INF] Received GET request for /index.js
+2025-02-16 13:15:06.465 +07:00 [INF] Completed GET request for /index.js
+2025-02-16 13:15:06.468 +07:00 [INF] Request 2 completed on 2025-02-16
+2025-02-16 13:15:06.641 +07:00 [INF] Received GET request for /swagger/v1/swagger.json
+2025-02-16 13:15:06.650 +07:00 [INF] Completed GET request for /swagger/v1/swagger.json
+2025-02-16 13:15:06.651 +07:00 [INF] Request 3 completed on 2025-02-16
+2025-02-16 13:15:22.577 +07:00 [INF] Application has started.
+2025-02-16 13:15:22.595 +07:00 [INF] JWT Authentication scheme has been added.
+2025-02-16 13:15:22.647 +07:00 [INF] Global exception handling middleware has been added.
+2025-02-16 13:15:22.649 +07:00 [INF] Request logging middleware has been added.
+2025-02-16 13:15:23.587 +07:00 [INF] Received GET request for /favicon.ico
+2025-02-16 13:15:23.608 +07:00 [INF] Completed GET request for /favicon.ico
+2025-02-16 13:15:23.609 +07:00 [INF] Request 1 completed on 2025-02-16
+2025-02-16 13:18:49.480 +07:00 [INF] Application has started.
+2025-02-16 13:18:49.496 +07:00 [INF] JWT Authentication scheme has been added.
+2025-02-16 13:18:49.550 +07:00 [INF] Global exception handling middleware has been added.
+2025-02-16 13:18:49.552 +07:00 [INF] Request logging middleware has been added.
+2025-02-16 13:20:24.986 +07:00 [INF] Application is shutting down.
+2025-02-16 13:20:39.451 +07:00 [INF] Application has started.
+2025-02-16 13:20:39.470 +07:00 [INF] JWT Authentication scheme has been added.
+2025-02-16 13:20:39.529 +07:00 [INF] Global exception handling middleware has been added.
+2025-02-16 13:20:39.530 +07:00 [INF] Request logging middleware has been added.
+2025-02-16 13:20:40.176 +07:00 [INF] Received GET request for /index.html
+2025-02-16 13:20:40.231 +07:00 [INF] Completed GET request for /index.html
+2025-02-16 13:20:40.233 +07:00 [INF] Request 1 completed on 2025-02-16
+2025-02-16 13:20:40.244 +07:00 [INF] Received GET request for /index.js
+2025-02-16 13:20:40.248 +07:00 [INF] Completed GET request for /index.js
+2025-02-16 13:20:40.250 +07:00 [INF] Request 2 completed on 2025-02-16
+2025-02-16 13:20:40.391 +07:00 [INF] Received GET request for /swagger/v1/swagger.json
+2025-02-16 13:20:40.405 +07:00 [INF] Completed GET request for /swagger/v1/swagger.json
+2025-02-16 13:20:40.407 +07:00 [INF] Request 3 completed on 2025-02-16
+2025-02-16 13:20:48.959 +07:00 [INF] Application has started.
+2025-02-16 13:20:48.977 +07:00 [INF] JWT Authentication scheme has been added.
+2025-02-16 13:20:49.033 +07:00 [INF] Global exception handling middleware has been added.
+2025-02-16 13:20:49.034 +07:00 [INF] Request logging middleware has been added.
+2025-02-16 13:37:58.526 +07:00 [INF] Application has started.
+2025-02-16 13:37:58.546 +07:00 [INF] JWT Authentication scheme has been added.
+2025-02-16 13:37:58.601 +07:00 [INF] Global exception handling middleware has been added.
+2025-02-16 13:37:58.603 +07:00 [INF] Request logging middleware has been added.
+2025-02-16 13:39:54.975 +07:00 [INF] Application has started.
+2025-02-16 13:39:54.992 +07:00 [INF] JWT Authentication scheme has been added.
+2025-02-16 13:39:55.045 +07:00 [INF] Global exception handling middleware has been added.
+2025-02-16 13:39:55.046 +07:00 [INF] Request logging middleware has been added.
+2025-02-16 13:46:45.569 +07:00 [INF] Received POST request for /api/auth/oauth
+2025-02-16 13:46:46.212 +07:00 [INF] Completed POST request for /api/auth/oauth
+2025-02-16 13:46:46.214 +07:00 [INF] Request 1 completed on 2025-02-16
+2025-02-16 13:47:11.691 +07:00 [INF] Received POST request for /api/auth/oauth
+2025-02-16 13:47:11.706 +07:00 [INF] Completed POST request for /api/auth/oauth
+2025-02-16 13:47:11.708 +07:00 [INF] Request 2 completed on 2025-02-16
+2025-02-16 14:18:40.953 +07:00 [INF] Application has started.
+2025-02-16 14:18:40.981 +07:00 [INF] JWT Authentication scheme has been added.
+2025-02-16 14:18:41.093 +07:00 [INF] Global exception handling middleware has been added.
+2025-02-16 14:18:41.094 +07:00 [INF] Request logging middleware has been added.
+2025-02-16 14:56:20.951 +07:00 [INF] Received POST request for /api/auth/oauth
+2025-02-16 14:56:21.608 +07:00 [INF] Completed POST request for /api/auth/oauth
+2025-02-16 14:56:21.609 +07:00 [INF] Request 1 completed on 2025-02-16
+2025-02-16 14:56:39.543 +07:00 [INF] Application has started.
+2025-02-16 14:56:39.560 +07:00 [INF] JWT Authentication scheme has been added.
+2025-02-16 14:56:39.615 +07:00 [INF] Global exception handling middleware has been added.
+2025-02-16 14:56:39.617 +07:00 [INF] Request logging middleware has been added.
+2025-02-16 16:01:51.486 +07:00 [INF] Application is shutting down.
+2025-02-16 16:19:44.983 +07:00 [INF] Application has started.
+2025-02-16 16:19:45.012 +07:00 [INF] JWT Authentication scheme has been added.
+2025-02-16 16:19:45.117 +07:00 [INF] Global exception handling middleware has been added.
+2025-02-16 16:19:45.117 +07:00 [INF] Request logging middleware has been added.
+2025-02-16 16:21:21.003 +07:00 [INF] Application has started.
+2025-02-16 16:21:21.019 +07:00 [INF] JWT Authentication scheme has been added.
+2025-02-16 16:21:21.073 +07:00 [INF] Global exception handling middleware has been added.
+2025-02-16 16:21:21.074 +07:00 [INF] Request logging middleware has been added.
+2025-02-16 16:21:31.231 +07:00 [INF] Application is shutting down.
+2025-02-16 16:21:54.542 +07:00 [INF] Application has started.
+2025-02-16 16:21:54.559 +07:00 [INF] JWT Authentication scheme has been added.
+2025-02-16 16:21:54.612 +07:00 [INF] Global exception handling middleware has been added.
+2025-02-16 16:21:54.612 +07:00 [INF] Request logging middleware has been added.
+2025-02-16 16:25:57.136 +07:00 [INF] Application has started.
+2025-02-16 16:25:57.161 +07:00 [INF] JWT Authentication scheme has been added.
+2025-02-16 16:25:57.248 +07:00 [INF] Global exception handling middleware has been added.
+2025-02-16 16:25:57.249 +07:00 [INF] Request logging middleware has been added.
+2025-02-16 16:25:58.280 +07:00 [INF] Received GET request for /index.html
+2025-02-16 16:25:58.339 +07:00 [INF] Completed GET request for /index.html
+2025-02-16 16:25:58.341 +07:00 [INF] Request 1 completed on 2025-02-16
+2025-02-16 16:25:58.419 +07:00 [INF] Received GET request for /index.js
+2025-02-16 16:25:58.424 +07:00 [INF] Completed GET request for /index.js
+2025-02-16 16:25:58.426 +07:00 [INF] Request 2 completed on 2025-02-16
+2025-02-16 16:25:58.673 +07:00 [INF] Received GET request for /swagger/v1/swagger.json
+2025-02-16 16:25:58.686 +07:00 [INF] Completed GET request for /swagger/v1/swagger.json
+2025-02-16 16:25:58.687 +07:00 [INF] Request 3 completed on 2025-02-16
+2025-02-16 16:28:02.972 +07:00 [INF] Received POST request for /api/auth/oauth
+2025-02-16 16:28:03.180 +07:00 [INF] Completed POST request for /api/auth/oauth
+2025-02-16 16:28:03.181 +07:00 [INF] Request 4 completed on 2025-02-16
+2025-02-16 16:30:48.866 +07:00 [INF] Received GET request for /index.html
+2025-02-16 16:30:48.891 +07:00 [INF] Completed GET request for /index.html
+2025-02-16 16:30:48.893 +07:00 [INF] Request 5 completed on 2025-02-16
+2025-02-16 16:30:48.927 +07:00 [INF] Received GET request for /index.js
+2025-02-16 16:30:48.936 +07:00 [INF] Completed GET request for /index.js
+2025-02-16 16:30:48.938 +07:00 [INF] Request 6 completed on 2025-02-16
+2025-02-16 16:30:49.095 +07:00 [INF] Received GET request for /swagger/v1/swagger.json
+2025-02-16 16:30:49.115 +07:00 [INF] Completed GET request for /swagger/v1/swagger.json
+2025-02-16 16:30:49.116 +07:00 [INF] Request 7 completed on 2025-02-16
+2025-02-16 16:34:02.738 +07:00 [INF] Received GET request for /index.html
+2025-02-16 16:34:02.762 +07:00 [INF] Completed GET request for /index.html
+2025-02-16 16:34:02.763 +07:00 [INF] Request 8 completed on 2025-02-16
+2025-02-16 16:34:02.817 +07:00 [INF] Received GET request for /index.js
+2025-02-16 16:34:02.822 +07:00 [INF] Completed GET request for /index.js
+2025-02-16 16:34:02.825 +07:00 [INF] Request 9 completed on 2025-02-16
+2025-02-16 16:34:02.979 +07:00 [INF] Received GET request for /swagger/v1/swagger.json
+2025-02-16 16:34:03.009 +07:00 [INF] Completed GET request for /swagger/v1/swagger.json
+2025-02-16 16:34:03.010 +07:00 [INF] Request 10 completed on 2025-02-16
+2025-02-16 16:34:19.077 +07:00 [INF] Application has started.
+2025-02-16 16:34:19.097 +07:00 [INF] JWT Authentication scheme has been added.
+2025-02-16 16:34:19.162 +07:00 [INF] Global exception handling middleware has been added.
+2025-02-16 16:34:19.163 +07:00 [INF] Request logging middleware has been added.
+2025-02-16 16:37:10.334 +07:00 [INF] Received GET request for /api/auth/oauth
+2025-02-16 16:37:10.377 +07:00 [INF] Completed GET request for /api/auth/oauth
+2025-02-16 16:37:10.379 +07:00 [INF] Request 1 completed on 2025-02-16
+2025-02-16 16:37:34.476 +07:00 [INF] Received GET request for /api/auth/oauth%22,
+2025-02-16 16:37:34.481 +07:00 [INF] Completed GET request for /api/auth/oauth%22,
+2025-02-16 16:37:34.482 +07:00 [INF] Request 2 completed on 2025-02-16
+2025-02-16 16:37:40.571 +07:00 [INF] Received GET request for /api/auth/oauth
+2025-02-16 16:37:40.576 +07:00 [INF] Completed GET request for /api/auth/oauth
+2025-02-16 16:37:40.578 +07:00 [INF] Request 3 completed on 2025-02-16
+2025-02-16 16:37:45.982 +07:00 [INF] Application has started.
+2025-02-16 16:37:46.003 +07:00 [INF] JWT Authentication scheme has been added.
+2025-02-16 16:37:46.058 +07:00 [INF] Global exception handling middleware has been added.
+2025-02-16 16:37:46.059 +07:00 [INF] Request logging middleware has been added.
+2025-02-16 16:38:21.529 +07:00 [INF] Application has started.
+2025-02-16 16:38:21.595 +07:00 [INF] JWT Authentication scheme has been added.
+2025-02-16 16:38:21.820 +07:00 [INF] Global exception handling middleware has been added.
+2025-02-16 16:38:21.836 +07:00 [INF] Request logging middleware has been added.
+2025-02-16 16:38:23.614 +07:00 [INF] Received GET request for /index.html
+2025-02-16 16:38:23.690 +07:00 [INF] Completed GET request for /index.html
+2025-02-16 16:38:23.696 +07:00 [INF] Request 1 completed on 2025-02-16
+2025-02-16 16:38:23.709 +07:00 [INF] Received GET request for /index.js
+2025-02-16 16:38:23.731 +07:00 [INF] Completed GET request for /index.js
+2025-02-16 16:38:23.744 +07:00 [INF] Request 2 completed on 2025-02-16
+2025-02-16 16:38:23.904 +07:00 [INF] Received GET request for /swagger/v1/swagger.json
+2025-02-16 16:38:23.928 +07:00 [INF] Completed GET request for /swagger/v1/swagger.json
+2025-02-16 16:38:23.933 +07:00 [INF] Request 3 completed on 2025-02-16
+2025-02-16 16:38:42.879 +07:00 [INF] Received GET request for /api/auth/oauth
+2025-02-16 16:38:42.982 +07:00 [INF] Completed GET request for /api/auth/oauth
+2025-02-16 16:38:42.986 +07:00 [INF] Request 4 completed on 2025-02-16
+2025-02-16 16:41:35.765 +07:00 [INF] Application has started.
+2025-02-16 16:41:35.783 +07:00 [INF] JWT Authentication scheme has been added.
+2025-02-16 16:41:35.847 +07:00 [INF] Global exception handling middleware has been added.
+2025-02-16 16:41:35.849 +07:00 [INF] Request logging middleware has been added.
+2025-02-16 16:41:36.317 +07:00 [INF] Received GET request for /index.html
+2025-02-16 16:41:36.369 +07:00 [INF] Completed GET request for /index.html
+2025-02-16 16:41:36.371 +07:00 [INF] Request 1 completed on 2025-02-16
+2025-02-16 16:41:36.384 +07:00 [INF] Received GET request for /index.js
+2025-02-16 16:41:36.389 +07:00 [INF] Completed GET request for /index.js
+2025-02-16 16:41:36.390 +07:00 [INF] Request 2 completed on 2025-02-16
+2025-02-16 16:41:36.567 +07:00 [INF] Received GET request for /swagger/v1/swagger.json
+2025-02-16 16:41:36.582 +07:00 [INF] Completed GET request for /swagger/v1/swagger.json
+2025-02-16 16:41:36.583 +07:00 [INF] Request 3 completed on 2025-02-16
+2025-02-16 16:42:30.163 +07:00 [INF] Application is shutting down.
+2025-02-16 17:07:08.991 +07:00 [INF] Application has started.
+2025-02-16 17:07:09.016 +07:00 [INF] JWT Authentication scheme has been added.
+2025-02-16 17:07:21.478 +07:00 [INF] Application has started.
+2025-02-16 17:07:21.498 +07:00 [INF] JWT Authentication scheme has been added.
+2025-02-16 17:07:53.140 +07:00 [INF] Application has started.
+2025-02-16 17:07:53.238 +07:00 [INF] JWT Authentication scheme has been added.
+2025-02-16 17:09:18.640 +07:00 [INF] Application has started.
+2025-02-16 17:09:18.720 +07:00 [INF] JWT Authentication scheme has been added.
+2025-02-16 17:09:18.893 +07:00 [INF] Global exception handling middleware has been added.
+2025-02-16 17:09:18.896 +07:00 [INF] Request logging middleware has been added.
+2025-02-16 17:09:20.832 +07:00 [INF] Received GET request for /index.html
+2025-02-16 17:09:20.925 +07:00 [INF] Completed GET request for /index.html
+2025-02-16 17:09:20.931 +07:00 [INF] Request 1 completed on 2025-02-16
+2025-02-16 17:09:20.956 +07:00 [INF] Received GET request for /index.js
+2025-02-16 17:09:20.967 +07:00 [INF] Completed GET request for /index.js
+2025-02-16 17:09:20.978 +07:00 [INF] Request 2 completed on 2025-02-16
+2025-02-16 17:09:21.148 +07:00 [INF] Received GET request for /swagger/v1/swagger.json
+2025-02-16 17:09:21.175 +07:00 [INF] Completed GET request for /swagger/v1/swagger.json
+2025-02-16 17:09:21.180 +07:00 [INF] Request 3 completed on 2025-02-16
+2025-02-16 17:28:39.848 +07:00 [INF] Application has started.
+2025-02-16 17:28:39.871 +07:00 [INF] JWT Authentication scheme has been added.
+2025-02-16 17:28:54.563 +07:00 [INF] Application has started.
+2025-02-16 17:28:54.578 +07:00 [INF] JWT Authentication scheme has been added.
+2025-02-16 17:32:48.659 +07:00 [INF] Application has started.
+2025-02-16 17:32:48.683 +07:00 [INF] JWT Authentication scheme has been added.
+2025-02-16 17:32:48.746 +07:00 [INF] Global exception handling middleware has been added.
+2025-02-16 17:32:48.748 +07:00 [INF] Request logging middleware has been added.
+2025-02-16 17:32:49.967 +07:00 [INF] Received GET request for /index.html
+2025-02-16 17:32:50.026 +07:00 [INF] Completed GET request for /index.html
+2025-02-16 17:32:50.028 +07:00 [INF] Request 1 completed on 2025-02-16
+2025-02-16 17:32:50.041 +07:00 [INF] Received GET request for /index.js
+2025-02-16 17:32:50.049 +07:00 [INF] Completed GET request for /index.js
+2025-02-16 17:32:50.051 +07:00 [INF] Request 2 completed on 2025-02-16
+2025-02-16 17:32:50.207 +07:00 [INF] Received GET request for /swagger/v1/swagger.json
+2025-02-16 17:32:50.220 +07:00 [INF] Completed GET request for /swagger/v1/swagger.json
+2025-02-16 17:32:50.221 +07:00 [INF] Request 3 completed on 2025-02-16
+2025-02-16 17:42:47.543 +07:00 [INF] Application has started.
+2025-02-16 17:42:47.561 +07:00 [INF] JWT Authentication scheme has been added.
+2025-02-16 17:42:47.621 +07:00 [INF] Global exception handling middleware has been added.
+2025-02-16 17:42:47.622 +07:00 [INF] Request logging middleware has been added.
+2025-02-16 17:44:09.136 +07:00 [INF] Application has started.
+2025-02-16 17:44:09.152 +07:00 [INF] JWT Authentication scheme has been added.
+2025-02-16 17:44:09.204 +07:00 [INF] Global exception handling middleware has been added.
+2025-02-16 17:44:09.205 +07:00 [INF] Request logging middleware has been added.
+2025-02-16 17:45:12.563 +07:00 [INF] Application has started.
+2025-02-16 17:45:12.586 +07:00 [INF] JWT Authentication scheme has been added.
+2025-02-16 17:45:12.645 +07:00 [INF] Global exception handling middleware has been added.
+2025-02-16 17:45:12.646 +07:00 [INF] Request logging middleware has been added.
+2025-02-16 17:47:55.893 +07:00 [INF] Application has started.
+2025-02-16 17:47:55.909 +07:00 [INF] JWT Authentication scheme has been added.
+2025-02-16 17:47:55.961 +07:00 [INF] Global exception handling middleware has been added.
+2025-02-16 17:47:55.963 +07:00 [INF] Request logging middleware has been added.
+2025-02-16 17:49:14.928 +07:00 [INF] Application has started.
+2025-02-16 17:49:14.946 +07:00 [INF] JWT Authentication scheme has been added.
+2025-02-16 17:49:14.998 +07:00 [INF] Global exception handling middleware has been added.
+2025-02-16 17:49:15.000 +07:00 [INF] Request logging middleware has been added.
+2025-02-16 17:58:11.011 +07:00 [INF] Application has started.
+2025-02-16 17:58:11.028 +07:00 [INF] JWT Authentication scheme has been added.
+2025-02-16 17:58:11.081 +07:00 [INF] Global exception handling middleware has been added.
+2025-02-16 17:58:11.082 +07:00 [INF] Request logging middleware has been added.
+2025-02-16 17:58:29.362 +07:00 [INF] Received POST request for /api/auth/oauth
+2025-02-16 17:58:31.683 +07:00 [INF] Completed POST request for /api/auth/oauth
+2025-02-16 17:58:31.684 +07:00 [INF] Request 1 completed on 2025-02-16
+2025-02-16 17:58:53.923 +07:00 [INF] Received POST request for /api/auth/oauth
+2025-02-16 17:58:53.981 +07:00 [INF] Completed POST request for /api/auth/oauth
+2025-02-16 17:58:53.982 +07:00 [INF] Request 2 completed on 2025-02-16
+2025-02-16 18:01:10.950 +07:00 [INF] Received POST request for /api/auth/oauth
+2025-02-16 18:01:11.368 +07:00 [INF] Completed POST request for /api/auth/oauth
+2025-02-16 18:01:11.369 +07:00 [INF] Request 3 completed on 2025-02-16
+2025-02-16 18:02:17.791 +07:00 [INF] Received POST request for /api/auth/oauth
+2025-02-16 18:02:18.021 +07:00 [INF] Completed POST request for /api/auth/oauth
+2025-02-16 18:02:18.022 +07:00 [INF] Request 4 completed on 2025-02-16
+2025-02-16 18:06:55.968 +07:00 [INF] Application is shutting down.
+2025-02-16 18:07:07.924 +07:00 [INF] Application has started.
+2025-02-16 18:07:07.947 +07:00 [INF] JWT Authentication scheme has been added.
+2025-02-16 18:07:08.022 +07:00 [INF] Global exception handling middleware has been added.
+2025-02-16 18:07:08.023 +07:00 [INF] Request logging middleware has been added.
+2025-02-16 18:07:08.842 +07:00 [INF] Received GET request for /index.html
+2025-02-16 18:07:08.896 +07:00 [INF] Completed GET request for /index.html
+2025-02-16 18:07:08.899 +07:00 [INF] Request 1 completed on 2025-02-16
+2025-02-16 18:07:08.910 +07:00 [INF] Received GET request for /index.js
+2025-02-16 18:07:08.914 +07:00 [INF] Completed GET request for /index.js
+2025-02-16 18:07:08.916 +07:00 [INF] Request 2 completed on 2025-02-16
+2025-02-16 18:07:09.105 +07:00 [INF] Received GET request for /swagger/v1/swagger.json
+2025-02-16 18:07:09.126 +07:00 [INF] Completed GET request for /swagger/v1/swagger.json
+2025-02-16 18:07:09.128 +07:00 [INF] Request 3 completed on 2025-02-16
+2025-02-16 18:07:22.437 +07:00 [INF] Application has started.
+2025-02-16 18:07:22.453 +07:00 [INF] JWT Authentication scheme has been added.
+2025-02-16 18:07:22.507 +07:00 [INF] Global exception handling middleware has been added.
+2025-02-16 18:07:22.509 +07:00 [INF] Request logging middleware has been added.
+2025-02-16 18:07:55.113 +07:00 [INF] Received POST request for /api/auth/oauth
+2025-02-16 18:07:55.792 +07:00 [INF] Completed POST request for /api/auth/oauth
+2025-02-16 18:07:55.795 +07:00 [INF] Request 1 completed on 2025-02-16
+2025-02-16 18:08:30.384 +07:00 [INF] Received POST request for /api/auth/oauth
+2025-02-16 18:08:31.672 +07:00 [INF] Completed POST request for /api/auth/oauth
+2025-02-16 18:08:31.674 +07:00 [INF] Request 2 completed on 2025-02-16

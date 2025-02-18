@@ -1,0 +1,25 @@
+2025-02-16 12:00:07.392 +07:00 [INF] Application has started.
+2025-02-16 12:00:07.420 +07:00 [INF] JWT Authentication scheme has been added.
+2025-02-16 12:00:07.640 +07:00 [INF] Global exception handling middleware has been added.
+2025-02-16 12:00:07.641 +07:00 [INF] Request logging middleware has been added.
+2025-02-16 12:00:08.458 +07:00 [INF] Received GET request for /swagger
+2025-02-16 12:00:08.464 +07:00 [INF] Completed GET request for /swagger
+2025-02-16 12:00:08.465 +07:00 [INF] Request 1 completed on 2025-02-16
+2025-02-16 12:00:08.478 +07:00 [INF] Received GET request for /swagger/index.html
+2025-02-16 12:00:08.520 +07:00 [INF] Completed GET request for /swagger/index.html
+2025-02-16 12:00:08.522 +07:00 [INF] Request 2 completed on 2025-02-16
+2025-02-16 12:00:08.535 +07:00 [INF] Received GET request for /swagger/swagger-ui.css
+2025-02-16 12:00:08.536 +07:00 [INF] Received GET request for /swagger/swagger-ui-bundle.js
+2025-02-16 12:00:08.536 +07:00 [INF] Received GET request for /swagger/swagger-ui-standalone-preset.js
+2025-02-16 12:00:08.550 +07:00 [INF] Completed GET request for /swagger/swagger-ui.css
+2025-02-16 12:00:08.550 +07:00 [INF] Completed GET request for /swagger/swagger-ui-standalone-preset.js
+2025-02-16 12:00:08.552 +07:00 [INF] Request 3 completed on 2025-02-16
+2025-02-16 12:00:08.553 +07:00 [INF] Request 5 completed on 2025-02-16
+2025-02-16 12:00:08.561 +07:00 [INF] Completed GET request for /swagger/swagger-ui-bundle.js
+2025-02-16 12:00:08.564 +07:00 [INF] Request 4 completed on 2025-02-16
+2025-02-16 12:00:08.788 +07:00 [INF] Received GET request for /swagger/v1/swagger.json
+2025-02-16 12:00:08.793 +07:00 [INF] Completed GET request for /swagger/v1/swagger.json
+2025-02-16 12:00:08.795 +07:00 [INF] Request 6 completed on 2025-02-16
+2025-02-16 12:00:08.842 +07:00 [INF] Received GET request for /swagger/favicon-32x32.png
+2025-02-16 12:00:08.844 +07:00 [INF] Completed GET request for /swagger/favicon-32x32.png
+2025-02-16 12:00:08.845 +07:00 [INF] Request 7 completed on 2025-02-16
