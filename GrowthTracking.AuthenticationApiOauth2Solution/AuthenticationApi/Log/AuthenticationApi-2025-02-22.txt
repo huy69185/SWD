@@ -1,0 +1,32 @@
+2025-02-22 16:33:08.514 +07:00 [INF] Application has started.
+2025-02-22 16:33:08.645 +07:00 [INF] JWT Authentication scheme has been added.
+2025-02-22 16:33:08.841 +07:00 [INF] Global exception handling middleware has been added.
+2025-02-22 16:33:08.841 +07:00 [INF] Request logging middleware has been added.
+2025-02-22 16:33:09.767 +07:00 [INF] Received GET request for /
+2025-02-22 16:33:09.781 +07:00 [INF] Completed GET request for /
+2025-02-22 16:33:09.784 +07:00 [INF] Request 1 completed on 2025-02-22
+2025-02-22 16:33:09.813 +07:00 [INF] Received GET request for /index.html
+2025-02-22 16:33:09.889 +07:00 [INF] Completed GET request for /index.html
+2025-02-22 16:33:09.896 +07:00 [INF] Request 2 completed on 2025-02-22
+2025-02-22 16:33:09.955 +07:00 [INF] Received GET request for /swagger-ui.css
+2025-02-22 16:33:09.956 +07:00 [INF] Received GET request for /index.css
+2025-02-22 16:33:09.956 +07:00 [INF] Received GET request for /index.js
+2025-02-22 16:33:09.983 +07:00 [INF] Completed GET request for /index.js
+2025-02-22 16:33:09.958 +07:00 [INF] Received GET request for /swagger-ui-bundle.js
+2025-02-22 16:33:09.975 +07:00 [INF] Completed GET request for /index.css
+2025-02-22 16:33:10.012 +07:00 [INF] Request 4 completed on 2025-02-22
+2025-02-22 16:33:09.995 +07:00 [INF] Request 5 completed on 2025-02-22
+2025-02-22 16:33:09.997 +07:00 [INF] Completed GET request for /swagger-ui.css
+2025-02-22 16:33:09.956 +07:00 [INF] Received GET request for /swagger-ui-standalone-preset.js
+2025-02-22 16:33:10.013 +07:00 [INF] Completed GET request for /swagger-ui-bundle.js
+2025-02-22 16:33:10.031 +07:00 [INF] Request 3 completed on 2025-02-22
+2025-02-22 16:33:10.038 +07:00 [INF] Request 7 completed on 2025-02-22
+2025-02-22 16:33:10.042 +07:00 [INF] Completed GET request for /swagger-ui-standalone-preset.js
+2025-02-22 16:33:10.046 +07:00 [INF] Request 6 completed on 2025-02-22
+2025-02-22 16:33:10.293 +07:00 [INF] Received GET request for /swagger/v1/swagger.json
+2025-02-22 16:33:10.316 +07:00 [INF] Completed GET request for /swagger/v1/swagger.json
+2025-02-22 16:33:10.320 +07:00 [INF] Request 8 completed on 2025-02-22
+2025-02-22 16:33:10.321 +07:00 [INF] Received GET request for /favicon-32x32.png
+2025-02-22 16:33:10.326 +07:00 [INF] Completed GET request for /favicon-32x32.png
+2025-02-22 16:33:10.329 +07:00 [INF] Request 9 completed on 2025-02-22
+2025-02-22 16:33:31.816 +07:00 [INF] Application is shutting down.

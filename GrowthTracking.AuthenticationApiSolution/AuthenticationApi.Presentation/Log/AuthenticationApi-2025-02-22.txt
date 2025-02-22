@@ -1,0 +1,37 @@
+2025-02-22 16:22:29.367 +07:00 [INF] Application has started.
+2025-02-22 16:22:29.385 +07:00 [INF] JWT Authentication scheme has been added.
+2025-02-22 16:22:29.462 +07:00 [INF] Global exception handling middleware has been added.
+2025-02-22 16:22:29.463 +07:00 [INF] Request logging middleware has been added.
+2025-02-22 16:22:31.195 +07:00 [INF] Received GET request for /swagger
+2025-02-22 16:22:31.202 +07:00 [INF] Completed GET request for /swagger
+2025-02-22 16:22:31.203 +07:00 [INF] Request 1 completed on 2025-02-22
+2025-02-22 16:22:31.216 +07:00 [INF] Received GET request for /swagger/index.html
+2025-02-22 16:22:31.257 +07:00 [INF] Completed GET request for /swagger/index.html
+2025-02-22 16:22:31.259 +07:00 [INF] Request 2 completed on 2025-02-22
+2025-02-22 16:22:31.290 +07:00 [INF] Received GET request for /swagger/swagger-ui.css
+2025-02-22 16:22:31.290 +07:00 [INF] Received GET request for /swagger/swagger-ui-standalone-preset.js
+2025-02-22 16:22:31.290 +07:00 [INF] Received GET request for /swagger/swagger-ui-bundle.js
+2025-02-22 16:22:31.315 +07:00 [INF] Completed GET request for /swagger/swagger-ui-standalone-preset.js
+2025-02-22 16:22:31.317 +07:00 [INF] Completed GET request for /swagger/swagger-ui.css
+2025-02-22 16:22:31.342 +07:00 [INF] Request 3 completed on 2025-02-22
+2025-02-22 16:22:31.341 +07:00 [INF] Request 4 completed on 2025-02-22
+2025-02-22 16:22:31.327 +07:00 [INF] Completed GET request for /swagger/swagger-ui-bundle.js
+2025-02-22 16:22:31.347 +07:00 [INF] Request 5 completed on 2025-02-22
+2025-02-22 16:22:31.520 +07:00 [INF] Received GET request for /swagger/v1/swagger.json
+2025-02-22 16:22:31.525 +07:00 [INF] Completed GET request for /swagger/v1/swagger.json
+2025-02-22 16:22:31.526 +07:00 [INF] Request 6 completed on 2025-02-22
+2025-02-22 16:22:31.593 +07:00 [INF] Received GET request for /swagger/favicon-32x32.png
+2025-02-22 16:22:31.597 +07:00 [INF] Completed GET request for /swagger/favicon-32x32.png
+2025-02-22 16:22:31.599 +07:00 [INF] Request 7 completed on 2025-02-22
+2025-02-22 16:22:44.764 +07:00 [INF] Application is shutting down.
+2025-02-22 16:27:40.121 +07:00 [INF] Application has started.
+2025-02-22 16:27:40.161 +07:00 [INF] JWT Authentication scheme has been added.
+2025-02-22 16:27:40.281 +07:00 [INF] Global exception handling middleware has been added.
+2025-02-22 16:27:40.290 +07:00 [INF] Request logging middleware has been added.
+2025-02-22 16:27:41.372 +07:00 [INF] Received GET request for /swagger/index.html
+2025-02-22 16:27:41.795 +07:00 [INF] Completed GET request for /swagger/index.html
+2025-02-22 16:27:42.358 +07:00 [INF] Request 1 completed on 2025-02-22
+2025-02-22 16:27:42.456 +07:00 [INF] Received GET request for /swagger/v1/swagger.json
+2025-02-22 16:27:42.468 +07:00 [INF] Completed GET request for /swagger/v1/swagger.json
+2025-02-22 16:27:42.474 +07:00 [INF] Request 2 completed on 2025-02-22
+2025-02-22 16:27:50.387 +07:00 [INF] Application is shutting down.
