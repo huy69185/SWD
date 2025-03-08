@@ -1,4 +1,4 @@
-﻿using AuthenticationApi.Application.DTOs;
+﻿using AuthenticationApi.Application.DTOs; // Thêm directive này
 using AuthenticationApi.Application.Interfaces;
 using AuthenticationApi.Domain.Entities;
 using AuthenticationApi.Infrastructure.Data;
@@ -12,7 +12,6 @@ namespace AuthenticationApi.Infrastructure.Repositories
 {
     public class UserRepository(AuthenticationDbContext context, IConfiguration config) : IUserRepository
     {
-        // Đăng ký người dùng mới
         public async Task<Response> Register(AppUserDTO appUserDTO)
         {
             var existingUser = await context.Users.FirstOrDefaultAsync(u => u.Email == appUserDTO.Email);
@@ -23,7 +22,7 @@ namespace AuthenticationApi.Infrastructure.Repositories
 
             var user = new AppUser
             {
-                UserAccountID = Guid.NewGuid(),
+                UserAccountID = appUserDTO.UserAccountID ?? Guid.NewGuid(),
                 FullName = appUserDTO.FullName,
                 Email = appUserDTO.Email,
                 PasswordHash = BCrypt.Net.BCrypt.HashPassword(appUserDTO.PasswordHash),
@@ -48,7 +47,6 @@ namespace AuthenticationApi.Infrastructure.Repositories
             return new Response(true, "User registered successfully");
         }
 
-        // Xử lý đăng nhập người dùng
         public async Task<Response> Login(LoginDTO loginDTO)
         {
             var user = await context.Users.FirstOrDefaultAsync(u => u.Email == loginDTO.Email);
@@ -62,14 +60,12 @@ namespace AuthenticationApi.Infrastructure.Repositories
             return new Response(true, "Login successful");
         }
 
-        // Lấy thông tin người dùng theo ID
         public async Task<AppUserDTO?> GetUser(Guid userId)
         {
             var user = await context.Users.FirstOrDefaultAsync(u => u.UserAccountID == userId);
             return user?.Adapt<AppUserDTO>();
         }
 
-        // Tạo báo cáo lỗi mới
         public async Task<Response> CreateBugReport(BugReportDTO bugReportDTO)
         {
             var bugReport = bugReportDTO.Adapt<BugReport>();
@@ -80,7 +76,6 @@ namespace AuthenticationApi.Infrastructure.Repositories
             return new Response(true, "Bug report created successfully");
         }
 
-        // Lấy danh sách báo cáo lỗi theo userId
         public async Task<IEnumerable<BugReportDTO>> GetBugReports(Guid userId)
         {
             var bugReports = await context.BugReports
@@ -89,7 +84,6 @@ namespace AuthenticationApi.Infrastructure.Repositories
             return bugReports.Adapt<IEnumerable<BugReportDTO>>();
         }
 
-        // Gửi thông báo mới
         public async Task<Response> SendNotification(NotificationDTO notificationDTO)
         {
             var notification = notificationDTO.Adapt<Notification>();
@@ -100,13 +94,24 @@ namespace AuthenticationApi.Infrastructure.Repositories
             return new Response(true, "Notification sent successfully");
         }
 
-        // Lấy danh sách thông báo theo userId
         public async Task<IEnumerable<NotificationDTO>> GetNotifications(Guid userId)
         {
             var notifications = await context.Notifications
                 .Where(n => n.UserId == userId)
                 .ToListAsync();
             return notifications.Adapt<IEnumerable<NotificationDTO>>();
+        }
+
+        public async Task<Response> UpdateUser(Guid userId, string fullName)
+        {
+            var user = await context.Users.FirstOrDefaultAsync(u => u.UserAccountID == userId);
+            if (user == null)
+                return new Response(false, "User not found");
+
+            user.FullName = fullName;
+            user.UpdatedAt = DateTime.UtcNow;
+            await context.SaveChangesAsync();
+            return new Response(true, "User updated successfully");
         }
     }
 }

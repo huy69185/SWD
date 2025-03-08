@@ -9,6 +9,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\GrowthTracking.ShareLibrarySolution\GrowthTracking.ShareLibrary\GrowthTracking.ShareLibrary.csproj" />
     <ProjectReference Include="..\AuthenticationAPI.Domain\AuthenticationApi.Domain.csproj" />
+	<PackageReference Include="RabbitMQ.Client" Version="6.8.1" />
   </ItemGroup>
 
 </Project>
