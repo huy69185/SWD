@@ -1,6 +1,8 @@
 ﻿using ParentManageApi.Application.Interfaces;
+using ParentManageApi.Application.Services;
 using ParentManageApi.Infrastructure.Data;
 using ParentManageApi.Infrastructure.Repositories;
+using ParentManageApi.Application.Messaging;
 using GrowthTracking.ShareLibrary.DependencyInjection;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -18,6 +20,8 @@ namespace ParentManageApi.Infrastructure.DependencyInjection
                 options.UseSqlServer(config.GetConnectionString("DefaultConnection")));
 
             services.AddScoped<IParentRepository, ParentRepository>();
+            services.AddScoped<IParentService, ParentService>();
+            services.AddSingleton<IEventPublisher, EventPublisher>();
 
             services.AddMapsterConfiguration();
             return services;

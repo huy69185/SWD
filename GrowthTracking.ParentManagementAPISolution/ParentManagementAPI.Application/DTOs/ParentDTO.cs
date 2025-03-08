@@ -4,14 +4,18 @@ using System.ComponentModel.DataAnnotations;
 namespace ParentManageApi.Application.DTOs
 {
     public record ParentDTO(
-        [GuidValidation] Guid ParentId,
-        [Required] string FullName,
+        [Required(ErrorMessage = "Full name is required")]
+        string FullName,
+
+        [DataType(DataType.Date)]
         DateTime? DateOfBirth,
+
+        [RegularExpression("^(Male|Female|Other)$", ErrorMessage = "Gender must be Male, Female, or Other")]
         string? Gender,
+
         string? Address,
-        string? AvatarUrl,
-        DateTime? CreatedAt,
-        DateTime? UpdatedAt,
-        bool IsDeleted = false 
+
+        [Url(ErrorMessage = "Avatar URL must be a valid URL")]
+        string? AvatarUrl
     );
 }

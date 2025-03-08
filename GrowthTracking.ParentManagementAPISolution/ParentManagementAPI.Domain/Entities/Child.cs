@@ -7,7 +7,7 @@ namespace ParentManageApi.Domain.Entities
         public override Guid Id { get; set; }
         public Guid ChildId { get; set; }
         public Guid ParentId { get; set; }
-        public string FullName { get; set; }
+        public string? FullName { get; set; }
         public DateTime DateOfBirth { get; set; }
         public string? Gender { get; set; }
         public decimal? BirthWeight { get; set; }

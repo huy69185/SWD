@@ -9,6 +9,8 @@
   <ItemGroup>
     <ProjectReference Include="..\..\GrowthTracking.ShareLibrarySolution\GrowthTracking.ShareLibrary\GrowthTracking.ShareLibrary.csproj" />
     <ProjectReference Include="..\ParentManagementAPI.Domain\ParentManagementAPI.Domain.csproj" />
+    <PackageReference Include="Mapster" Version="7.4.0" />
+    <PackageReference Include="RabbitMQ.Client" Version="6.8.1" />
   </ItemGroup>
 
 </Project>

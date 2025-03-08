@@ -13,6 +13,12 @@ namespace ParentManageApi.Infrastructure.Mapping
                 .ForType<string, Guid>()
                 .MapWith(src => Guid.Parse(src));
 
+            TypeAdapterConfig<ParentDTO, Parent>.NewConfig()
+                .Map(dest => dest.ParentId, src => Guid.Empty)
+                .Map(dest => dest.CreatedAt, src => DateTime.UtcNow)
+                .Map(dest => dest.UpdatedAt, src => DateTime.UtcNow)
+                .Map(dest => dest.IsDeleted, src => false);
+
             TypeAdapterConfig<Parent, ParentDTO>.NewConfig().MapToConstructor(true);
             TypeAdapterConfig<Child, ChildDTO>.NewConfig().MapToConstructor(true);
 

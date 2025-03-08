@@ -14,7 +14,7 @@ namespace ParentManageApi.Infrastructure.Data
             {
                 entity.HasKey(e => e.ParentId);
                 entity.Property(e => e.ParentId).HasDefaultValueSql("NEWID()");
-                entity.Property(e => e.IsDeleted).HasDefaultValue(false); 
+                entity.Property(e => e.IsDeleted).HasDefaultValue(false);
                 entity.HasQueryFilter(p => !p.IsDeleted);
             });
 
