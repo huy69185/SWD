@@ -12,6 +12,7 @@ namespace AuthenticationApi.Infrastructure.Repositories
 {
     public class UserRepository(AuthenticationDbContext context, IConfiguration config) : IUserRepository
     {
+        // Đăng ký người dùng mới
         public async Task<Response> Register(AppUserDTO appUserDTO)
         {
             var existingUser = await context.Users.FirstOrDefaultAsync(u => u.Email == appUserDTO.Email);
@@ -47,6 +48,7 @@ namespace AuthenticationApi.Infrastructure.Repositories
             return new Response(true, "User registered successfully");
         }
 
+        // Xử lý đăng nhập người dùng
         public async Task<Response> Login(LoginDTO loginDTO)
         {
             var user = await context.Users.FirstOrDefaultAsync(u => u.Email == loginDTO.Email);
@@ -60,12 +62,14 @@ namespace AuthenticationApi.Infrastructure.Repositories
             return new Response(true, "Login successful");
         }
 
+        // Lấy thông tin người dùng theo ID
         public async Task<AppUserDTO?> GetUser(Guid userId)
         {
             var user = await context.Users.FirstOrDefaultAsync(u => u.UserAccountID == userId);
             return user?.Adapt<AppUserDTO>();
         }
 
+        // Tạo báo cáo lỗi mới
         public async Task<Response> CreateBugReport(BugReportDTO bugReportDTO)
         {
             var bugReport = bugReportDTO.Adapt<BugReport>();
@@ -76,6 +80,7 @@ namespace AuthenticationApi.Infrastructure.Repositories
             return new Response(true, "Bug report created successfully");
         }
 
+        // Lấy danh sách báo cáo lỗi theo userId
         public async Task<IEnumerable<BugReportDTO>> GetBugReports(Guid userId)
         {
             var bugReports = await context.BugReports
@@ -84,6 +89,7 @@ namespace AuthenticationApi.Infrastructure.Repositories
             return bugReports.Adapt<IEnumerable<BugReportDTO>>();
         }
 
+        // Gửi thông báo mới
         public async Task<Response> SendNotification(NotificationDTO notificationDTO)
         {
             var notification = notificationDTO.Adapt<Notification>();
@@ -94,6 +100,7 @@ namespace AuthenticationApi.Infrastructure.Repositories
             return new Response(true, "Notification sent successfully");
         }
 
+        // Lấy danh sách thông báo theo userId
         public async Task<IEnumerable<NotificationDTO>> GetNotifications(Guid userId)
         {
             var notifications = await context.Notifications

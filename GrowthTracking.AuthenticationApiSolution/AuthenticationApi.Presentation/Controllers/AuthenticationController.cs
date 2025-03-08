@@ -10,6 +10,7 @@ namespace AuthenticationApi.Presentation.Controllers
     public class AuthenticationController(IUserRepository userRepository) : ControllerBase
     {
         [HttpPost("register")]
+        // Đăng ký người dùng mới
         public async Task<IActionResult> Register([FromBody] AppUserDTO userDTO)
         {
             var response = await userRepository.Register(userDTO);
@@ -17,6 +18,7 @@ namespace AuthenticationApi.Presentation.Controllers
         }
 
         [HttpPost("login")]
+        // Đăng nhập người dùng
         public async Task<IActionResult> Login([FromBody] LoginDTO loginDTO)
         {
             var response = await userRepository.Login(loginDTO);
@@ -25,6 +27,7 @@ namespace AuthenticationApi.Presentation.Controllers
 
         [HttpGet("{userId}")]
         [Authorize]
+        // Lấy thông tin người dùng theo ID
         public async Task<IActionResult> GetUser([FromRoute] Guid userId)
         {
             var user = await userRepository.GetUser(userId);
@@ -33,6 +36,7 @@ namespace AuthenticationApi.Presentation.Controllers
 
         [HttpPost("bug-report")]
         [Authorize]
+        // Tạo báo cáo lỗi
         public async Task<IActionResult> CreateBugReport([FromBody] BugReportDTO bugReportDTO)
         {
             var response = await userRepository.CreateBugReport(bugReportDTO);
@@ -41,6 +45,7 @@ namespace AuthenticationApi.Presentation.Controllers
 
         [HttpGet("bug-reports/{userId}")]
         [Authorize]
+        // Lấy danh sách báo cáo lỗi theo userId
         public async Task<IActionResult> GetBugReports([FromRoute] Guid userId)
         {
             var bugReports = await userRepository.GetBugReports(userId);
@@ -49,6 +54,7 @@ namespace AuthenticationApi.Presentation.Controllers
 
         [HttpPost("notification")]
         [Authorize]
+        // Gửi thông báo
         public async Task<IActionResult> SendNotification([FromBody] NotificationDTO notificationDTO)
         {
             var response = await userRepository.SendNotification(notificationDTO);
@@ -57,6 +63,7 @@ namespace AuthenticationApi.Presentation.Controllers
 
         [HttpGet("notifications/{userId}")]
         [Authorize]
+        // Lấy danh sách thông báo theo userId
         public async Task<IActionResult> GetNotifications([FromRoute] Guid userId)
         {
             var notifications = await userRepository.GetNotifications(userId);
