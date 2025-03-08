@@ -13,7 +13,14 @@ namespace AuthenticationApi.Infrastructure.Mapping
                 .ForType<string, Guid>()
                 .MapWith(src => Guid.Parse(src));
 
+            // Cấu hình ánh xạ cho AppUser
             TypeAdapterConfig<AppUser, AppUserDTO>.NewConfig().MapToConstructor(true);
+
+            // Cấu hình ánh xạ cho BugReport
+            TypeAdapterConfig<BugReport, BugReportDTO>.NewConfig().MapToConstructor(true);
+
+            // Cấu hình ánh xạ cho Notification
+            TypeAdapterConfig<Notification, NotificationDTO>.NewConfig().MapToConstructor(true);
 
             services.AddSingleton(TypeAdapterConfig.GlobalSettings);
             return services;
