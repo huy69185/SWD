@@ -12,5 +12,6 @@ namespace AuthenticationApi.Application.Interfaces
         Task<IEnumerable<BugReportDTO>> GetBugReports(Guid userId);
         Task<Response> SendNotification(NotificationDTO notificationDTO);
         Task<IEnumerable<NotificationDTO>> GetNotifications(Guid userId);
+        Task<Response> UpdateUser(Guid userId, string fullName);
     }
 }

@@ -1,12 +1,14 @@
 ﻿using AuthenticationApi.Application.Interfaces;
+using AuthenticationApi.Application.Services;
 using AuthenticationApi.Infrastructure.Data;
-using AuthenticationApi.Infrastructure.Mapping;
 using AuthenticationApi.Infrastructure.Repositories;
+using AuthenticationApi.Application.Messaging;
 using GrowthTracking.ShareLibrary.DependencyInjection;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using AuthenticationApi.Infrastructure.Mapping;
 
 namespace AuthenticationApi.Infrastructure.DependencyInjection
 {
@@ -18,6 +20,8 @@ namespace AuthenticationApi.Infrastructure.DependencyInjection
                 options.UseSqlServer(config.GetConnectionString("DefaultConnection")));
 
             services.AddScoped<IUserRepository, UserRepository>();
+            services.AddSingleton<ParentEventConsumer>();
+            services.AddHostedService<ParentEventConsumerHostedService>();
 
             services.AddMapsterConfiguration();
             return services;
