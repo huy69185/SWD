@@ -1,77 +1,66 @@
 ﻿using AuthenticationApi.Application.DTOs;
 using AuthenticationApi.Application.Interfaces;
-using GrowthTracking.ShareLibrary.Response;
-using GrowthTracking.ShareLibrary.Validation;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AuthenticationApi.Presentation.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/auth")]
     [ApiController]
-    [AllowAnonymous]
     public class AuthenticationController(IUserRepository userRepository) : ControllerBase
     {
         [HttpPost("register")]
-        public async Task<IActionResult> Register([FromBody] AppUserDTO user)
+        public async Task<IActionResult> Register([FromBody] AppUserDTO userDTO)
         {
-            // Data has been validated by ValidationFilter
-            var result = await userRepository.Register(user);
-            
-            return result.Flag switch
-            {
-                true => Ok(new ApiResponse
-                {
-                    Success = result.Flag,
-                    Message = result.Message,
-                }),
-                _ => StatusCode(StatusCodes.Status500InternalServerError , new ApiResponse
-                {
-                    Success = result.Flag,
-                    Message = result.Message,
-                }),
-            };
+            var response = await userRepository.Register(userDTO);
+            return response.Flag ? Ok(new ApiResponse(true, response.Message)) : BadRequest(new ApiResponse(false, response.Message));
         }
 
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] LoginDTO loginDTO)
         {
-            // Data has been validated by ValidationFilter
-            var result = await userRepository.Login(loginDTO);
-
-            return result.Flag switch
-            {
-                true => Ok(new ApiResponse
-                {
-                    Success = result.Flag,
-                    Message = result.Message,
-                }),
-                _ => StatusCode(StatusCodes.Status401Unauthorized, new ApiResponse
-                {
-                    Success = result.Flag,
-                    Message = result.Message,
-                }),
-            };
+            var response = await userRepository.Login(loginDTO);
+            return response.Flag ? Ok(new ApiResponse(true, response.Message)) : Unauthorized(new ApiResponse(false, response.Message));
         }
 
         [HttpGet("{userId}")]
         [Authorize]
-        public async Task<IActionResult> GetUser([FromRoute, GuidValidation] string userId)
+        public async Task<IActionResult> GetUser([FromRoute] Guid userId)
         {
-            var result = await userRepository.GetUserDTO(Guid.Parse(userId));
+            var user = await userRepository.GetUser(userId);
+            return user == null ? NotFound(new ApiResponse(false, "User not found")) : Ok(new ApiResponse(true, data: user));
+        }
 
-            return result == null
-                ? NotFound(new ApiResponse
-                {
-                    Success = false,
-                    Message = "User not found",
-                })
-                : Ok(new ApiResponse
-                {
-                    Success = true,
-                    Data = result,
-                });
+        [HttpPost("bug-report")]
+        [Authorize]
+        public async Task<IActionResult> CreateBugReport([FromBody] BugReportDTO bugReportDTO)
+        {
+            var response = await userRepository.CreateBugReport(bugReportDTO);
+            return response.Flag ? Ok(new ApiResponse(true, response.Message)) : BadRequest(new ApiResponse(false, response.Message));
+        }
+
+        [HttpGet("bug-reports/{userId}")]
+        [Authorize]
+        public async Task<IActionResult> GetBugReports([FromRoute] Guid userId)
+        {
+            var bugReports = await userRepository.GetBugReports(userId);
+            return Ok(new ApiResponse(true, data: bugReports));
+        }
+
+        [HttpPost("notification")]
+        [Authorize]
+        public async Task<IActionResult> SendNotification([FromBody] NotificationDTO notificationDTO)
+        {
+            var response = await userRepository.SendNotification(notificationDTO);
+            return response.Flag ? Ok(new ApiResponse(true, response.Message)) : BadRequest(new ApiResponse(false, response.Message));
+        }
+
+        [HttpGet("notifications/{userId}")]
+        [Authorize]
+        public async Task<IActionResult> GetNotifications([FromRoute] Guid userId)
+        {
+            var notifications = await userRepository.GetNotifications(userId);
+            return Ok(new ApiResponse(true, data: notifications));
         }
     }
 }
