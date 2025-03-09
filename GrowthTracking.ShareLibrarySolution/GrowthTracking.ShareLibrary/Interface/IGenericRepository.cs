@@ -1,6 +1,4 @@
-﻿using System.Linq.Expressions;
-using GrowthTracking.ShareLibrary.Response;
-namespace GrowthTracking.ShareLibrary.Interface
+﻿namespace GrowthTracking.ShareLibrary.Interface
 {
     using GrowthTracking.ShareLibrary.Response;
     using System.Linq.Expressions;
