@@ -3,8 +3,9 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using ParentManageApi.Application.DTOs;
 using ParentManageApi.Application.Interfaces;
-using ParentManagementAPI.Application.DTOs;
 using System.Security.Claims;
+using GrowthTracking.ShareLibrary.Logs;
+using ParentManagementAPI.Application.DTOs; 
 
 namespace ParentManageApi.Presentation.Controllers
 {
@@ -18,10 +19,23 @@ namespace ParentManageApi.Presentation.Controllers
         {
             var parentId = User?.FindFirst(ClaimTypes.NameIdentifier)?.Value;
             if (string.IsNullOrEmpty(parentId) || !Guid.TryParse(parentId, out var parsedParentId))
+            {
+                LogHandler.LogExceptions(new UnauthorizedAccessException($"Invalid or missing user token for CreateParent"));
                 return Unauthorized(new ApiResponse(false, "Invalid or missing user token"));
+            }
 
+            LogHandler.LogToFile($"Starting CreateParent for ParentId: {parsedParentId}");
             var response = await parentService.CreateParentAsync(parentDTO, parsedParentId);
-            return response.Flag ? Ok(new ApiResponse(true, response.Message, null)) : BadRequest(new ApiResponse(false, response.Message, null));
+            if (response.Flag)
+            {
+                LogHandler.LogToConsole($"Successfully created parent with ParentId: {parsedParentId}");
+                return Ok(new ApiResponse(true, response.Message, null));
+            }
+            else
+            {
+                LogHandler.LogToDebugger($"Failed to create parent with ParentId: {parsedParentId}. Reason: {response.Message}");
+                return BadRequest(new ApiResponse(false, response.Message, null));
+            }
         }
 
         [HttpPut]
@@ -30,25 +44,48 @@ namespace ParentManageApi.Presentation.Controllers
         {
             var parentId = User?.FindFirst(ClaimTypes.NameIdentifier)?.Value;
             if (string.IsNullOrEmpty(parentId) || !Guid.TryParse(parentId, out var parsedParentId))
+            {
+                LogHandler.LogExceptions(new UnauthorizedAccessException($"Invalid or missing user token for UpdateParent"));
                 return Unauthorized(new ApiResponse(false, "Invalid or missing user token"));
+            }
 
+            LogHandler.LogToFile($"Starting UpdateParent for ParentId: {parsedParentId}");
             var response = await parentService.UpdateParentAsync(parentDTO, parsedParentId);
-            return response.Flag ? Ok(new ApiResponse(true, response.Message, null)) : BadRequest(new ApiResponse(false, response.Message, null));
+            if (response.Flag)
+            {
+                LogHandler.LogToConsole($"Successfully updated parent with ParentId: {parsedParentId}");
+                return Ok(new ApiResponse(true, response.Message, null));
+            }
+            else
+            {
+                LogHandler.LogToDebugger($"Failed to update parent with ParentId: {parsedParentId}. Reason: {response.Message}");
+                return BadRequest(new ApiResponse(false, response.Message, null));
+            }
         }
 
         [HttpGet("{parentId}")]
         [Authorize]
         public async Task<IActionResult> GetParent([FromRoute] Guid parentId)
         {
+            LogHandler.LogToFile($"Starting GetParent for ParentId: {parentId}");
             var parent = await parentService.GetParentAsync(parentId);
-            return parent == null ? NotFound(new ApiResponse(false, "Parent not found", null)) : Ok(new ApiResponse(true, "Parent found", parent));
+            if (parent == null)
+            {
+                LogHandler.LogToDebugger($"Parent with ParentId: {parentId} not found");
+                return NotFound(new ApiResponse(false, "Parent not found", null));
+            }
+
+            LogHandler.LogToConsole($"Successfully retrieved parent with ParentId: {parentId}");
+            return Ok(new ApiResponse(true, "Parent found", parent));
         }
 
         [HttpGet]
         [Authorize]
         public async Task<IActionResult> GetAllParents()
         {
+            LogHandler.LogToFile("Starting GetAllParents");
             var parents = await parentService.GetAllParentsAsync();
+            LogHandler.LogToConsole("Successfully retrieved all parents");
             return Ok(new ApiResponse(true, "Parents retrieved successfully", parents));
         }
 
@@ -56,16 +93,18 @@ namespace ParentManageApi.Presentation.Controllers
         [Authorize]
         public async Task<IActionResult> DeleteParent([FromRoute] Guid parentId)
         {
+            LogHandler.LogToFile($"Starting DeleteParent for ParentId: {parentId}");
             var response = await parentService.DeleteParentAsync(parentId);
-            return response.Flag ? Ok(new ApiResponse(true, response.Message, null)) : NotFound(new ApiResponse(false, response.Message, null));
-        }
-
-        [HttpGet("{parentId}/children")]
-        [Authorize]
-        public async Task<IActionResult> GetChildrenByParent([FromRoute] Guid parentId)
-        {
-            var children = await parentService.GetChildrenByParentAsync(parentId);
-            return Ok(new ApiResponse(true, "Children retrieved successfully", children));
+            if (response.Flag)
+            {
+                LogHandler.LogToConsole($"Successfully deleted parent with ParentId: {parentId}");
+                return Ok(new ApiResponse(true, response.Message, null));
+            }
+            else
+            {
+                LogHandler.LogToDebugger($"Failed to delete parent with ParentId: {parentId}. Reason: {response.Message}");
+                return NotFound(new ApiResponse(false, response.Message, null));
+            }
         }
     }
 }

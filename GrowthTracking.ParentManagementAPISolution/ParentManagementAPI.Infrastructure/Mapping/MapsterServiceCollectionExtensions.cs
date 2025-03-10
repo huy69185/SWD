@@ -20,7 +20,6 @@ namespace ParentManageApi.Infrastructure.Mapping
                 .Map(dest => dest.IsDeleted, src => false);
 
             TypeAdapterConfig<Parent, ParentDTO>.NewConfig().MapToConstructor(true);
-            TypeAdapterConfig<Child, ChildDTO>.NewConfig().MapToConstructor(true);
 
             services.AddSingleton(TypeAdapterConfig.GlobalSettings);
             return services;
