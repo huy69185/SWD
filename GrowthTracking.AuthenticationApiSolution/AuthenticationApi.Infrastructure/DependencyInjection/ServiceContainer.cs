@@ -1,16 +1,14 @@
 ﻿using AuthenticationApi.Application.Interfaces;
+using AuthenticationApi.Application.Services;
 using AuthenticationApi.Infrastructure.Data;
-using AuthenticationApi.Infrastructure.Mapping;
 using AuthenticationApi.Infrastructure.Repositories;
+using AuthenticationApi.Application.Messaging;
 using GrowthTracking.ShareLibrary.DependencyInjection;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using AuthenticationApi.Infrastructure.Mapping;
 
 namespace AuthenticationApi.Infrastructure.DependencyInjection
 {
@@ -18,13 +16,12 @@ namespace AuthenticationApi.Infrastructure.DependencyInjection
     {
         public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration config)
         {
-            //Add database connectivity
-            //JWT Add Authentication Scheme
-            ShareServiceContainer.AddSharedService(services, config, config["MySerilog:FileName"]!);
-            ShareServiceContainer.AddSharedDbContext<AuthenticationDbContext>(services, config);
+            services.AddDbContext<AuthenticationDbContext>(options =>
+                options.UseSqlServer(config.GetConnectionString("DefaultConnection")));
 
-            //Dependency Injection
             services.AddScoped<IUserRepository, UserRepository>();
+            services.AddSingleton<ParentEventConsumer>();
+            services.AddHostedService<ParentEventConsumerHostedService>();
 
             services.AddMapsterConfiguration();
             return services;
@@ -32,10 +29,7 @@ namespace AuthenticationApi.Infrastructure.DependencyInjection
 
         public static IApplicationBuilder UseInfrastructurePolicy(this IApplicationBuilder app)
         {
-            // Register middleware such as:
-            // Global Exception : Handle external errors
-            // Listen Only To Api Gateway : block all outsiders call.
-            ShareServiceContainer.UseSharedPolicies(app);
+            app.UseSharedPolicies();
             return app;
         }
     }

@@ -1,0 +1,6 @@
+@ParentManageAPI.Presentation_HostAddress = http://localhost:5079
+
+GET {{ParentManageAPI.Presentation_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

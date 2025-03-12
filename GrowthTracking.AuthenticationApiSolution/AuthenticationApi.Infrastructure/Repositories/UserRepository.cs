@@ -1,4 +1,4 @@
-﻿using AuthenticationApi.Application.DTOs;
+﻿using AuthenticationApi.Application.DTOs; // Thêm directive này
 using AuthenticationApi.Application.Interfaces;
 using AuthenticationApi.Domain.Entities;
 using AuthenticationApi.Infrastructure.Data;
@@ -6,89 +6,112 @@ using GrowthTracking.ShareLibrary.Response;
 using Mapster;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-using Microsoft.IdentityModel.Tokens;
-using System.IdentityModel.Tokens.Jwt;
-using System.Security.Claims;
-using System.Text;
+using System.Threading.Tasks;
 
 namespace AuthenticationApi.Infrastructure.Repositories
 {
     public class UserRepository(AuthenticationDbContext context, IConfiguration config) : IUserRepository
     {
-        public async Task<AppUserDTO?> GetUserDTO<TKey>(TKey userId)
+        public async Task<Response> Register(AppUserDTO appUserDTO)
         {
-            var user = await context.Users.FindAsync(userId);
-            return user?.Adapt<AppUserDTO>();
+            var existingUser = await context.Users.FirstOrDefaultAsync(u => u.Email == appUserDTO.Email);
+            if (existingUser != null)
+            {
+                return new Response(false, "Email already registered");
+            }
+
+            var user = new AppUser
+            {
+                UserAccountID = appUserDTO.UserAccountID ?? Guid.NewGuid(),
+                FullName = appUserDTO.FullName,
+                Email = appUserDTO.Email,
+                PasswordHash = BCrypt.Net.BCrypt.HashPassword(appUserDTO.PasswordHash),
+                PhoneNumber = appUserDTO.PhoneNumber,
+                Role = appUserDTO.Role,
+                CreatedAt = DateTime.Now,
+                UpdatedAt = DateTime.Now,
+                IsActive = appUserDTO.IsActive,
+                ProfilePictureUrl = appUserDTO.ProfilePictureUrl,
+                Address = appUserDTO.Address,
+                Bio = appUserDTO.Bio,
+                EmailVerified = appUserDTO.EmailVerified,
+                VerificationToken = appUserDTO.VerificationToken,
+                ResetToken = appUserDTO.ResetToken,
+                ResetTokenExpiry = appUserDTO.ResetTokenExpiry,
+                OAuth2GoogleId = appUserDTO.OAuth2GoogleId,
+                OAuth2FacebookId = appUserDTO.OAuth2FacebookId
+            };
+
+            context.Users.Add(user);
+            await context.SaveChangesAsync();
+            return new Response(true, "User registered successfully");
         }
 
         public async Task<Response> Login(LoginDTO loginDTO)
         {
-            var user = await GetUserByEmail(loginDTO.Email);
-            if (user == null)
+            var user = await context.Users.FirstOrDefaultAsync(u => u.Email == loginDTO.Email);
+            if (user == null || string.IsNullOrEmpty(user.PasswordHash) || !BCrypt.Net.BCrypt.Verify(loginDTO.Password, user.PasswordHash))
             {
                 return new Response(false, "Invalid credentials");
             }
 
-            if (!BCrypt.Net.BCrypt.Verify(loginDTO.Password, user.Password))
-            {
-                return new Response(false, "Invalid credentials");
-            }
-
-            string token = GenerateToken(user);
-            return new Response(true, token);
-        }
-
-        private string GenerateToken(AppUser user)
-        {
-            var key = Encoding.UTF8.GetBytes(config.GetSection("Authentication:Key").Value!);
-            var securityKey = new SymmetricSecurityKey(key);
-            var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
-            var  claims = new List<Claim>
-            {
-                new (ClaimTypes.Name, user.Name!),
-                new (ClaimTypes.Email, user.Email!),
-            };
-            if (!string.IsNullOrEmpty(user.Role))
-            {
-                claims.Add(new Claim(ClaimTypes.Role, user.Role!));
-            }
-
-            var token = new JwtSecurityToken(
-                issuer: config.GetSection("Authentication:Issuer").Value,
-                audience: config.GetSection("Authentication:Audience").Value,
-                claims: claims,
-                expires: DateTime.Now.AddMinutes(30),
-                signingCredentials: credentials
-            );
-
-            return new JwtSecurityTokenHandler().WriteToken(token);
-        }
-
-        public async Task<Response> Register(AppUserDTO appUserDTO)
-        {
-            var user = await GetUserByEmail(appUserDTO.Email);
-            if (user != null)
-            {
-                return new Response(false, "You cannot use this email for registration");
-            }
-
-            var result = context.Users.Add(new AppUser
-            {
-                Name = appUserDTO.Name,
-                Email = appUserDTO.Email,
-                Password = BCrypt.Net.BCrypt.HashPassword(appUserDTO.Password),
-                PhoneNumber = appUserDTO.PhoneNumber,
-                Address = appUserDTO.Address,
-                Role = appUserDTO.Role
-            });
+            user.LastLoginAt = DateTime.Now;
             await context.SaveChangesAsync();
-            return result != null ? 
-                new Response(true, "User registered successfully") : new Response(false, "User registration failed");
+            return new Response(true, "Login successful");
         }
 
-        private async Task<AppUser?> GetUserByEmail(string email)
+        public async Task<AppUserDTO?> GetUser(Guid userId)
         {
-            return await context.Users.FirstOrDefaultAsync(user => user.Email == email);
+            var user = await context.Users.FirstOrDefaultAsync(u => u.UserAccountID == userId);
+            return user?.Adapt<AppUserDTO>();
+        }
+
+        public async Task<Response> CreateBugReport(BugReportDTO bugReportDTO)
+        {
+            var bugReport = bugReportDTO.Adapt<BugReport>();
+            bugReport.CreatedAt = DateTime.Now;
+            bugReport.UpdatedAt = DateTime.Now;
+            context.BugReports.Add(bugReport);
+            await context.SaveChangesAsync();
+            return new Response(true, "Bug report created successfully");
+        }
+
+        public async Task<IEnumerable<BugReportDTO>> GetBugReports(Guid userId)
+        {
+            var bugReports = await context.BugReports
+                .Where(br => br.UserId == userId)
+                .ToListAsync();
+            return bugReports.Adapt<IEnumerable<BugReportDTO>>();
+        }
+
+        public async Task<Response> SendNotification(NotificationDTO notificationDTO)
+        {
+            var notification = notificationDTO.Adapt<Notification>();
+            notification.CreatedAt = DateTime.Now;
+            notification.UpdatedAt = DateTime.Now;
+            context.Notifications.Add(notification);
+            await context.SaveChangesAsync();
+            return new Response(true, "Notification sent successfully");
+        }
+
+        public async Task<IEnumerable<NotificationDTO>> GetNotifications(Guid userId)
+        {
+            var notifications = await context.Notifications
+                .Where(n => n.UserId == userId)
+                .ToListAsync();
+            return notifications.Adapt<IEnumerable<NotificationDTO>>();
+        }
+
+        public async Task<Response> UpdateUser(Guid userId, string fullName)
+        {
+            var user = await context.Users.FirstOrDefaultAsync(u => u.UserAccountID == userId);
+            if (user == null)
+                return new Response(false, "User not found");
+
+            user.FullName = fullName;
+            user.UpdatedAt = DateTime.UtcNow;
+            await context.SaveChangesAsync();
+            return new Response(true, "User updated successfully");
         }
     }
 }
