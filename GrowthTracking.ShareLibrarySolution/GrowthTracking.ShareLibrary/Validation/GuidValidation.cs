@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace GrowthTracking.ShareLibrary.Validation
 {
-    public class GuidValidationAttribute : ValidationAttribute
+    public class GuidValidation : ValidationAttribute
     {
-        public GuidValidationAttribute()
+        public GuidValidation()
         {
             ErrorMessage = "Invalid Guid attribute";  // Default error message
         }

@@ -5,8 +5,6 @@ using Serilog;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using GrowthTracking.ShareLibrary.Middleware;
-using System.IO;
-using System.Threading.Tasks;
 
 namespace GrowthTracking.ShareLibrary.DependencyInjection
 {
@@ -85,21 +83,15 @@ namespace GrowthTracking.ShareLibrary.DependencyInjection
     }
 
     // Middleware to log request details
-    public class RequestLoggingMiddleware
+    public class RequestLoggingMiddleware(RequestDelegate next)
     {
-        private readonly RequestDelegate _next;
         private static int _requestCounter = 0; // Counter to keep track of request number
-
-        public RequestLoggingMiddleware(RequestDelegate next)
-        {
-            _next = next;
-        }
 
         public async Task InvokeAsync(HttpContext context)
         {
             int requestNumber = ++_requestCounter;
             Log.Information("Received {Method} request for {Path}", context.Request.Method, context.Request.Path);
-            await _next(context);
+            await next(context);
             Log.Information("Completed {Method} request for {Path}", context.Request.Method, context.Request.Path);
             Log.Information("Request {RequestNumber} completed on {Date}", requestNumber, DateTime.Now.ToString("yyyy-MM-dd"));
         }
