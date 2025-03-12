@@ -1,7 +1,9 @@
 ﻿using Microsoft.Extensions.Configuration;
 using RabbitMQ.Client;
+using System;
 using System.Text;
 using System.Text.Json;
+using System.Threading;
 using GrowthTracking.ShareLibrary.Logs;
 
 namespace ParentManageApi.Application.Messaging
@@ -10,6 +12,7 @@ namespace ParentManageApi.Application.Messaging
     {
         private readonly IConnection _connection;
         private readonly IModel _channel;
+        private readonly int _retryInterval = 5000; // 5 giây
 
         public EventPublisher(IConfiguration configuration)
         {
@@ -36,20 +39,43 @@ namespace ParentManageApi.Application.Messaging
 
         public void PublishParentCreated(Guid parentId, string fullName)
         {
-            LogHandler.LogToFile($"EventPublisher: Publishing ParentCreated event for ParentId: {parentId}");
-            var message = new { ParentId = parentId, FullName = fullName, EventType = "ParentCreated" };
-            var body = Encoding.UTF8.GetBytes(JsonSerializer.Serialize(message));
-            _channel.BasicPublish(exchange: "", routingKey: "parent.events", basicProperties: null, body: body);
-            LogHandler.LogToConsole($"EventPublisher: Successfully published ParentCreated event for ParentId: {parentId}");
+            PublishEvent(parentId, fullName, "ParentCreated");
         }
 
         public void PublishParentUpdated(Guid parentId, string fullName)
         {
-            LogHandler.LogToFile($"EventPublisher: Publishing ParentUpdated event for ParentId: {parentId}");
-            var message = new { ParentId = parentId, FullName = fullName, EventType = "ParentUpdated" };
-            var body = Encoding.UTF8.GetBytes(JsonSerializer.Serialize(message));
-            _channel.BasicPublish(exchange: "", routingKey: "parent.events", basicProperties: null, body: body);
-            LogHandler.LogToConsole($"EventPublisher: Successfully published ParentUpdated event for ParentId: {parentId}");
+            PublishEvent(parentId, fullName, "ParentUpdated");
+        }
+
+        private void PublishEvent(Guid parentId, string fullName, string eventType)
+        {
+            int retryCount = 0;
+            const int maxRetries = 3;
+
+            while (retryCount < maxRetries)
+            {
+                try
+                {
+                    LogHandler.LogToFile($"EventPublisher: Publishing {eventType} event for ParentId: {parentId}");
+                    var message = new { ParentId = parentId, FullName = fullName, EventType = eventType };
+                    var body = Encoding.UTF8.GetBytes(JsonSerializer.Serialize(message));
+                    _channel.BasicPublish(exchange: "", routingKey: "parent.events", basicProperties: null, body: body);
+                    LogHandler.LogToConsole($"EventPublisher: Successfully published {eventType} event for ParentId: {parentId}");
+                    break;
+                }
+                catch (Exception ex)
+                {
+                    retryCount++;
+                    LogHandler.LogExceptions(ex); // Gọi với 1 tham số Exception
+                    LogHandler.LogToFile($"Retry {retryCount}/{maxRetries} for {eventType} event"); // Thêm message vào file log
+                    if (retryCount == maxRetries)
+                    {
+                        LogHandler.LogToDebugger($"Failed to publish {eventType} event after {maxRetries} retries");
+                        throw;
+                    }
+                    Thread.Sleep(_retryInterval);
+                }
+            }
         }
 
         public void Dispose()
