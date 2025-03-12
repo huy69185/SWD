@@ -2,8 +2,9 @@
 using GrowthTracking.ShareLibrary.DependencyInjection;
 using Microsoft.OpenApi.Models;
 using System.Diagnostics;
-using GrowthTracking.ShareLibrary.Logs; // Thêm namespace cho LogHandler
-using Serilog; // Thêm namespace cho Serilog
+using GrowthTracking.ShareLibrary.Logs;
+using Serilog;
+using ParentManagementAPI.Application.Messaging;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -42,6 +43,9 @@ builder.Host.UseSerilog((context, services, configuration) =>
             shared: true);
     Log.Information("Application has started.");
 });
+
+// Đăng ký HostedService cho ParentEventConsumer
+builder.Services.AddHostedService<ParentEventConsumer>();
 
 var app = builder.Build();
 

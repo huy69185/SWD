@@ -1,0 +1,69 @@
+2025-03-12 07:58:25.236 +07:00 [INF] Application has started.
+2025-03-12 07:58:25.274 +07:00 [INF] JWT Authentication scheme has been added.
+2025-03-12 07:58:25.673 +07:00 [INF] Application has started.
+2025-03-12 07:58:25.714 +07:00 [INF] Global exception handling middleware has been added.
+2025-03-12 07:58:25.715 +07:00 [INF] Request logging middleware has been added.
+2025-03-12 07:58:25.794 +07:00 [DBG] Registered model binder providers, in the following order: ["Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BinderTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ServicesModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.HeaderModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FloatingPointTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.EnumTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DateTimeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.TryParseModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CancellationTokenModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormFileModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormCollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.KeyValuePairModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DictionaryModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexObjectModelBinderProvider"]
+2025-03-12 07:58:25.949 +07:00 [WRN] Automatically opened Swagger at: http://localhost:5002/swagger
+2025-03-12 07:58:25.955 +07:00 [DBG] Hosting starting
+2025-03-12 07:58:25.990 +07:00 [INF] User profile is available. Using 'C:\Users\huyh6\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-03-12 07:58:26.379 +07:00 [DBG] Reading data from file 'C:\Users\huyh6\AppData\Local\ASP.NET\DataProtection-Keys\key-050a4a68-1eb2-4a9a-b32f-1abf7f6aa0c6.xml'.
+2025-03-12 07:58:26.442 +07:00 [DBG] Found key {050a4a68-1eb2-4a9a-b32f-1abf7f6aa0c6}.
+2025-03-12 07:58:26.455 +07:00 [DBG] Considering key {050a4a68-1eb2-4a9a-b32f-1abf7f6aa0c6} with expiration date 2025-05-21 09:08:22Z as default key.
+2025-03-12 07:58:26.460 +07:00 [DBG] Forwarded activator type request from Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+2025-03-12 07:58:26.463 +07:00 [DBG] Decrypting secret element using Windows DPAPI.
+2025-03-12 07:58:26.465 +07:00 [DBG] Forwarded activator type request from Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+2025-03-12 07:58:26.472 +07:00 [DBG] Opening CNG algorithm 'AES' from provider 'null' with chaining mode CBC.
+2025-03-12 07:58:26.475 +07:00 [DBG] Opening CNG algorithm 'SHA256' from provider 'null' with HMAC.
+2025-03-12 07:58:26.477 +07:00 [DBG] Using key {050a4a68-1eb2-4a9a-b32f-1abf7f6aa0c6} as the default key.
+2025-03-12 07:58:26.479 +07:00 [DBG] Key ring with default key {050a4a68-1eb2-4a9a-b32f-1abf7f6aa0c6} was loaded during application startup.
+2025-03-12 07:58:26.603 +07:00 [INF] Now listening on: http://localhost:5002
+2025-03-12 07:58:26.604 +07:00 [DBG] Loaded hosting startup assembly ParentManageAPI.Presentation
+2025-03-12 07:58:26.605 +07:00 [DBG] Loaded hosting startup assembly Microsoft.WebTools.ApiEndpointDiscovery
+2025-03-12 07:58:26.606 +07:00 [DBG] Loaded hosting startup assembly Microsoft.AspNetCore.Watch.BrowserRefresh
+2025-03-12 07:58:26.607 +07:00 [DBG] Loaded hosting startup assembly Microsoft.WebTools.BrowserLink.Net
+2025-03-12 07:58:26.632 +07:00 [DBG] Connection id "0HNB103VJIIEK" accepted.
+2025-03-12 07:58:26.634 +07:00 [DBG] Connection id "0HNB103VJIIEK" started.
+2025-03-12 07:58:26.680 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5002/swagger/index.html - null null
+2025-03-12 07:58:26.713 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-03-12 07:58:26.714 +07:00 [INF] Hosting environment: Development
+2025-03-12 07:58:26.716 +07:00 [INF] Content root path: C:\Users\huyh6\OneDrive\Desktop\SWD\GrowthTracking.ParentManagementAPISolution\ParentManageAPI.Presentation
+2025-03-12 07:58:26.717 +07:00 [DBG] Hosting started
+2025-03-12 07:58:26.885 +07:00 [DBG] Connection id "0HNB103VJIIEL" accepted.
+2025-03-12 07:58:26.887 +07:00 [DBG] Connection id "0HNB103VJIIEL" started.
+2025-03-12 07:58:26.887 +07:00 [DBG] Connection id "0HNB103VJIIEM" accepted.
+2025-03-12 07:58:26.889 +07:00 [DBG] Connection id "0HNB103VJIIEM" started.
+2025-03-12 07:58:27.295 +07:00 [DBG] Wildcard detected, all requests with hosts will be allowed.
+2025-03-12 07:58:27.313 +07:00 [DBG] No candidates found for the request path '/swagger/index.html'
+2025-03-12 07:58:27.314 +07:00 [DBG] Request did not match any endpoints
+2025-03-12 07:58:27.360 +07:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2025-03-12 07:58:27.405 +07:00 [DBG] Response markup is scheduled to include Browser Link script injection.
+2025-03-12 07:58:27.407 +07:00 [DBG] Response markup is scheduled to include browser refresh script injection.
+2025-03-12 07:58:27.422 +07:00 [DBG] Response markup was updated to include Browser Link script injection.
+2025-03-12 07:58:27.424 +07:00 [DBG] Response markup was updated to include browser refresh script injection.
+2025-03-12 07:58:27.426 +07:00 [DBG] Connection id "0HNB103VJIIEK" completed keep alive response.
+2025-03-12 07:58:27.431 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5002/swagger/index.html - 200 null text/html;charset=utf-8 752.9654ms
+2025-03-12 07:58:27.460 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5002/_framework/aspnetcore-browser-refresh.js - null null
+2025-03-12 07:58:27.469 +07:00 [DBG] Connection id "0HNB103VJIIEK" completed keep alive response.
+2025-03-12 07:58:27.472 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5002/_framework/aspnetcore-browser-refresh.js - 200 13792 application/javascript; charset=utf-8 12.7222ms
+2025-03-12 07:58:27.480 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5002/_vs/browserLink - null null
+2025-03-12 07:58:27.533 +07:00 [DBG] Connection id "0HNB103VJIIEK" completed keep alive response.
+2025-03-12 07:58:27.535 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5002/_vs/browserLink - 200 null text/javascript; charset=UTF-8 55.3198ms
+2025-03-12 07:58:27.619 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5002/swagger/v1/swagger.json - null null
+2025-03-12 07:58:27.623 +07:00 [DBG] No candidates found for the request path '/swagger/v1/swagger.json'
+2025-03-12 07:58:27.624 +07:00 [DBG] Request did not match any endpoints
+2025-03-12 07:58:27.626 +07:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2025-03-12 07:58:27.649 +07:00 [DBG] Connection id "0HNB103VJIIEK" completed keep alive response.
+2025-03-12 07:58:27.651 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5002/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 31.3485ms
+2025-03-12 07:58:47.170 +07:00 [DBG] Connection id "0HNB103VJIIEL" received FIN.
+2025-03-12 07:58:47.170 +07:00 [DBG] Connection id "0HNB103VJIIEM" received FIN.
+2025-03-12 07:58:47.170 +07:00 [DBG] Connection id "0HNB103VJIIEK" received FIN.
+2025-03-12 07:58:47.175 +07:00 [DBG] Connection id "0HNB103VJIIEL" sending FIN because: "The Socket transport's send loop completed gracefully."
+2025-03-12 07:58:47.175 +07:00 [DBG] Connection id "0HNB103VJIIEM" disconnecting.
+2025-03-12 07:58:47.177 +07:00 [DBG] Connection id "0HNB103VJIIEK" disconnecting.
+2025-03-12 07:58:47.180 +07:00 [DBG] Connection id "0HNB103VJIIEL" disconnecting.
+2025-03-12 07:58:47.182 +07:00 [DBG] Connection id "0HNB103VJIIEM" sending FIN because: "The Socket transport's send loop completed gracefully."
+2025-03-12 07:58:47.184 +07:00 [DBG] Connection id "0HNB103VJIIEK" sending FIN because: "The Socket transport's send loop completed gracefully."
+2025-03-12 07:58:47.186 +07:00 [DBG] Connection id "0HNB103VJIIEL" stopped.
+2025-03-12 07:58:47.196 +07:00 [DBG] Connection id "0HNB103VJIIEK" stopped.
+2025-03-12 07:58:47.196 +07:00 [DBG] Connection id "0HNB103VJIIEM" stopped.
