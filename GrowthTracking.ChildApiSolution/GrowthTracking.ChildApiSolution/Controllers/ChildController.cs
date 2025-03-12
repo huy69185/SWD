@@ -1,6 +1,7 @@
 ﻿using ChildApi.Application.DTOs;
 using ChildApi.Application.Interfaces;
-using ChildApi.Application.Messaging;
+using ChildApi.Application.Messaging; // Thêm namespace cho IEventPublisher
+using ChildApi.Application.Services;
 using GrowthTracking.ShareLibrary.Response;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -12,16 +13,18 @@ namespace ChildApi.Presentation.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize] // Yêu cầu xác thực nếu cần
+    [Authorize]
     public class ChildController : ControllerBase
     {
         private readonly IChildRepository _childRepository;
         private readonly ParentIdCache _parentIdCache;
+        private readonly IEventPublisher _eventPublisher;
 
-        public ChildController(IChildRepository childRepository, ParentIdCache parentIdCache)
+        public ChildController(IChildRepository childRepository, ParentIdCache parentIdCache, IEventPublisher eventPublisher)
         {
             _childRepository = childRepository;
             _parentIdCache = parentIdCache;
+            _eventPublisher = eventPublisher;
         }
 
         // POST: api/Child
@@ -32,6 +35,10 @@ namespace ChildApi.Presentation.Controllers
             childDto = childDto with { ParentId = _parentIdCache.ParentId };
 
             var result = await _childRepository.CreateChildAsync(childDto);
+            if (result.Flag && childDto.Id.HasValue)
+            {
+                _eventPublisher.PublishChildCreated(childDto.Id.Value, childDto.ParentId, childDto.FullName);
+            }
             return result.Flag
                 ? Ok(new ApiResponse { Success = true, Message = result.Message })
                 : StatusCode(StatusCodes.Status500InternalServerError, new ApiResponse { Success = false, Message = result.Message });
@@ -86,6 +93,16 @@ namespace ChildApi.Presentation.Controllers
                 return NotFound(new ApiResponse { Success = false, Message = "Child not found" });
             var bmi = _childRepository.CalculateBMI(child);
             return Ok(new ApiResponse { Success = true, Data = new { BMI = bmi } });
+        }
+
+        // GET: api/Child/growth/{childId}
+        [HttpGet("growth/{childId}")]
+        public async Task<IActionResult> GetGrowthAnalysis(Guid childId)
+        {
+            var analysis = await _childRepository.AnalyzeGrowthAsync(childId);
+            if (string.IsNullOrEmpty(analysis.Warning))
+                analysis.Warning = "No issues detected";
+            return Ok(new ApiResponse { Success = true, Data = analysis });
         }
     }
 }

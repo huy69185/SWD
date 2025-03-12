@@ -7,16 +7,15 @@ using System.Text;
 using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Connections;
-using Microsoft.EntityFrameworkCore.Metadata;
+using GrowthTracking.ShareLibrary.Logs;
 
 namespace ChildApi.Application.Messaging
 {
     // Consumer chạy nền để nhận các event từ RabbitMQ và cập nhật ParentId vào cache.
     public class ParentEventConsumer : BackgroundService
     {
-        private readonly IConnection _connection;
-        private readonly RabbitMQ.Client.IModel _channel;
+        private IConnection _connection;
+        private IModel _channel;
         private readonly ParentIdCache _parentIdCache;
 
         public ParentEventConsumer(IConfiguration configuration, ParentIdCache parentIdCache)
@@ -37,26 +36,46 @@ namespace ChildApi.Application.Messaging
 
         protected override Task ExecuteAsync(CancellationToken stoppingToken)
         {
-            var consumer = new EventingBasicConsumer(_channel);
-            consumer.Received += (model, ea) =>
+            while (!stoppingToken.IsCancellationRequested)
             {
-                var body = ea.Body.ToArray();
-                var message = Encoding.UTF8.GetString(body);
                 try
                 {
-                    // Giả sử message có cấu trúc: { "ParentId": "guid", "FullName": "xxx", "EventType": "ParentCreated" }
-                    var eventData = JsonSerializer.Deserialize<ParentEvent>(message);
-                    if (eventData != null && (eventData.EventType == "ParentCreated" || eventData.EventType == "ParentUpdated"))
+                    if (!_connection.IsOpen)
                     {
-                        _parentIdCache.ParentId = eventData.ParentId;
+                        _connection.Dispose();
+                        var factory = new ConnectionFactory
+                        {
+                            HostName = "localhost",
+                            Port = 5672,
+                            UserName = "guest",
+                            Password = "guest"
+                        };
+                        _connection = factory.CreateConnection();
+                        _channel = _connection.CreateModel();
+                        _channel.QueueDeclare(queue: "parent.events", durable: false, exclusive: false, autoDelete: false, arguments: null);
                     }
+
+                    var consumer = new EventingBasicConsumer(_channel);
+                    consumer.Received += (model, ea) =>
+                    {
+                        var body = ea.Body.ToArray();
+                        var message = Encoding.UTF8.GetString(body);
+                        var eventData = JsonSerializer.Deserialize<ParentEvent>(message);
+                        if (eventData != null && (eventData.EventType == "ParentCreated" || eventData.EventType == "ParentUpdated"))
+                        {
+                            _parentIdCache.ParentId = eventData.ParentId;
+                            LogHandler.LogToConsole($"Updated ParentId to {eventData.ParentId}");
+                        }
+                    };
+                    _channel.BasicConsume(queue: "parent.events", autoAck: true, consumer: consumer);
+                    break;
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
-                    // Log hoặc xử lý lỗi nếu cần
+                    LogHandler.LogExceptions(ex);
+                    Thread.Sleep(5000); // Retry sau 5 giây
                 }
-            };
-            _channel.BasicConsume(queue: "parent.events", autoAck: true, consumer: consumer);
+            }
             return Task.CompletedTask;
         }
 

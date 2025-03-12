@@ -13,6 +13,7 @@ builder.Services.AddControllers();
 // Thêm Swagger cho tài liệu API
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddSingleton<IEventPublisher, EventPublisher>();
 
 // Cấu hình DbContext với connection string từ file cấu hình (appsettings.json)
 builder.Services.AddDbContext<ChildDbContext>(options =>
