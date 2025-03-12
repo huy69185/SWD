@@ -41,9 +41,21 @@ namespace GrowthTracking.DoctorSolution.Application.Services
 
         }
 
-        public Task DeleteDoctor(string doctorId)
+        public async Task DeleteDoctor(string doctorId, string currentUserId)
         {
-            throw new NotImplementedException();
+            // 2. Retrieve the doctor
+            var entity = await repo.GetByIdAsync(Guid.Parse(doctorId)) 
+                ?? throw new NotFoundException($"Doctor with ID {doctorId} not found.");
+
+            // 3. Prevent self-deletion
+            if (entity.DoctorId.ToString() == currentUserId)
+            {
+                throw new ForbiddenException("You cannot delete your own account.");
+            }
+
+            // 4. Delete the doctor
+            await repo.DeleteAsync(entity);
+            await repo.SaveAsync();
         }
 
         public async Task<PagedList<DoctorResponse>> GetAllDoctors(int page, int pageSize)

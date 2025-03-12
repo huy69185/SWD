@@ -5,6 +5,7 @@ using GrowthTracking.ShareLibrary.Response;
 using GrowthTracking.ShareLibrary.Validation;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace GrowthTracking.DoctorSolution.Presentation.Controllers
 {
@@ -87,6 +88,16 @@ namespace GrowthTracking.DoctorSolution.Presentation.Controllers
                 Success = true,
                 Data = result
             });
+        }
+
+        [HttpDelete("{doctorId}")]
+        [Authorize(Roles = Constants.Admin)]
+        public async Task<IActionResult> DeleteDoctor([GuidValidation] string doctorId)
+        {
+            string currentUserId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value!;
+
+            await doctorService.DeleteDoctor(doctorId, currentUserId);
+            return StatusCode(StatusCodes.Status204NoContent);
         }
 
     }
