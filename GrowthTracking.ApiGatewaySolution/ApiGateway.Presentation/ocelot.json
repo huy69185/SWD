@@ -7,7 +7,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 5000
+          "Port": 5001
         }
       ],
       "UpstreamPathTemplate": "/api/authentication/{everything}",
@@ -20,13 +20,9 @@
         "PeriodTimespan": 10
       }
     },
-
-    // Product Api
-    // Make all authorized exception GetProducts and GetProductById
-
-    //GET
+    // User Existence Check
     {
-      "DownstreamPathTemplate": "/api/products",
+      "DownstreamPathTemplate": "/api/users/{id}",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
@@ -34,115 +30,97 @@
           "Port": 5001
         }
       ],
-      "UpstreamPathTemplate": "/api/products",
+      "UpstreamPathTemplate": "/api/users/{id}",
       "UpstreamHttpMethod": [ "GET" ],
-      "FileCacheOptions": {
-        "TtlSeconds": 60, //Time to live in seconds
-        "Region": "default",
-        "Header": "eCommerce-Caching-Control"
-      }
-    },
-    // GET Product By Id method
-    {
-      "DownstreamPathTemplate": "/api/products/{id}",
-      "DownstreamScheme": "http",
-      "DownstreamHostAndPorts": [
-        {
-          "Host": "localhost",
-          "Port": 5001
-        }
-      ],
-      "UpstreamPathTemplate": "/api/products/{id}",
-      "UpstreamHttpMethod": [ "GET" ],
-      "FileCacheOptions": {
-        "TtlSeconds": 60, //Time to live in seconds
-        "Region": "default",
-        "Header": "eCommerce-Caching-Control"
-      }
-    },
-    // Product => POST, PUT, DELETE => all
-    {
-      "DownstreamPathTemplate": "/api/products/{everything}",
-      "DownstreamScheme": "http",
-      "DownstreamHostAndPorts": [
-        {
-          "Host": "localhost",
-          "Port": 5001
-        }
-      ],
-      "UpstreamPathTemplate": "/api/products/{everything}",
-      "UpstreamHttpMethod": [ "POST", "PUT", "DELETE" ],
       "AuthenticationOptions": {
         "AuthenticationProviderKey": "Bearer",
         "AllowedScopes": []
       }
     },
 
-    // Order Api
-    //GET
+    // Doctor APIs (DoctorService)
+
+    // Get All Doctors (Public)
     {
-      "DownstreamPathTemplate": "/api/orders",
+      "DownstreamPathTemplate": "/api/doctors",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 5002
+          "Port": 5003
         }
       ],
-      "UpstreamPathTemplate": "/api/orders",
-      "UpstreamHttpMethod": [ "GET" ],
-      "FileCacheOptions": {
-        "TtlSeconds": 60, //Time to live in seconds
-        "Region": "default",
-        "Header": "eCommerce-Caching-Control"
-      },
+      "UpstreamPathTemplate": "/api/doctors",
+      "UpstreamHttpMethod": [ "GET" ]
+    },
+
+    // Get Doctor by ID (Public)
+    {
+      "DownstreamPathTemplate": "/api/doctors/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5003
+        }
+      ],
+      "UpstreamPathTemplate": "/api/doctors/{id}",
+      "UpstreamHttpMethod": [ "GET" ]
+    },
+
+    // Create Doctor (Requires Authentication)
+    {
+      "DownstreamPathTemplate": "/api/doctors",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5003
+        }
+      ],
+      "UpstreamPathTemplate": "/api/doctors",
+      "UpstreamHttpMethod": [ "POST" ],
       "AuthenticationOptions": {
-        "AuthenticationProviderKey": "Bearer",
-        "AllowedScopes": []
+        "AuthenticationProviderKey": "Bearer"
       }
     },
-    // GET Order By Id method
+
+    // Update Doctor (Requires Authentication)
     {
-      "DownstreamPathTemplate": "/api/orders/{id}",
+      "DownstreamPathTemplate": "/api/doctors/{id}",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 5002
+          "Port": 5003
         }
       ],
-      "UpstreamPathTemplate": "/api/orders/{id}",
-      "UpstreamHttpMethod": [ "GET" ],
-      "FileCacheOptions": {
-        "TtlSeconds": 60, //Time to live in seconds
-        "Region": "default",
-        "Header": "eCommerce-Caching-Control"
-      },
+      "UpstreamPathTemplate": "/api/doctors/{id}",
+      "UpstreamHttpMethod": [ "PUT" ],
       "AuthenticationOptions": {
-        "AuthenticationProviderKey": "Bearer",
-        "AllowedScopes": []
+        "AuthenticationProviderKey": "Bearer"
       }
     },
-    //POST, PUT, DELETE => all
+
+    // Delete Doctor (Requires Authentication)
     {
-      "DownstreamPathTemplate": "/api/orders/{everything}",
+      "DownstreamPathTemplate": "/api/doctors/{id}",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 5002
+          "Port": 5003
         }
       ],
-      "UpstreamPathTemplate": "/api/orders/{everything}",
-      "UpstreamHttpMethod": [ "POST", "PUT", "DELETE" ],
+      "UpstreamPathTemplate": "/api/doctors/{id}",
+      "UpstreamHttpMethod": [ "DELETE" ],
       "AuthenticationOptions": {
-        "AuthenticationProviderKey": "Bearer",
-        "AllowedScopes": []
+        "AuthenticationProviderKey": "Bearer"
       }
     }
   ],
   "GlobalConfiguration": {
-    "BaseUrl": "http://localhost:5003",
+    "BaseUrl": "http://localhost:5000",
     "RateLimitOptions": {      "QuotaExceededMessage": "API rate limit exceeded!"
     }
   }

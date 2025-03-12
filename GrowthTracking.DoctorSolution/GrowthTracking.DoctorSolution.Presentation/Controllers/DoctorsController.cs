@@ -16,6 +16,7 @@ namespace GrowthTracking.DoctorSolution.Presentation.Controllers
     {
         [HttpGet]
         [AllowAnonymous]
+        [EndpointSummary("Get list doctor with paging")]
         public async Task<IActionResult> GetDoctors(int page = 1, int pageSize = 10)
         {
             var result = await doctorService.GetAllDoctors(page, pageSize);
@@ -36,6 +37,7 @@ namespace GrowthTracking.DoctorSolution.Presentation.Controllers
         }
 
         [HttpGet("{doctorId}")]
+        [EndpointSummary("Get a doctor by id")]
         [AllowAnonymous]
         public async Task<IActionResult> GetDoctorById([GuidValidation] string doctorId)
         {
@@ -49,6 +51,7 @@ namespace GrowthTracking.DoctorSolution.Presentation.Controllers
 
         [HttpGet("search")]
         [AllowAnonymous]
+        [EndpointSummary("search doctors with paging")]
         public async Task<IActionResult> SearchDoctors(string searchTerm, int page = 1, int pageSize = 10)
         {
             var result = await doctorService.SearchDoctors(searchTerm, page, pageSize);
@@ -69,6 +72,7 @@ namespace GrowthTracking.DoctorSolution.Presentation.Controllers
         }
 
         [HttpPost]
+        [EndpointSummary("Create Doctor")]
         public async Task<IActionResult> CreateDoctor([FromBody] DoctorCreateRequest doctor)
         {
             var result = await doctorService.CreateDoctor(doctor);
@@ -80,6 +84,7 @@ namespace GrowthTracking.DoctorSolution.Presentation.Controllers
         }
 
         [HttpPut("{doctorId}")]
+        [EndpointSummary("Update Doctor")]
         public async Task<IActionResult> UpdateDoctor([GuidValidation] string doctorId, [FromBody] DoctorUpdateRequest doctor)
         {
             var result = await doctorService.UpdateDoctor(doctorId, doctor);
@@ -92,6 +97,7 @@ namespace GrowthTracking.DoctorSolution.Presentation.Controllers
 
         [HttpDelete("{doctorId}")]
         [Authorize(Roles = Constants.Admin)]
+        [EndpointSummary("Delete Doctor")]
         public async Task<IActionResult> DeleteDoctor([GuidValidation] string doctorId)
         {
             string currentUserId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value!;
