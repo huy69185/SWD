@@ -18,7 +18,7 @@ public partial class SWD_GrowthTrackingSystemDbContext : DbContext
     {
     }
 
-    public virtual DbSet<Credential> Credentials { get; set; }
+    public virtual DbSet<Certificate> Certificates { get; set; }
 
     public virtual DbSet<Doctor> Doctors { get; set; }
 
@@ -28,25 +28,25 @@ public partial class SWD_GrowthTrackingSystemDbContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<Credential>(entity =>
+        modelBuilder.Entity<Certificate>(entity =>
         {
-            entity.ToTable("Credential");
+            entity.ToTable("Certificate");
 
-            entity.Property(e => e.CredentialId)
+            entity.Property(e => e.CertificateId)
                 .HasDefaultValueSql("(newid())")
-                .HasColumnName("credential_id");
+                .HasColumnName("certificate_id");
+            entity.Property(e => e.CertificateNumber)
+                .HasMaxLength(100)
+                .IsUnicode(false)
+                .HasColumnName("certificate_number");
+            entity.Property(e => e.CertificateType)
+                .HasMaxLength(50)
+                .IsUnicode(false)
+                .HasColumnName("certificate_type");
             entity.Property(e => e.CreatedAt)
                 .HasDefaultValueSql("(getdate())")
                 .HasColumnType("datetime")
                 .HasColumnName("created_at");
-            entity.Property(e => e.CredentialNumber)
-                .HasMaxLength(100)
-                .IsUnicode(false)
-                .HasColumnName("credential_number");
-            entity.Property(e => e.CredentialType)
-                .HasMaxLength(50)
-                .IsUnicode(false)
-                .HasColumnName("credential_type");
             entity.Property(e => e.DoctorId).HasColumnName("doctor_id");
             entity.Property(e => e.DocumentUrl)
                 .HasMaxLength(255)
@@ -63,10 +63,10 @@ public partial class SWD_GrowthTrackingSystemDbContext : DbContext
                 .HasColumnType("datetime")
                 .HasColumnName("updated_at");
 
-            entity.HasOne(d => d.Doctor).WithMany(p => p.Credentials)
+            entity.HasOne(d => d.Doctor).WithMany(p => p.Certificates)
                 .HasForeignKey(d => d.DoctorId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_Credential_Doctor");
+                .HasConstraintName("FK_Certificate_Doctor");
         });
 
         modelBuilder.Entity<Doctor>(entity =>

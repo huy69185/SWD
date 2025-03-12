@@ -1,15 +1,7 @@
 ﻿using GrowthTracking.ShareLibrary.Logs;
 using GrowthTracking.ShareLibrary.Response;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.ModelBinding;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
-using System.Text;
-using System.Text.Json;
-using System.Threading.Tasks;
 
 namespace GrowthTracking.ShareLibrary.Middleware
 {

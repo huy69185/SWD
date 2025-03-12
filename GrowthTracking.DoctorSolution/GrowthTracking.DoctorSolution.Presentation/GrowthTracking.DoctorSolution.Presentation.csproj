@@ -13,4 +13,8 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\GrowthTracking.DoctorSolution.Infrastructure\GrowthTracking.DoctorSolution.Infrastructure.csproj" />
+  </ItemGroup>
+
 </Project>

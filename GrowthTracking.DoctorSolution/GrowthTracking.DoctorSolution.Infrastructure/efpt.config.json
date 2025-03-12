@@ -6,12 +6,12 @@
    "IncludeConnectionString": true,
    "ModelNamespace": null,
    "OutputContextPath": null,
-   "OutputPath": "Entities",
+   "OutputPath": "DBContext",
    "PreserveCasingWithRegex": true,
    "ProjectRootNamespace": "GrowthTracking.DoctorSolution.Infrastructure",
    "Schemas": null,
    "SelectedHandlebarsLanguage": 2,
-   "SelectedToBeGenerated": 2,
+   "SelectedToBeGenerated": 0,
    "T4TemplatePath": null,
    "Tables": [
       {
