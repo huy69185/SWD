@@ -6,18 +6,32 @@ namespace GrowthTracking.DoctorSolution.Application.DTOs
     public record DoctorCreateRequest(
         [Required, GuidValidation] string DoctorId,
         string FullName,
-        string? DateOfBirth,
+        [DateOnlyValidation] string? DateOfBirth,
+        [RegularExpression("^(male|female|other)$", ErrorMessage = "Gender must be 'male', 'female', or 'other'.")]
         string? Gender,
         string? Address,
-        string? PhoneNumber,
+        [Phone] string? PhoneNumber,
         string? Specialization,
+        [Range(0, 100, ErrorMessage = "Experience years must be between 0 and 100.")]
         int? ExperienceYears,
         string? Workplace,
         string? Biography,
-        string? ProfilePhoto,
-        decimal? AverageRating
+        string? ProfilePhoto
         );
-    public record DoctorUpdateRequest();
+    public record DoctorUpdateRequest(
+        string? FullName,
+        [DateOnlyValidation] string? DateOfBirth,
+        [RegularExpression("^(male|female|other)$", ErrorMessage = "Gender must be 'male', 'female', or 'other'.")]
+        string? Gender,
+        string? Address,
+        [Phone] string? PhoneNumber,
+        string? Specialization,
+        [Range(0, 100, ErrorMessage = "Experience years must be between 0 and 100.")]
+        int? ExperienceYears,
+        string? Workplace,
+        string? Biography,
+        string? ProfilePhoto
+        );
 
     public record DoctorResponse(
         string DoctorId,

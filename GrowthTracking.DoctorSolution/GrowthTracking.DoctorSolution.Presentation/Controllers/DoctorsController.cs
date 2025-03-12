@@ -1,4 +1,6 @@
-﻿using GrowthTracking.DoctorSolution.Application.Services.Interfaces;
+﻿using GrowthTracking.DoctorSolution.Application.DTOs;
+using GrowthTracking.DoctorSolution.Application.Services.Interfaces;
+using GrowthTracking.DoctorSolution.Domain.Constants;
 using GrowthTracking.ShareLibrary.Response;
 using GrowthTracking.ShareLibrary.Validation;
 using Microsoft.AspNetCore.Authorization;
@@ -8,7 +10,7 @@ namespace GrowthTracking.DoctorSolution.Presentation.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
+    [Authorize(Roles = Constants.DoctorAndAdmin)]
     public class DoctorsController(IDoctorService doctorService) : ControllerBase
     {
         [HttpGet]
@@ -62,6 +64,28 @@ namespace GrowthTracking.DoctorSolution.Presentation.Controllers
                     result.HasPrevious,
                     doctorList = result
                 }
+            });
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> CreateDoctor([FromBody] DoctorCreateRequest doctor)
+        {
+            var result = await doctorService.CreateDoctor(doctor);
+            return Ok(new ApiResponse()
+            {
+                Success = true,
+                Data = result
+            });
+        }
+
+        [HttpPut("{doctorId}")]
+        public async Task<IActionResult> UpdateDoctor([GuidValidation] string doctorId, [FromBody] DoctorUpdateRequest doctor)
+        {
+            var result = await doctorService.UpdateDoctor(doctorId, doctor);
+            return Ok(new ApiResponse()
+            {
+                Success = true,
+                Data = result
             });
         }
 

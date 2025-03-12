@@ -1,15 +1,22 @@
 ﻿using GrowthTracking.DoctorSolution.Application.Services.Interfaces;
 using Microsoft.Extensions.Configuration;
+using Polly.Registry;
 
 namespace GrowthTracking.DoctorSolution.Application.Services
 {
-    public class UserService(HttpClient httpClient, IConfiguration configuration) : IUserService
+    public class UserService(
+        HttpClient httpClient, 
+        ResiliencePipelineProvider<string> resiliencePipeline) : IUserService
     {
         public async Task<bool> CheckUserExists(string userId)
         {
-            // The gateway abstracts the endpoint for the User service.
-            var gatewayUrl = configuration["ApiGatewayUrl"];
-            var response = await httpClient.GetAsync($"{gatewayUrl}/api/users/{userId}");
+            // Get retry pipeline
+            var retryPipeline = resiliencePipeline.GetPipeline("my-retry-pipeline");
+
+            //Prepare response
+            var response = await retryPipeline.ExecuteAsync(
+                async token => await httpClient.GetAsync($"/api/users/{userId}", token));
+
             return response.IsSuccessStatusCode;
         }
     }

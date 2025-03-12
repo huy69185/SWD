@@ -1,4 +1,5 @@
-﻿using GrowthTracking.ShareLibrary.Logs;
+﻿using GrowthTracking.ShareLibrary.Exceptions;
+using GrowthTracking.ShareLibrary.Logs;
 using GrowthTracking.ShareLibrary.Response;
 using Microsoft.AspNetCore.Http;
 using System.Net;
@@ -47,16 +48,27 @@ namespace GrowthTracking.ShareLibrary.Middleware
                 LogHandler.LogExceptions(ex);
 
                 //Check if exception time out ==> status 408
-                if (ex is TaskCanceledException || ex is TimeoutException)
+                switch (ex)
                 {
-                    message = "Request time out!!!Please try again";
-                    statusCode = StatusCodes.Status408RequestTimeout;
-                    await ModifyHeaderAsync(context, message, statusCode);
+                    case TaskCanceledException:
+                    case TimeoutException:
+                        message = "Request time out!!!Please try again";
+                        statusCode = StatusCodes.Status408RequestTimeout;
+                        await HandleExceptionAsync(context, message, statusCode);
+                        break;
+                    case NotFoundException:
+                        await HandleExceptionAsync(context, ex.Message, StatusCodes.Status404NotFound);
+                        break;
+                    case UnauthorizedException:
+                        await HandleExceptionAsync(context, ex.Message, StatusCodes.Status401Unauthorized);
+                        break;
+                    case ForbiddenException:
+                        await HandleExceptionAsync(context, ex.Message, StatusCodes.Status403Forbidden);
+                        break;
+                    default:
+                        await HandleExceptionAsync(context, ex);
+                        break;
                 }
-                else
-                {
-                    await HandleExceptionAsync(context, ex);
-                }  
             }
         }
 
@@ -87,6 +99,22 @@ namespace GrowthTracking.ShareLibrary.Middleware
                 {
                     Success = false,
                     Message = exception.Message
+                }.ToString() ?? string.Empty);
+            }
+        }
+
+        private static async Task HandleExceptionAsync(HttpContext context, string message, int statusCode)
+        {
+            if (!context.Response.HasStarted)
+            {
+                //Display message to client
+                context.Response.ContentType = "application/json";
+                context.Response.StatusCode = statusCode;
+
+                await context.Response.WriteAsync(new ApiResponse()
+                {
+                    Success = false,
+                    Message = message
                 }.ToString() ?? string.Empty);
             }
         }
