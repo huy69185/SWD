@@ -4,6 +4,7 @@ using GrowthTracking.DoctorSolution.Application.Mapping;
 using GrowthTracking.DoctorSolution.Application.Services.Interfaces;
 using GrowthTracking.DoctorSolution.Domain.Entities;
 using GrowthTracking.ShareLibrary.Pagination;
+using System.Linq.Expressions;
 
 namespace GrowthTracking.DoctorSolution.Application.Services
 {
@@ -33,9 +34,19 @@ namespace GrowthTracking.DoctorSolution.Application.Services
             return doctor == null ? null : mapper.Map<Doctor, DoctorResponse>(doctor);
         }
 
-        public Task<PagedList<DoctorResponse>> SearchDoctors(string searchTerm, int page, int pageSize)
+        public async Task<PagedList<DoctorResponse>> SearchDoctors(string searchTerm, int page, int pageSize)
         {
-            throw new NotImplementedException();
+            searchTerm = searchTerm.ToLowerInvariant();
+            Expression<Func<Doctor, bool>> searchExpression = d =>
+                d.FullName.Contains(searchTerm) ||
+                (d.Workplace != null && d.Workplace.Contains(searchTerm)) ||
+                (d.Biography != null && d.Biography.Contains(searchTerm));
+
+            var doctors = await repo.GetPagedAsync(page, pageSize, 
+                filter: searchExpression,
+                orderBy: list => list.OrderByDescending(d => d.CreatedAt));
+
+            return doctors.MapPagedList<Doctor, DoctorResponse>(mapper);
         }
 
         public Task<DoctorResponse> UpdateDoctor(DoctorUpdateRequest doctor)
