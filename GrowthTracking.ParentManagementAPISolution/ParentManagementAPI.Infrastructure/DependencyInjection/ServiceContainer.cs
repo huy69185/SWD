@@ -16,6 +16,10 @@ namespace ParentManageApi.Infrastructure.DependencyInjection
     {
         public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration config)
         {
+            // Đảm bảo không gọi AddAuthentication hoặc AddJwtBearer ở đây
+            // AddSharedService đã xử lý việc đăng ký scheme "Bearer"
+
+            // Thêm DbContext
             services.AddDbContext<ParentManageDbContext>(options =>
                 options.UseSqlServer(config.GetConnectionString("DefaultConnection")));
 

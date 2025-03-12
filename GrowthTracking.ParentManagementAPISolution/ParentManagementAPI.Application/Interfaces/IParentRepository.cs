@@ -11,6 +11,5 @@ namespace ParentManageApi.Application.Interfaces
         Task<ParentDTO?> GetParent(Guid parentId);
         Task<IEnumerable<ParentDTO>> GetAllParents();
         Task<Response> DeleteParent(Guid parentId);
-        Task<IEnumerable<ChildDTO>> GetChildrenByParent(Guid parentId);
     }
 }
