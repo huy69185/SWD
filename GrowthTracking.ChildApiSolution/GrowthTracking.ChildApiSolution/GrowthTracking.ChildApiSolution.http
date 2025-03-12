@@ -1,0 +1,6 @@
+@GrowthTracking.ChildApiSolution_HostAddress = http://localhost:5091
+
+GET {{GrowthTracking.ChildApiSolution_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
