@@ -1,5 +1,6 @@
 ﻿using ChildApi.Application.DTOs;
 using ChildApi.Application.Interfaces;
+using ChildApi.Application.Services;
 using ChildApi.Domain.Entities;
 using ChildApi.Infrastructure.Data;
 using GrowthTracking.ShareLibrary.Response;
@@ -23,8 +24,7 @@ namespace ChildApi.Infrastructure.Repositories
 
         public async Task<Response> CreateChildAsync(ChildDTO childDto)
         {
-            var child = childDto.Adapt<Child>(); // Map DTO to entity
-            // Nếu Id chưa được gán, tạo mới Guid
+            var child = childDto.Adapt<Child>();
             if (child.Id == Guid.Empty)
                 child.Id = Guid.NewGuid();
             _context.Children.Add(child);
@@ -41,8 +41,7 @@ namespace ChildApi.Infrastructure.Repositories
             if (child == null)
                 return new Response(false, "Child not found");
 
-            childDto.Adapt(child); // Map updated DTO values to entity
-            // Nếu có thuộc tính UpdatedDate thì cập nhật tại đây (nếu BaseEntity có định nghĩa)
+            childDto.Adapt(child);
             await _context.SaveChangesAsync();
             return new Response(true, "Child updated successfully");
         }
@@ -77,10 +76,19 @@ namespace ChildApi.Infrastructure.Repositories
             if (childDto.BirthHeight == null || childDto.BirthWeight == null || childDto.BirthHeight == 0)
                 return null;
 
-            // Chuyển đổi chiều cao từ cm sang m
             var heightInMeter = (decimal)childDto.BirthHeight / 100;
             var bmi = (decimal)childDto.BirthWeight / (heightInMeter * heightInMeter);
             return Math.Round(bmi, 2);
+        }
+
+        public async Task<GrowthAnalysis> AnalyzeGrowthAsync(Guid childId)
+        {
+            var child = await _context.Children.FindAsync(childId);
+            if (child == null)
+                return new GrowthAnalysis { Warning = "Child not found" };
+
+            var childDto = child.Adapt<ChildDTO>();
+            return GrowthTracker.Analyze(childDto, _context);
         }
     }
 }

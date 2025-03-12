@@ -1,4 +1,5 @@
 ﻿using ChildApi.Application.DTOs;
+using ChildApi.Application.Services;
 using GrowthTracking.ShareLibrary.Response;
 using System;
 using System.Collections.Generic;
@@ -13,8 +14,7 @@ namespace ChildApi.Application.Interfaces
         Task<ChildDTO?> GetChildAsync(Guid childId);
         Task<IEnumerable<ChildDTO>> GetChildrenByParentAsync(Guid parentId);
         Task<Response> DeleteChildAsync(Guid childId);
-
-        // Tính toán BMI dựa trên cân nặng và chiều cao
         decimal? CalculateBMI(ChildDTO childDto);
+        Task<GrowthAnalysis> AnalyzeGrowthAsync(Guid childId); 
     }
 }
