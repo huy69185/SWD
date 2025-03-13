@@ -9,66 +9,17 @@ namespace GrowthTracking.DoctorSolution.Infrastructure.DBContext;
 
 public partial class SWD_GrowthTrackingSystemDbContext : DbContext
 {
-    public SWD_GrowthTrackingSystemDbContext()
-    {
-    }
-
     public SWD_GrowthTrackingSystemDbContext(DbContextOptions<SWD_GrowthTrackingSystemDbContext> options)
         : base(options)
     {
     }
 
-    public virtual DbSet<Certificate> Certificates { get; set; }
-
     public virtual DbSet<Doctor> Doctors { get; set; }
 
-//    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-//#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-//        => optionsBuilder.UseSqlServer("Data Source=DESKTOP-TH3TVQ6;Initial Catalog=SWD_GrowthTrackingSystemDb;Persist Security Info=True;User ID=sa;Password=12345;Encrypt=False");
+    public virtual DbSet<IdentityDocument> IdentityDocuments { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<Certificate>(entity =>
-        {
-            entity.ToTable("Certificate");
-
-            entity.Property(e => e.CertificateId)
-                .HasDefaultValueSql("(newid())")
-                .HasColumnName("certificate_id");
-            entity.Property(e => e.CertificateNumber)
-                .HasMaxLength(100)
-                .IsUnicode(false)
-                .HasColumnName("certificate_number");
-            entity.Property(e => e.CertificateType)
-                .HasMaxLength(50)
-                .IsUnicode(false)
-                .HasColumnName("certificate_type");
-            entity.Property(e => e.CreatedAt)
-                .HasDefaultValueSql("(getdate())")
-                .HasColumnType("datetime")
-                .HasColumnName("created_at");
-            entity.Property(e => e.DoctorId).HasColumnName("doctor_id");
-            entity.Property(e => e.DocumentUrl)
-                .HasMaxLength(255)
-                .IsUnicode(false)
-                .HasColumnName("document_url");
-            entity.Property(e => e.ExpiryDate).HasColumnName("expiry_date");
-            entity.Property(e => e.IssueDate).HasColumnName("issue_date");
-            entity.Property(e => e.IssuingAuthority)
-                .HasMaxLength(100)
-                .IsUnicode(false)
-                .HasColumnName("issuing_authority");
-            entity.Property(e => e.UpdatedAt)
-                .HasDefaultValueSql("(getdate())")
-                .HasColumnType("datetime")
-                .HasColumnName("updated_at");
-
-            entity.HasOne(d => d.Doctor).WithMany(p => p.Certificates)
-                .HasForeignKey(d => d.DoctorId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_Certificate_Doctor");
-        });
-
         modelBuilder.Entity<Doctor>(entity =>
         {
             entity.ToTable("Doctor");
@@ -113,6 +64,10 @@ public partial class SWD_GrowthTrackingSystemDbContext : DbContext
                 .HasMaxLength(100)
                 .IsUnicode(false)
                 .HasColumnName("specialization");
+            entity.Property(e => e.Status)
+                .HasMaxLength(50)
+                .IsUnicode(false)
+                .HasColumnName("status");
             entity.Property(e => e.UpdatedAt)
                 .HasDefaultValueSql("(getdate())")
                 .HasColumnType("datetime")
@@ -121,6 +76,39 @@ public partial class SWD_GrowthTrackingSystemDbContext : DbContext
                 .HasMaxLength(255)
                 .IsUnicode(false)
                 .HasColumnName("workplace");
+        });
+
+        modelBuilder.Entity<IdentityDocument>(entity =>
+        {
+            entity.HasKey(e => e.DocumentId).HasName("PK__Identity__9666E8ACFB5C76CA");
+
+            entity.ToTable("IdentityDocument");
+
+            entity.HasIndex(e => e.DoctorId, "IX_IdentityDocument_DoctorId");
+
+            entity.Property(e => e.DocumentId)
+                .HasDefaultValueSql("(newid())")
+                .HasColumnName("document_id");
+            entity.Property(e => e.CreatedAt)
+                .HasDefaultValueSql("(sysdatetime())")
+                .HasColumnName("created_at");
+            entity.Property(e => e.DoctorId).HasColumnName("doctor_id");
+            entity.Property(e => e.DocumentUrl).HasColumnName("document_url");
+            entity.Property(e => e.Status)
+                .HasMaxLength(50)
+                .HasDefaultValue("Pending")
+                .HasColumnName("status");
+            entity.Property(e => e.Type)
+                .HasMaxLength(255)
+                .HasDefaultValue("")
+                .HasColumnName("type");
+            entity.Property(e => e.UpdatedAt)
+                .HasDefaultValueSql("(sysdatetime())")
+                .HasColumnName("updated_at");
+
+            entity.HasOne(d => d.Doctor).WithMany(p => p.IdentityDocuments)
+                .HasForeignKey(d => d.DoctorId)
+                .HasConstraintName("FK_IdentityDocument_Doctor");
         });
 
         OnModelCreatingPartial(modelBuilder);
