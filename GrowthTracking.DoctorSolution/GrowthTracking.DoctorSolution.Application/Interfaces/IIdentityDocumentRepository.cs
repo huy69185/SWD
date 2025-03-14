@@ -2,7 +2,7 @@
 
 namespace GrowthTracking.DoctorSolution.Application.Interfaces
 {
-    public interface ICertificateRepository : IGenericRepository<Certificate>
+    public interface IIdentityDocumentRepository : IGenericRepository<IdentityDocument>
     {
     }
 }

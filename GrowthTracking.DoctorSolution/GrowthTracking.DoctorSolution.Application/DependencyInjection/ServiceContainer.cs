@@ -17,7 +17,7 @@ namespace GrowthTracking.DoctorSolution.Application.DependencyInjection
             // Add services here
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IDoctorService, DoctorService>();
-            services.AddScoped<IIdentityDocumentService, CertificateService>();
+            services.AddScoped<IIdentityDocumentService, IdentityDocumentService>();
             return services;
         }
 
