@@ -9,5 +9,9 @@
   <ItemGroup>
     <ProjectReference Include="..\BookingApi.Application\BookingApi.Application.csproj" />
   </ItemGroup>
-
+	<ItemGroup>
+		<PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
+		<PackageReference Include="Mapster" Version="7.4.0" />
+		<PackageReference Include="RabbitMQ.Client" Version="6.8.1" />
+	</ItemGroup>
 </Project>
