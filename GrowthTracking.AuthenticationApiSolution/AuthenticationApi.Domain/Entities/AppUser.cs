@@ -18,6 +18,7 @@ namespace AuthenticationApi.Domain.Entities
         public string? Address { get; set; }
         public string? Bio { get; set; }
         public bool? EmailVerified { get; set; }
+        public bool? PhoneVerified { get; set; }
         public string? VerificationToken { get; set; }
         public string? ResetToken { get; set; }
         public DateTime? ResetTokenExpiry { get; set; }
