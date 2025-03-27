@@ -35,7 +35,7 @@ builder.Services.AddSwaggerGen(c =>
     });
 });
 
-// Configure Authentication (nếu sử dụng JWT)
+// Configure Authentication (JWT)
 var jwtKey = builder.Configuration["Authentication:Key"];
 if (string.IsNullOrEmpty(jwtKey))
 {
