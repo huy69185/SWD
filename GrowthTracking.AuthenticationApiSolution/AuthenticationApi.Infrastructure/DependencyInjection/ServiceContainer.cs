@@ -22,10 +22,11 @@ namespace AuthenticationApi.Infrastructure.DependencyInjection
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddSingleton<ParentEventConsumer>();
             services.AddHostedService<ParentEventConsumerHostedService>();
-            services.AddHostedService<InactiveAccountChecker>();
+            services.AddScoped<InactiveAccountChecker>();
+            services.AddHostedService<InactiveAccountCheckerHostedService>();
             services.AddScoped<IEmailService, EmailService>();
             services.AddScoped<ISmsService, SmsService>();
-            services.AddScoped<NotificationSender>();
+            services.AddScoped<INotificationService, NotificationService>();
 
             services.AddMapsterConfiguration();
             return services;

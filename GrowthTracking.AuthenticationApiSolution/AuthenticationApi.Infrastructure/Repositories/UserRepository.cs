@@ -1,6 +1,5 @@
 ﻿using AuthenticationApi.Application.DTOs;
 using AuthenticationApi.Application.Interfaces;
-using AuthenticationApi.Application.Services;
 using AuthenticationApi.Domain.Entities;
 using AuthenticationApi.Infrastructure.Data;
 using GrowthTracking.ShareLibrary.Response;
@@ -18,14 +17,14 @@ namespace AuthenticationApi.Infrastructure.Repositories
     {
         private readonly AuthenticationDbContext _context;
         private readonly IConfiguration _config;
-        private readonly NotificationSender _notificationSender;
+        private readonly INotificationService _notificationService; // Thay NotificationSender bằng INotificationService
         private readonly ISmsService _smsService;
 
-        public UserRepository(AuthenticationDbContext context, IConfiguration config, NotificationSender notificationSender, ISmsService smsService)
+        public UserRepository(AuthenticationDbContext context, IConfiguration config, INotificationService notificationService, ISmsService smsService)
         {
             _context = context;
             _config = config;
-            _notificationSender = notificationSender;
+            _notificationService = notificationService; // Cập nhật constructor
             _smsService = smsService;
         }
 
@@ -65,7 +64,7 @@ namespace AuthenticationApi.Infrastructure.Repositories
             await _context.SaveChangesAsync();
 
             // Gửi thông báo đăng ký
-            await _notificationSender.SendRegistrationNotificationAsync(user.Adapt<AppUserDTO>());
+            await _notificationService.SendRegistrationNotificationAsync(user.Adapt<AppUserDTO>()); // Sử dụng INotificationService
 
             return new Response(true, "User registered successfully. Please verify your email and phone number.");
         }
@@ -178,12 +177,12 @@ namespace AuthenticationApi.Infrastructure.Repositories
             {
                 if (!string.IsNullOrEmpty(forgotPasswordDTO.Email))
                 {
-                    await _notificationSender.SendForgotPasswordEmailAsync(user.Email!, otpCode);
+                    await _notificationService.SendForgotPasswordEmailAsync(user.Email!, otpCode); // Sử dụng INotificationService
                     return new Response(true, "Password reset code has been sent to your email.");
                 }
                 else
                 {
-                    await _notificationSender.SendForgotPasswordSmsAsync(user.PhoneNumber!, otpCode);
+                    await _notificationService.SendForgotPasswordSmsAsync(user.PhoneNumber!, otpCode); // Sử dụng INotificationService
                     return new Response(true, "Password reset code has been sent to your phone number.");
                 }
             }

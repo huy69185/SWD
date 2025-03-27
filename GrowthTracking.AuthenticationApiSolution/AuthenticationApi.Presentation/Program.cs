@@ -18,7 +18,18 @@ builder.Services.AddInfrastructure(builder.Configuration);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {
-    c.SwaggerDoc("v1", new OpenApiInfo { Title = "Authentication API", Version = "v1" });
+    c.SwaggerDoc("v1", new OpenApiInfo
+    {
+        Title = "Authentication API",
+        Version = "v1",
+        Description = "API for Authentication in Growth Tracking System"
+    });
+
+    // Chỉ định rõ phiên bản OpenAPI
+    c.ResolveConflictingActions(apiDescriptions => apiDescriptions.First()); // Giải quyết xung đột nếu có
+    c.DocInclusionPredicate((docName, apiDesc) => true); // Đảm bảo tất cả API được bao gồm
+
+    // Cấu hình bảo mật (giữ nguyên)
     c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
     {
         In = ParameterLocation.Header,
@@ -70,7 +81,11 @@ logger.LogInformation("Starting application...");
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
-    app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Authentication API v1"));
+    app.UseSwaggerUI(c =>
+    {
+        c.SwaggerEndpoint("/swagger/v1/swagger.json", "Authentication API v1");
+        c.RoutePrefix = "swagger"; // Đảm bảo route chính xác
+    });
 }
 
 // Add Exception Handling
