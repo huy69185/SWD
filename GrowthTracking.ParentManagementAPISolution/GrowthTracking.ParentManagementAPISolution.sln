@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.12.35707.178 d17.12
+VisualStudioVersion = 17.12.35707.178
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParentManagementAPI.Application", "ParentManagementAPI.Application\ParentManagementAPI.Application.csproj", "{2CE47438-C0D1-4621-A3A4-DFA1247B17F0}"
 EndProject
@@ -12,6 +12,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrowthTracking.ShareLibrary", "..\GrowthTracking.ShareLibrarySolution\GrowthTracking.ShareLibrary\GrowthTracking.ShareLibrary.csproj", "{C5373D53-CE08-43D0-BF93-36C1EE5D5183}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParentManageAPI.Presentation", "ParentManageAPI.Presentation\ParentManageAPI.Presentation.csproj", "{EA1EC650-EF8C-455F-B097-85FB2394F3EA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsultationEventIntegrationTests", "ConsultationEventIntegrationTests\ConsultationEventIntegrationTests.csproj", "{09369EF0-9595-4AF0-AEED-CA3266485437}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{EA1EC650-EF8C-455F-B097-85FB2394F3EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EA1EC650-EF8C-455F-B097-85FB2394F3EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EA1EC650-EF8C-455F-B097-85FB2394F3EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{09369EF0-9595-4AF0-AEED-CA3266485437}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09369EF0-9595-4AF0-AEED-CA3266485437}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09369EF0-9595-4AF0-AEED-CA3266485437}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09369EF0-9595-4AF0-AEED-CA3266485437}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
