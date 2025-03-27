@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookingApi.Presentation", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrowthTracking.ShareLibrary", "..\GrowthTracking.ShareLibrarySolution\GrowthTracking.ShareLibrary\GrowthTracking.ShareLibrary.csproj", "{6807960E-44E9-4FC9-8134-43E05B5503C5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookingApi.Tests", "BookingApi.Tests\BookingApi.Tests.csproj", "{448C6E6A-1E4E-47F7-B672-54AE9DCEBC44}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{6807960E-44E9-4FC9-8134-43E05B5503C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6807960E-44E9-4FC9-8134-43E05B5503C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6807960E-44E9-4FC9-8134-43E05B5503C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{448C6E6A-1E4E-47F7-B672-54AE9DCEBC44}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{448C6E6A-1E4E-47F7-B672-54AE9DCEBC44}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{448C6E6A-1E4E-47F7-B672-54AE9DCEBC44}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{448C6E6A-1E4E-47F7-B672-54AE9DCEBC44}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
