@@ -15,5 +15,6 @@ namespace BookingApi.Application.Interfaces
         Task<IEnumerable<BookingDTO>> GetBookingsByDoctorAsync(Guid doctorId);
         Task<Response> CancelBookingAsync(Guid bookingId);
         Task<bool> CheckScheduleConflictAsync(Guid scheduleId, Guid bookingId = default);
+        Task<IEnumerable<BookingDTO>> GetConfirmedBookingsAsync();
     }
 }

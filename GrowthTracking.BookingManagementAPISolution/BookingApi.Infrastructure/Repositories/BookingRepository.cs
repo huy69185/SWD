@@ -86,6 +86,8 @@ namespace BookingApi.Infrastructure.Repositories
 
             booking.StatusDelete = true;
             booking.Status = "cancelled";
+            booking.CancelledBy = "System";
+            booking.CancellationTime = DateTime.UtcNow; 
             booking.UpdatedAt = DateTime.UtcNow;
             await _context.SaveChangesAsync();
             return new Response(true, "Booking cancelled successfully");
@@ -96,6 +98,14 @@ namespace BookingApi.Infrastructure.Repositories
             return await _context.Bookings
                 .Where(b => b.ScheduleId == scheduleId && b.Id != bookingId && b.Status != "cancelled")
                 .AnyAsync();
+        }
+
+        public async Task<IEnumerable<BookingDTO>> GetConfirmedBookingsAsync()
+        {
+            var bookings = await _context.Bookings
+                .Where(b => b.Status == "confirmed" && !b.StatusDelete)
+                .ToListAsync();
+            return bookings.Adapt<IEnumerable<BookingDTO>>();
         }
     }
 }

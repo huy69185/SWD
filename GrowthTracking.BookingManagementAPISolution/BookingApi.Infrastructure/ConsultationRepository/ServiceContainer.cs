@@ -28,6 +28,12 @@ namespace BookingApi.Infrastructure.DependencyInjection
             services.AddHostedService<ParentEventConsumer>();
             services.AddHostedService<DoctorEventConsumer>();
 
+            // Đăng ký PaymentServiceClient
+            services.AddHttpClient<IPaymentServiceClient, PaymentServiceClient>();
+
+            // Đăng ký PaymentDeadlineChecker
+            services.AddHostedService<PaymentDeadlineChecker>();
+
             return services;
         }
     }

@@ -30,17 +30,6 @@ namespace BookingApi.Presentation.Controllers
                 : BadRequest(new ApiResponse(false, response.Message));
         }
 
-        [HttpPut("{bookingId}")]
-        [Authorize(Roles = "Parent")]
-        public async Task<IActionResult> UpdateBooking(Guid bookingId, [FromBody] BookingDTO bookingDto)
-        {
-            bookingDto = bookingDto with { Id = bookingId };
-            var response = await _bookingService.UpdateBookingAsync(bookingDto);
-            return response.Flag
-                ? Ok(new ApiResponse(true, response.Message))
-                : BadRequest(new ApiResponse(false, response.Message));
-        }
-
         [HttpGet("{bookingId}")]
         public async Task<IActionResult> GetBooking(Guid bookingId)
         {

@@ -12,9 +12,12 @@ namespace BookingApi.Domain.Entities
         public string Status { get; set; } = "pending";
         public DateTime? BookingDate { get; set; }
         public DateTime? DoctorConfirmationDeadline { get; set; }
+        public DateTime? PaymentDeadline { get; set; } 
         public string? Notes { get; set; }
         public DateTime? CreatedAt { get; set; }
         public DateTime? UpdatedAt { get; set; }
         public bool StatusDelete { get; set; } = false;
+        public string? CancelledBy { get; set; } 
+        public DateTime? CancellationTime { get; set; } 
     }
 }
