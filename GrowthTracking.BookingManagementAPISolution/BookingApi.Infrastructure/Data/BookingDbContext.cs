@@ -24,10 +24,15 @@ namespace BookingApi.Infrastructure.Data
                 entity.Property(e => e.ScheduleId).HasColumnName("schedule_id");
                 entity.Property(e => e.Status).HasDefaultValue("pending");
                 entity.Property(e => e.BookingDate).HasDefaultValueSql("GETDATE()");
+                entity.Property(e => e.DoctorConfirmationDeadline);
+                entity.Property(e => e.PaymentDeadline); 
+                entity.Property(e => e.Notes);
                 entity.Property(e => e.CreatedAt).HasDefaultValueSql("GETDATE()");
                 entity.Property(e => e.UpdatedAt).HasDefaultValueSql("GETDATE()");
                 entity.Property(e => e.StatusDelete).HasDefaultValue(false);
-                entity.HasQueryFilter(e => !e.StatusDelete); 
+                entity.Property(e => e.CancelledBy); 
+                entity.Property(e => e.CancellationTime); 
+                entity.HasQueryFilter(e => !e.StatusDelete);
             });
 
             modelBuilder.Entity<Schedule>(entity =>
@@ -39,7 +44,7 @@ namespace BookingApi.Infrastructure.Data
                 entity.Property(e => e.CreatedAt).HasDefaultValueSql("GETDATE()");
                 entity.Property(e => e.UpdatedAt).HasDefaultValueSql("GETDATE()");
                 entity.Property(e => e.StatusDelete).HasDefaultValue(false);
-                entity.HasQueryFilter(e => !e.StatusDelete); 
+                entity.HasQueryFilter(e => !e.StatusDelete);
             });
 
             modelBuilder.Entity<Consultation>(entity =>

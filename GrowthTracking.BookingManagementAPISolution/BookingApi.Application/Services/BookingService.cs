@@ -85,6 +85,15 @@ namespace BookingApi.Application.Services
                 return new Response(false, "Booking not found");
             }
 
+            // Nếu trạng thái thay đổi thành "confirmed", thiết lập PaymentDeadline
+            if (bookingDto.Status == "confirmed" && existingBooking.Status != "confirmed")
+            {
+                bookingDto = bookingDto with
+                {
+                    PaymentDeadline = DateTime.UtcNow.AddHours(48) // 48 giờ để thanh toán
+                };
+            }
+
             var response = await _bookingRepository.UpdateBookingAsync(bookingDto);
             if (response.Flag)
             {

@@ -10,6 +10,9 @@ namespace BookingApi.Application.DTOs
         string Status,
         DateTime? BookingDate,
         DateTime? DoctorConfirmationDeadline,
-        string? Notes
+        DateTime? PaymentDeadline, 
+        string? Notes,
+        string? CancelledBy, 
+        DateTime? CancellationTime 
     );
 }
