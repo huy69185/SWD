@@ -1,5 +1,4 @@
 ﻿using AuthenticationApi.Application.Interfaces;
-using AuthenticationApi.Application.Services;
 using AuthenticationApi.Infrastructure.Data;
 using AuthenticationApi.Infrastructure.Repositories;
 using AuthenticationApi.Application.Messaging;
