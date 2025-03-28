@@ -20,7 +20,9 @@ namespace AuthenticationApi.Presentation.Controllers
         public async Task<IActionResult> Login([FromBody] LoginDTO loginDTO)
         {
             var response = await userRepository.Login(loginDTO);
-            return response.Flag ? Ok(new ApiResponse(true, response.Message)) : Unauthorized(new ApiResponse(false, response.Message));
+            return response.Flag ? 
+                Ok(new ApiResponse(true, "Login successfully", response.Message)) : 
+                Unauthorized(new ApiResponse(false, response.Message));
         }
 
         [HttpGet("{userId}")]

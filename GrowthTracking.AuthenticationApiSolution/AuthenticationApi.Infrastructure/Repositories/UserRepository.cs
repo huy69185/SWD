@@ -16,7 +16,8 @@ namespace AuthenticationApi.Infrastructure.Repositories
     public class UserRepository(AuthenticationDbContext context,
         IConfiguration config,
         INotificationService notificationService,
-        ISmsService smsService) : IUserRepository
+        ISmsService smsService,
+        ITokenService tokenService) : IUserRepository
     {
         public async Task<Response> Register(AppUserDTO appUserDTO)
         {
@@ -75,7 +76,8 @@ namespace AuthenticationApi.Infrastructure.Repositories
 
             user.LastLoginAt = DateTime.UtcNow;
             await context.SaveChangesAsync();
-            return new Response(true, "Login successful");
+            string token = tokenService.GenerateToken(user);
+            return new Response(true, token);
         }
 
         public async Task<AppUserDTO?> GetUser(Guid userId)
