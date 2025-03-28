@@ -17,6 +17,7 @@ namespace AuthenticationApi.Application.DTOs
         string? Address = null,
         string? Bio = null,
         bool? EmailVerified = false,
+        bool? PhoneVerified = false,
         string? VerificationToken = null,
         string? ResetToken = null,
         DateTime? ResetTokenExpiry = null,

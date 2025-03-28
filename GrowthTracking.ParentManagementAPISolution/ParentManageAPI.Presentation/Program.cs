@@ -21,7 +21,7 @@ builder.Services.AddSharedService(builder.Configuration, "ParentManageAPI");
 // Thêm các service từ ParentManageAPI
 builder.Services.AddControllers();
 builder.Services.AddInfrastructure(builder.Configuration);
-
+builder.Services.AddHostedService<ConsultationEvent>();
 // Thêm Swagger
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>

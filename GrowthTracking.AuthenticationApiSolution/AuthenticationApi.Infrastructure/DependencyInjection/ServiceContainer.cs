@@ -1,14 +1,14 @@
 ﻿using AuthenticationApi.Application.Interfaces;
+using AuthenticationApi.Application.Messaging;
 using AuthenticationApi.Application.Services;
 using AuthenticationApi.Infrastructure.Data;
+using AuthenticationApi.Infrastructure.Mapping;
 using AuthenticationApi.Infrastructure.Repositories;
-using AuthenticationApi.Application.Messaging;
 using GrowthTracking.ShareLibrary.DependencyInjection;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using AuthenticationApi.Infrastructure.Mapping;
 
 namespace AuthenticationApi.Infrastructure.DependencyInjection
 {
@@ -22,6 +22,11 @@ namespace AuthenticationApi.Infrastructure.DependencyInjection
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddSingleton<ParentEventConsumer>();
             services.AddHostedService<ParentEventConsumerHostedService>();
+            services.AddScoped<InactiveAccountChecker>();
+            services.AddHostedService<InactiveAccountCheckerHostedService>();
+            services.AddScoped<IEmailService, EmailService>();
+            services.AddScoped<ISmsService, SmsService>();
+            services.AddScoped<INotificationService, NotificationService>();
 
             services.AddMapsterConfiguration();
             return services;

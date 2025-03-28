@@ -1,11 +1,11 @@
 ﻿using AuthenticationApi.Application.Interfaces;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 using System.Text;
 using System.Text.Json;
-using Microsoft.Extensions.Logging;
 
 namespace AuthenticationApi.Application.Messaging
 {
@@ -39,7 +39,7 @@ namespace AuthenticationApi.Application.Messaging
             catch (Exception ex)
             {
                 _logger.LogError(ex, "Failed to connect to RabbitMQ. The consumer will not start.");
-                throw; // Ném lại ngoại lệ để dừng ứng dụng nếu cần
+                throw;
             }
         }
 

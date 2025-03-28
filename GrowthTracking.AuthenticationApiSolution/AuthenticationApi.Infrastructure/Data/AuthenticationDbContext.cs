@@ -16,6 +16,7 @@ namespace AuthenticationApi.Infrastructure.Data
                 entity.HasKey(e => e.UserAccountID);
                 entity.Property(e => e.UserAccountID).HasDefaultValueSql("NEWID()");
                 entity.HasIndex(e => e.Email).IsUnique();
+                entity.Property(e => e.PhoneVerified).HasDefaultValue(false);
             });
             modelBuilder.Entity<BugReport>(entity =>
             {
