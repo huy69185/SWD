@@ -35,5 +35,7 @@ public partial class Doctor
 
     public DateTime? UpdatedAt { get; set; }
 
-    public virtual ICollection<Certificate> Certificates { get; set; } = new List<Certificate>();
+    public string? Status { get; set; }
+
+    public virtual ICollection<IdentityDocument> IdentityDocuments { get; set; } = new List<IdentityDocument>();
 }

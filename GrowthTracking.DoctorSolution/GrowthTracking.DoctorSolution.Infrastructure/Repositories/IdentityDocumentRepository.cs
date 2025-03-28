@@ -4,8 +4,8 @@ using GrowthTracking.DoctorSolution.Infrastructure.DBContext;
 
 namespace GrowthTracking.DoctorSolution.Infrastructure.Repositories
 {
-    public class CertificateRepository(SWD_GrowthTrackingSystemDbContext dbContext) : 
-        GenericRepository<Certificate>(dbContext), ICertificateRepository
+    public class IdentityDocumentRepository(SWD_GrowthTrackingSystemDbContext dbContext) : 
+        GenericRepository<IdentityDocument>(dbContext), IIdentityDocumentRepository
     {
     }
 }
