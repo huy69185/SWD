@@ -1,6 +1,7 @@
 ﻿using GrowthTracking.DoctorSolution.Application.DTOs;
 using GrowthTracking.DoctorSolution.Application.Interfaces;
 using GrowthTracking.DoctorSolution.Application.Mapping;
+using GrowthTracking.DoctorSolution.Application.MessageQueue;
 using GrowthTracking.DoctorSolution.Application.Services.Interfaces;
 using GrowthTracking.DoctorSolution.Domain.Entities;
 using GrowthTracking.DoctorSolution.Domain.Enums;
@@ -15,7 +16,8 @@ namespace GrowthTracking.DoctorSolution.Application.Services
         IDoctorRepository repo, 
         IUserService userService, 
         IMapperService mapper,
-        IFileStorageService storageService) : IDoctorService
+        IFileStorageService storageService,
+        IDoctorEventPublisher doctorEventPublisher) : IDoctorService
     {
         public async Task<DoctorResponse> CreateDoctor(DoctorCreateRequest request)
         {
@@ -52,7 +54,11 @@ namespace GrowthTracking.DoctorSolution.Application.Services
             await repo.InsertAsync(entity);
             await repo.SaveAsync();
 
-            // Step 5: Map and return response
+            // Step 5: Publish DoctorCreated event using MassTransit
+            // Assuming _doctorEventPublisher is injected and implements IDoctorEventPublisher
+            await doctorEventPublisher.PublishDoctorCreatedAsync(entity.DoctorId, entity.FullName);
+
+            // Step 6: Map and return response
             return mapper.Map<Doctor, DoctorResponse>(entity);
         }
 
