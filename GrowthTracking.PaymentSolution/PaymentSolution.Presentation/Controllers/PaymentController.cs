@@ -1,7 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using PaymentSolution.Application.DTOs;
 using PaymentSolution.Application.Interfaces;
-using PaymentSolution.Domain.Entities;
 using System.Text;
 
 namespace PaymentSolution.Presentation.Controllers

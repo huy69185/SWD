@@ -60,6 +60,7 @@ namespace PaymentSolution.Application.DTOs
     {
         public Guid ParentId { get; set; }
         public Guid BookingId { get; set; }
+
         /// <summary>
         /// Customer's name
         /// </summary>
