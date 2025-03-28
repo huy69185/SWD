@@ -1,31 +1,30 @@
 ﻿using AuthenticationApi.Application.Interfaces;
 using Microsoft.Extensions.Configuration;
+using System.Net;
 using System.Net.Mail;
 using System.Threading.Tasks;
 
 namespace AuthenticationApi.Application.Services
 {
-    public class EmailService : IEmailService
+    public class EmailService(IConfiguration configuration) : IEmailService
     {
-        private readonly IConfiguration _configuration;
-
-        public EmailService(IConfiguration configuration)
-        {
-            _configuration = configuration;
-        }
+        private readonly string _smtpHost = configuration["Smtp:Host"] ?? throw new InvalidOperationException("SmtpHost configuration is not set.");
+        private readonly int _smtpPort = int.Parse(configuration["Smtp:Port"] ?? throw new InvalidOperationException("SmtpPort configuration is not set."));
+        private readonly string _smtpUser = configuration["Smtp:Username"] ?? throw new InvalidOperationException("SmtpUser configuration is not set.");
+        private readonly string _smtpPass = configuration["Smtp:Password"] ?? throw new InvalidOperationException("SmtpPass configuration is not set.");
 
         public async Task SendEmailAsync(string toEmail, string subject, string body)
         {
-            var smtpClient = new SmtpClient(_configuration["Smtp:Host"])
+            var smtpClient = new SmtpClient(_smtpHost)
             {
-                Port = int.Parse(_configuration["Smtp:Port"]),
-                Credentials = new System.Net.NetworkCredential(_configuration["Smtp:Username"], _configuration["Smtp:Password"]),
+                Port = _smtpPort,
+                Credentials = new NetworkCredential(_smtpUser, _smtpPass),
                 EnableSsl = true,
             };
 
             var mailMessage = new MailMessage
             {
-                From = new MailAddress(_configuration["Smtp:FromEmail"], "Growth Tracking System"),
+                From = new MailAddress(_smtpUser, "Growth Tracking System"),
                 Subject = subject,
                 Body = body,
                 IsBodyHtml = true,

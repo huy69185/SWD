@@ -27,6 +27,7 @@ namespace AuthenticationApi.Infrastructure.DependencyInjection
             services.AddScoped<IEmailService, EmailService>();
             services.AddScoped<ISmsService, SmsService>();
             services.AddScoped<INotificationService, NotificationService>();
+            services.AddHttpContextAccessor();
 
             services.AddMapsterConfiguration();
             return services;

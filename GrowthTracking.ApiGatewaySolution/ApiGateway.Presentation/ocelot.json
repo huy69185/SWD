@@ -15,7 +15,7 @@
       "RateLimitOptions": {
         "ClientWhitelist": [],
         "EnableRateLimiting": true,
-        "Period": "60s",
+        "Period": "10s",
         "Limit": 1,
         "PeriodTimespan": 10
       }
