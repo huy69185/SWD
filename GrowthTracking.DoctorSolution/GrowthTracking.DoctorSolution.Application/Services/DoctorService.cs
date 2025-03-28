@@ -3,34 +3,50 @@ using GrowthTracking.DoctorSolution.Application.Interfaces;
 using GrowthTracking.DoctorSolution.Application.Mapping;
 using GrowthTracking.DoctorSolution.Application.Services.Interfaces;
 using GrowthTracking.DoctorSolution.Domain.Entities;
+using GrowthTracking.DoctorSolution.Domain.Enums;
 using GrowthTracking.ShareLibrary.Exceptions;
 using GrowthTracking.ShareLibrary.Pagination;
+using Microsoft.AspNetCore.Http;
 using System.Linq.Expressions;
 
 namespace GrowthTracking.DoctorSolution.Application.Services
 {
-    public class DoctorService(IDoctorRepository repo, IUserService userService, IMapperService mapper) : IDoctorService
+    public class DoctorService(
+        IDoctorRepository repo, 
+        IUserService userService, 
+        IMapperService mapper,
+        IFileStorageService storageService) : IDoctorService
     {
-        public async Task<DoctorResponse> CreateDoctor(DoctorCreateRequest doctor)
+        public async Task<DoctorResponse> CreateDoctor(DoctorCreateRequest request)
         {
             // Step 1: Check if User Exists via User Microservice
-            var userExists = await userService.CheckUserExists(doctor.DoctorId);
+            var userExists = await userService.CheckUserExists(request.DoctorId);
             if (!userExists)
             {
                 throw new NotFoundException("User account not found in User Microservice.");
             }
 
             // Step 2: Ensure User is Not Already a Doctor
-            var existingDoctor = await repo.GetByIdAsync(doctor.DoctorId);
+            var existingDoctor = await repo.GetByIdAsync(request.DoctorId);
             if (existingDoctor != null)
             {
                 throw new Exception("This user is already registered as a doctor.");
             }
 
             // Step 3: Map request to entity
-            var entity = mapper.Map<DoctorCreateRequest, Doctor>(doctor);
+            var entity = mapper.Map<DoctorCreateRequest, Doctor>(request);
+            entity.Status = DoctorStatus.PendingVerification.ToString();
             entity.CreatedAt = DateTime.UtcNow;
             entity.UpdatedAt = DateTime.UtcNow;
+
+            // Upload files and create IdentityDocument records.
+            entity.IdentityDocuments.Add(
+                await CreateIdentityDocumentAsync(entity.DoctorId, DocumentType.IdCard, request.IdCard));
+            entity.IdentityDocuments.Add(
+                await CreateIdentityDocumentAsync(entity.DoctorId, DocumentType.ProfessionalDegree, request.ProfessionalDegree));
+            entity.IdentityDocuments.Add(
+                await CreateIdentityDocumentAsync(entity.DoctorId, DocumentType.MedicalLicense, request.MedicalLicense));
+
 
             // Step 4: Save to Database
             await repo.InsertAsync(entity);
@@ -38,7 +54,6 @@ namespace GrowthTracking.DoctorSolution.Application.Services
 
             // Step 5: Map and return response
             return mapper.Map<Doctor, DoctorResponse>(entity);
-
         }
 
         public async Task DeleteDoctor(string doctorId, string currentUserId)
@@ -138,6 +153,24 @@ namespace GrowthTracking.DoctorSolution.Application.Services
         public Task<DoctorResponse> UpdateDoctorStatus(string doctorId, string newStatus)
         {
             throw new NotImplementedException();
+        }
+
+        private async Task<IdentityDocument> CreateIdentityDocumentAsync(Guid doctorId, DocumentType docType, IFormFile file)
+        {
+            var uploadResult = await storageService.UploadFileAsync(file);
+            if (!uploadResult.Success)
+                throw new Exception($"File upload failed for {docType}: {uploadResult.ErrorMessage}");
+
+            return new IdentityDocument
+            {
+                DocumentId = Guid.NewGuid(),
+                DoctorId = doctorId,
+                Type = docType.ToString(),
+                DocumentUrl = uploadResult.Url!,
+                Status = DocumentStatus.Pending.ToString(),
+                CreatedAt = DateTime.UtcNow,
+                UpdatedAt = DateTime.UtcNow
+            };
         }
     }
 }

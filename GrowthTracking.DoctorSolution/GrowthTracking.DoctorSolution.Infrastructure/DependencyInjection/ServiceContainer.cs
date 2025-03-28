@@ -1,5 +1,6 @@
 ﻿using GrowthTracking.DoctorSolution.Application.Interfaces;
 using GrowthTracking.DoctorSolution.Application.Mapping;
+using GrowthTracking.DoctorSolution.Infrastructure.Cloudinary;
 using GrowthTracking.DoctorSolution.Infrastructure.DBContext;
 using GrowthTracking.DoctorSolution.Infrastructure.Mapping;
 using GrowthTracking.DoctorSolution.Infrastructure.Repositories;
@@ -22,10 +23,14 @@ namespace GrowthTracking.DoctorSolution.Infrastructure.DependencyInjection
             services.AddMapsterConfiguration();
             services.AddScoped<IMapperService, MapsterService>();
 
+            // Register the CloudinarySettings section from appsettings.json
+            services.Configure<CloudinarySettings>(config.GetSection("Cloudinary"));
+            services.AddScoped<IFileStorageService, CloudinaryService>();
+
             // Add repositories
             services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
             services.AddScoped<IDoctorRepository, DoctorRepository>();
-            services.AddScoped<ICertificateRepository, CertificateRepository>();
+            services.AddScoped<IIdentityDocumentRepository, IdentityDocumentRepository>();
 
             return services;
         }

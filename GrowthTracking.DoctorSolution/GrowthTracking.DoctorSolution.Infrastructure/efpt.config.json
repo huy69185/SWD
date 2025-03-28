@@ -3,7 +3,7 @@
    "ContextClassName": "SWD_GrowthTrackingSystemDbContext",
    "ContextNamespace": null,
    "FilterSchemas": false,
-   "IncludeConnectionString": true,
+   "IncludeConnectionString": false,
    "ModelNamespace": null,
    "OutputContextPath": null,
    "OutputPath": "DBContext",
@@ -11,15 +11,15 @@
    "ProjectRootNamespace": "GrowthTracking.DoctorSolution.Infrastructure",
    "Schemas": null,
    "SelectedHandlebarsLanguage": 2,
-   "SelectedToBeGenerated": 0,
+   "SelectedToBeGenerated": 1,
    "T4TemplatePath": null,
    "Tables": [
       {
-         "Name": "[dbo].[Certificate]",
+         "Name": "[dbo].[Doctor]",
          "ObjectType": 0
       },
       {
-         "Name": "[dbo].[Doctor]",
+         "Name": "[dbo].[IdentityDocument]",
          "ObjectType": 0
       }
    ],

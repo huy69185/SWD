@@ -1,4 +1,5 @@
 ﻿using GrowthTracking.ShareLibrary.Validation;
+using Microsoft.AspNetCore.Http;
 using System.ComponentModel.DataAnnotations;
 
 namespace GrowthTracking.DoctorSolution.Application.DTOs
@@ -6,7 +7,8 @@ namespace GrowthTracking.DoctorSolution.Application.DTOs
     public record DoctorCreateRequest(
         [Required, GuidValidation] string DoctorId,
         string FullName,
-        [DateOnlyValidation] string? DateOfBirth,
+        [DateOnlyValidation, DateOfBirthValidation] 
+        string? DateOfBirth,
         [RegularExpression("^(male|female|other)$", ErrorMessage = "Gender must be 'male', 'female', or 'other'.")]
         string? Gender,
         string? Address,
@@ -16,11 +18,14 @@ namespace GrowthTracking.DoctorSolution.Application.DTOs
         int? ExperienceYears,
         string? Workplace,
         string? Biography,
-        string? ProfilePhoto
+        string? ProfilePhoto,
+        [Required] IFormFile IdCard,
+        [Required] IFormFile ProfessionalDegree,
+        [Required] IFormFile MedicalLicense
         );
     public record DoctorUpdateRequest(
         string? FullName,
-        [DateOnlyValidation] string? DateOfBirth,
+        [DateOnlyValidation, DateOfBirthValidation] string? DateOfBirth,
         [RegularExpression("^(male|female|other)$", ErrorMessage = "Gender must be 'male', 'female', or 'other'.")]
         string? Gender,
         string? Address,

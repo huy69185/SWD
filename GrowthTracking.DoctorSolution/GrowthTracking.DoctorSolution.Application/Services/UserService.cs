@@ -1,5 +1,4 @@
 ﻿using GrowthTracking.DoctorSolution.Application.Services.Interfaces;
-using Microsoft.Extensions.Configuration;
 using Polly.Registry;
 
 namespace GrowthTracking.DoctorSolution.Application.Services

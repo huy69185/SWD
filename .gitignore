@@ -264,3 +264,4 @@ FakesAssemblies/
 
 # ignore log files
 log/
+/GrowthTracking.DoctorSolution/GrowthTracking.DoctorSolution.Presentation/appsettings.Development.json
