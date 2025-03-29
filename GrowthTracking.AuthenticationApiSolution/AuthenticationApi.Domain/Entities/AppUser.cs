@@ -1,6 +1,4 @@
-﻿using GrowthTracking.ShareLibrary.Abstract;
-
-namespace AuthenticationApi.Domain.Entities
+﻿namespace AuthenticationApi.Domain.Entities
 {
     public class AppUser
     {

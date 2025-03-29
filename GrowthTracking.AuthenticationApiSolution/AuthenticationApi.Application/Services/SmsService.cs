@@ -1,7 +1,6 @@
 ﻿using AuthenticationApi.Application.DTOs;
 using AuthenticationApi.Application.Interfaces;
 using Microsoft.Extensions.Configuration;
-using System.Threading.Tasks;
 using Twilio;
 using Twilio.Rest.Verify.V2.Service;
 
