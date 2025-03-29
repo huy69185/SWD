@@ -1,10 +1,8 @@
 ﻿using AuthenticationApi.Infrastructure.DependencyInjection;
-using GrowthTracking.ShareLibrary.DependencyInjection;
-using Microsoft.OpenApi.Models;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
 using System.Text;
-using Microsoft.Extensions.Logging;
 
 internal class Program
 {

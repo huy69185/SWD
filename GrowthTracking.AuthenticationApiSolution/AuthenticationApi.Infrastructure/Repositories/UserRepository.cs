@@ -6,10 +6,6 @@ using GrowthTracking.ShareLibrary.Response;
 using Mapster;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace AuthenticationApi.Infrastructure.Repositories
 {
