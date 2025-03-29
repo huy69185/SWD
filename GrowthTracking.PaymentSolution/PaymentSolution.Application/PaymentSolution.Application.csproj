@@ -8,14 +8,11 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\GrowthTracking.ShareLibrarySolution\GrowthTracking.ShareLibrary\GrowthTracking.ShareLibrary.csproj" />
-    <ProjectReference Include="..\GrowthTracking.DoctorSolution.Domain\GrowthTracking.DoctorSolution.Domain.csproj" />
+    <ProjectReference Include="..\PaymentSolution.Domain\PaymentSolution.Domain.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="MassTransit.RabbitMQ" Version="8.4.0" />
-    <PackageReference Include="Microsoft.Extensions.Http" Version="9.0.2" />
-    <PackageReference Include="Polly.Core" Version="8.5.2" />
-    <PackageReference Include="Polly.Extensions" Version="8.5.2" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="9.0.2" />
   </ItemGroup>
 
 </Project>

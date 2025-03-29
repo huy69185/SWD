@@ -1,6 +1,8 @@
-﻿using GrowthTracking.DoctorSolution.Application.Services;
+﻿using GrowthTracking.DoctorSolution.Application.MessageQueue;
+using GrowthTracking.DoctorSolution.Application.Services;
 using GrowthTracking.DoctorSolution.Application.Services.Interfaces;
 using GrowthTracking.ShareLibrary.Logs;
+using MassTransit;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Polly;
@@ -14,10 +16,27 @@ namespace GrowthTracking.DoctorSolution.Application.DependencyInjection
         {
             services.AddRetryStrategyForClient(config);
 
+            // Register MassTransit with RabbitMQ and our consumer
+            services.AddMassTransit(x =>
+            {
+
+                // Configure RabbitMQ as the transport
+                x.UsingRabbitMq((context, cfg) =>
+                {
+                    cfg.Host("localhost", "/", h =>
+                    {
+                        h.Username("guest");
+                        h.Password("guest");
+                    });
+                });
+            });
+            services.AddMassTransitHostedService();
+
             // Add services here
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IDoctorService, DoctorService>();
             services.AddScoped<IIdentityDocumentService, IdentityDocumentService>();
+            services.AddScoped<IDoctorEventPublisher, DoctorEventPublisher>();
             return services;
         }
 

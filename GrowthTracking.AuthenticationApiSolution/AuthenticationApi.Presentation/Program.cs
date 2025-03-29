@@ -26,12 +26,9 @@ internal class Program
                 Version = "v1",
                 Description = "API for Authentication in Growth Tracking System"
             });
+            c.ResolveConflictingActions(apiDescriptions => apiDescriptions.First());
+            c.DocInclusionPredicate((docName, apiDesc) => true);
 
-            // Chỉ định rõ phiên bản OpenAPI
-            c.ResolveConflictingActions(apiDescriptions => apiDescriptions.First()); // Giải quyết xung đột nếu có
-            c.DocInclusionPredicate((docName, apiDesc) => true); // Đảm bảo tất cả API được bao gồm
-
-            // Cấu hình bảo mật (giữ nguyên)
             c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
             {
                 In = ParameterLocation.Header,
@@ -41,21 +38,21 @@ internal class Program
             });
             c.AddSecurityRequirement(new OpenApiSecurityRequirement
             {
-        {
-            new OpenApiSecurityScheme { Reference = new OpenApiReference { Type = ReferenceType.SecurityScheme, Id = "Bearer" } },
-            Array.Empty<string>()
-        }
+                {
+                    new OpenApiSecurityScheme { Reference = new OpenApiReference { Type = ReferenceType.SecurityScheme, Id = "Bearer" } },
+                    Array.Empty<string>()
+                }
             });
         });
 
-        // Configure Authentication (JWT)
+        // Configure Authentication (JWT) with debug events
         var jwtKey = builder.Configuration["Authentication:Key"];
         if (string.IsNullOrEmpty(jwtKey))
         {
             throw new InvalidOperationException("JWT Key is not configured in appsettings.json under 'Authentication:Key'.");
         }
 
-        var key = Encoding.ASCII.GetBytes(jwtKey);
+        var key = Encoding.UTF8.GetBytes(jwtKey); // Thống nhất sử dụng UTF8
         builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             .AddJwtBearer(options =>
             {
@@ -68,6 +65,29 @@ internal class Program
                     ValidIssuer = builder.Configuration["Authentication:Issuer"],
                     ValidAudience = builder.Configuration["Authentication:Audience"],
                     IssuerSigningKey = new SymmetricSecurityKey(key)
+                };
+
+                // Thêm sự kiện debug để kiểm tra lỗi xác thực
+                options.Events = new JwtBearerEvents
+                {
+                    OnAuthenticationFailed = context =>
+                    {
+                        var logger = context.HttpContext.RequestServices.GetRequiredService<ILogger<Program>>();
+                        logger.LogError("Authentication failed: {Exception}", context.Exception.Message);
+                        return Task.CompletedTask;
+                    },
+                    OnTokenValidated = context =>
+                    {
+                        var logger = context.HttpContext.RequestServices.GetRequiredService<ILogger<Program>>();
+                        logger.LogInformation("Token validated successfully for user: {UserId}", context.Principal?.FindFirst("userId")?.Value);
+                        return Task.CompletedTask;
+                    },
+                    OnChallenge = context =>
+                    {
+                        var logger = context.HttpContext.RequestServices.GetRequiredService<ILogger<Program>>();
+                        logger.LogWarning("Authentication challenge triggered: {Error}", context.ErrorDescription);
+                        return Task.CompletedTask;
+                    }
                 };
             });
 
@@ -86,7 +106,7 @@ internal class Program
             app.UseSwaggerUI(c =>
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "Authentication API v1");
-                c.RoutePrefix = "swagger"; // Đảm bảo route chính xác
+                c.RoutePrefix = "swagger";
             });
         }
 
@@ -104,7 +124,7 @@ internal class Program
         // Add HTTPS Redirection
         app.UseHttpsRedirection();
 
-        // Add Authentication before Authorization
+        // Ensure Authentication is before Authorization
         app.UseAuthentication();
         app.UseAuthorization();
 
