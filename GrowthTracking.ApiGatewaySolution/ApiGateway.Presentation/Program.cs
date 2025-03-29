@@ -11,7 +11,7 @@ builder.Configuration.AddJsonFile("ocelot.json", optional: false, reloadOnChange
 
 builder.Services.AddOcelot().AddCacheManager(x => x.WithDictionaryHandle());
 
-JWTAuthencationScheme.AddJWTAuthencationScheme(builder.Services, builder.Configuration);
+// JWTAuthencationScheme.AddJWTAuthencationScheme(builder.Services, builder.Configuration);
 
 builder.Services.AddCors(options =>
 {

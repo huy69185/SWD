@@ -1,38 +1,56 @@
-﻿using ChildApi.Infrastructure.Data;
+﻿using ChildApi.Application.Interfaces;
+using ChildApi.Application.Messaging;
+using ChildApi.Infrastructure.Data;
 using ChildApi.Infrastructure.Mapping;
 using ChildApi.Infrastructure.Repositories;
-using ChildApi.Application.Interfaces;
-using ChildApi.Application.Messaging;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Thêm Controllers vào container
+// Thêm Controllers
 builder.Services.AddControllers();
 
-// Thêm Swagger cho tài liệu API
+// Cấu hình Swagger
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddSingleton<IEventPublisher, EventPublisher>();
 
-// Cấu hình DbContext với connection string từ file cấu hình (appsettings.json)
+// Cấu hình Authentication JWT
+var authenticationSettings = builder.Configuration.GetSection("Authentication");
+// builder.Services.AddAuthentication(options =>
+// {
+//     options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+//     options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+// })
+// .AddJwtBearer(options =>
+// {
+//     options.TokenValidationParameters = new TokenValidationParameters
+//     {
+//         ValidateIssuer = true,
+//         ValidateAudience = true,
+//         ValidateLifetime = true,
+//         ValidateIssuerSigningKey = true,
+//         ValidIssuer = authenticationSettings["Issuer"], // http://localhost:5002
+//         ValidAudience = authenticationSettings["Audience"], // http://localhost:5002
+//         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(authenticationSettings["Key"])) 
+//     };
+// });
+
+// Cấu hình DbContext và các dịch vụ khác
 builder.Services.AddDbContext<ChildDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
-
-// Đăng ký Mapster configuration
-MapsterConfiguration.RegisterMappings();
-
-// Đăng ký repository interfaces và implementations
 builder.Services.AddScoped<IChildRepository, ChildRepository>();
 builder.Services.AddScoped<IMilestoneRepository, MilestoneRepository>();
-
-// Đăng ký ParentIdCache và RabbitMQ Consumer (BackgroundService)
 builder.Services.AddSingleton<ParentIdCache>();
 builder.Services.AddHostedService<ParentEventConsumer>();
+builder.Services.AddSingleton<IEventPublisher, EventPublisher>();
+
+MapsterConfiguration.RegisterMappings();
 
 var app = builder.Build();
 
-// Cấu hình Swagger cho môi trường Development
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
@@ -44,11 +62,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
-// Nếu có xác thực thì kích hoạt Authentication
-// app.UseAuthentication();
-app.UseAuthorization();
-
+// app.UseAuthentication(); 
+// app.UseAuthorization();
 app.MapControllers();
 
 app.Run();

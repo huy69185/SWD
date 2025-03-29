@@ -1,0 +1,174 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Run FE",
+            "runtimeExecutable": "npm",
+            "runtimeArgs": ["run", "dev"],
+            "cwd": "${workspaceFolder}/SWD-FE/Web",
+            "serverReadyAction": {
+                "pattern": "Local:.+(https?://\\S+)",
+                "uriFormat": "%s",
+                "action": "openExternally"
+            }
+        },
+        // {
+        //     "type": "java",
+        //     "name": "Run Java Service",
+        //     "request": "launch",
+        //     "mainClass": "com.yourcompany.MainClass", // Replace with your main class
+        //     "projectName": "your-java-project", // Replace with your project name
+        //     "cwd": "${workspaceFolder}/path/to/java/project", // Adjust this path
+        //     "classPaths": [
+        //         "${workspaceFolder}/path/to/java/project/target/classes",
+        //         "${workspaceFolder}/path/to/java/project/target/dependency/*"
+        //     ],
+        //     "env": {
+        //         "SPRING_PROFILES_ACTIVE": "development"
+        //     }
+        // },
+        {
+            "name": "Run API Gateway",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build-api-gateway",
+            "program": "${workspaceFolder}/GrowthTracking.ApiGatewaySolution/ApiGateway.Presentation/bin/Debug/net8.0/ApiGateway.Presentation.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/GrowthTracking.ApiGatewaySolution/ApiGateway.Presentation",
+            "stopAtEntry": false,
+            "serverReadyAction": {
+                "action": "openExternally",
+                "pattern": "\\bNow listening on:\\s+(https?://\\S+)",
+                "uriFormat": "%s"
+            },
+            "env": {
+                "ASPNETCORE_ENVIRONMENT": "Development"
+            }
+        },
+        {
+            "name": "Run Authentication API",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build-auth",
+            "program": "${workspaceFolder}/GrowthTracking.AuthenticationApiSolution/AuthenticationApi.Presentation/bin/Debug/net8.0/AuthenticationApi.Presentation.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/GrowthTracking.AuthenticationApiSolution/AuthenticationApi.Presentation",
+            "stopAtEntry": false,
+            "serverReadyAction": {
+                "action": "openExternally",
+                "pattern": "\\bNow listening on:\\s+(https?://\\S+)",
+                "uriFormat": "%s"
+            },
+            "env": {
+                "ASPNETCORE_ENVIRONMENT": "Development"
+            }
+        },
+        {
+            "name": "Run Parent Management API",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build-parent",
+            "program": "${workspaceFolder}/GrowthTracking.ParentManagementAPISolution/ParentManageAPI.Presentation/bin/Debug/net8.0/ParentManageAPI.Presentation.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/GrowthTracking.ParentManagementAPISolution/ParentManageAPI.Presentation",
+            "stopAtEntry": false,
+            "serverReadyAction": {
+                "action": "openExternally",
+                "pattern": "\\bNow listening on:\\s+(https?://\\S+)",
+                "uriFormat": "%s"
+            },
+            "env": {
+                "ASPNETCORE_ENVIRONMENT": "Development"
+            }
+        },
+        {
+            "name": "Run Booking Management API",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build-booking",
+            "program": "${workspaceFolder}/GrowthTracking.BookingManagementAPISolution/BookingApi.Presentation/bin/Debug/net8.0/BookingApi.Presentation.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/GrowthTracking.BookingManagementAPISolution/BookingApi.Presentation",
+            "stopAtEntry": false,
+            "serverReadyAction": {
+                "action": "openExternally",
+                "pattern": "\\bNow listening on:\\s+(https?://\\S+)",
+                "uriFormat": "%s"
+            },
+            "env": {
+                "ASPNETCORE_ENVIRONMENT": "Development"
+            }
+        },
+        {
+            "name": "Run Doctor API",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build-doctor",
+            "program": "${workspaceFolder}/GrowthTracking.DoctorSolution/GrowthTracking.DoctorSolution.Presentation/bin/Debug/net8.0/GrowthTracking.DoctorSolution.Presentation.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/GrowthTracking.DoctorSolution/GrowthTracking.DoctorSolution.Presentation",
+            "stopAtEntry": false,
+            "serverReadyAction": {
+                "action": "openExternally",
+                "pattern": "\\bNow listening on:\\s+(https?://\\S+)",
+                "uriFormat": "%s"
+            },
+            "env": {
+                "ASPNETCORE_ENVIRONMENT": "Development"
+            }
+        },
+        {
+            "name": "Run Child API",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build-child",
+            "program": "${workspaceFolder}/GrowthTracking.ChildApiSolution/GrowthTracking.ChildApiSolution/bin/Debug/net8.0/GrowthTracking.ChildApiSolution.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/GrowthTracking.ChildApiSolution/GrowthTracking.ChildApiSolution",
+            "stopAtEntry": false,
+            "serverReadyAction": {
+                "action": "openExternally",
+                "pattern": "\\bNow listening on:\\s+(https?://\\S+)",
+                "uriFormat": "%s"
+            },
+            "env": {
+                "ASPNETCORE_ENVIRONMENT": "Development"
+            }
+        },
+        {
+            "name": "Run OAuth2 API",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build-oauth2",
+            "program": "${workspaceFolder}/GrowthTracking.AuthenticationApiOauth2Solution/AuthenticationApi/bin/Debug/net8.0/AuthenticationApi.Presentation.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/GrowthTracking.AuthenticationApiOauth2Solution/AuthenticationApi",
+            "stopAtEntry": false,
+            "serverReadyAction": {
+                "action": "openExternally",
+                "pattern": "\\bNow listening on:\\s+(https?://\\S+)",
+                "uriFormat": "%s"
+            },
+            "env": {
+                "ASPNETCORE_ENVIRONMENT": "Development",
+                "ASPNETCORE_URLS": "http://localhost:5004"
+            }
+        }
+    ],
+    "compounds": [
+        {
+            "name": "Run All Backend Services",
+            "configurations": [
+                "Run Authentication API",
+                "Run Parent Management API",
+                "Run Booking Management API", 
+                "Run Doctor API",
+                "Run Child API", 
+                "Run API Gateway"
+            ],
+            "stopAll": true
+        }
+    ]
+}

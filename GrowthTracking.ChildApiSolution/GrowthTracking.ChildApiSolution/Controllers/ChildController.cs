@@ -13,7 +13,7 @@ namespace ChildApi.Presentation.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
+    [AllowAnonymous]
     public class ChildController : ControllerBase
     {
         private readonly IChildRepository _childRepository;
