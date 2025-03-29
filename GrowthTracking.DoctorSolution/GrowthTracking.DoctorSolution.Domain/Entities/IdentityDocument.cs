@@ -22,4 +22,8 @@ public partial class IdentityDocument
     public DateTime UpdatedAt { get; set; }
 
     public virtual Doctor Doctor { get; set; } = null!;
+
+    public Guid? VerifiedByAdminId { get; set; } // Add this field
+    public string? RejectionReason { get; set; } // Add this field for remarks if rejected
+
 }
