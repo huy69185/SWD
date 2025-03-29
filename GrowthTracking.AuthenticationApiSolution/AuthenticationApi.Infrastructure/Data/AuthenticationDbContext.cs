@@ -13,6 +13,7 @@ namespace AuthenticationApi.Infrastructure.Data
         {
             modelBuilder.Entity<AppUser>(entity =>
             {
+                entity.ToTable("UserAccount");
                 entity.HasKey(e => e.UserAccountID);
                 entity.Property(e => e.UserAccountID).HasDefaultValueSql("NEWID()");
                 entity.HasIndex(e => e.Email).IsUnique();

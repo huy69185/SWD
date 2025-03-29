@@ -1,9 +1,4 @@
 ﻿using Microsoft.AspNetCore.Http;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GrowthTracking.ShareLibrary.Middleware
 {
@@ -14,12 +9,13 @@ namespace GrowthTracking.ShareLibrary.Middleware
             //Extract specific header from the request
             var signedHeader = context.Request.Headers["Api-Gateway"];
             //The request is not coming from Api Gateway => status 503
-            if(signedHeader.FirstOrDefault() is null) 
+            if (signedHeader.FirstOrDefault() is null)
             {
                 context.Response.StatusCode = StatusCodes.Status503ServiceUnavailable;
                 await context.Response.WriteAsync("Sorry, service is unavailable");
                 return;
-            }else
+            }
+            else
             {
                 await next(context);
             }

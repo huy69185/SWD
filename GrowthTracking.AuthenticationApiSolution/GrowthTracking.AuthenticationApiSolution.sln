@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AuthenticationApi.Presentat
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrowthTracking.ShareLibrary", "..\GrowthTracking.ShareLibrarySolution\GrowthTracking.ShareLibrary\GrowthTracking.ShareLibrary.csproj", "{D6125F7A-FB98-4847-885F-A34899957560}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthenticationApi.Tests", "AuthenticationApi.Tests\AuthenticationApi.Tests.csproj", "{2884BC64-E41C-4A79-84D6-5AFEC2742D1C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{D6125F7A-FB98-4847-885F-A34899957560}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D6125F7A-FB98-4847-885F-A34899957560}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D6125F7A-FB98-4847-885F-A34899957560}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2884BC64-E41C-4A79-84D6-5AFEC2742D1C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2884BC64-E41C-4A79-84D6-5AFEC2742D1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2884BC64-E41C-4A79-84D6-5AFEC2742D1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2884BC64-E41C-4A79-84D6-5AFEC2742D1C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
