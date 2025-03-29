@@ -22,7 +22,7 @@ namespace GrowthTracking.DoctorSolution.Application.Services
             ////Prepare response
             //var response = await retryPipeline.ExecuteAsync(
             //    async token => await httpClient.GetAsync($"/api/users/{userId}", token));
-            if (Guid.TryParse(userId, out Guid guidId))
+            if (!Guid.TryParse(userId, out Guid guidId))
             {
                 return false;
             }

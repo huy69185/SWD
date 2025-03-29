@@ -74,7 +74,6 @@ namespace GrowthTracking.DoctorSolution.Presentation.Controllers
 
         [HttpPost]
         [EndpointSummary("Create Doctor")]
-        [AllowAnonymous]
         [Consumes("multipart/form-data")]
         public async Task<IActionResult> CreateDoctor(
             [FromForm] DoctorCreateRequest doctor)

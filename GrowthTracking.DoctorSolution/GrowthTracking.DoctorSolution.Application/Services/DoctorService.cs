@@ -32,7 +32,7 @@ namespace GrowthTracking.DoctorSolution.Application.Services
             }
 
             // Step 2: Ensure User is Not Already a Doctor
-            var existingDoctor = await repo.GetByIdAsync(request.DoctorId);
+            var existingDoctor = await repo.GetByIdAsync(Guid.Parse(request.DoctorId));
             if (existingDoctor != null)
             {
                 throw new Exception("This user is already registered as a doctor.");
