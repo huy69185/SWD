@@ -1,0 +1,29 @@
+GET http://localhost:8080/api/v1/emails/{id}
+
+###
+
+POST http://localhost:8080/api/v1/emails
+Content-Type: application/json
+
+{
+  "to": ["luongwinter@gmail.com"],
+  "subject": "Test Email",
+  "body": "This is a test email sent from the HTTP file."
+}
+
+###
+
+POST http://localhost:8080/api/v1/sms
+Content-Type: application/json
+
+{
+  "to": "+84945267562",
+  "body": "This is a test SMS message from the API",
+  "priority": "HIGH"
+}
+
+<> 2025-03-26T212156.200.json
+<> 2025-03-26T212139.415.json
+
+###
+
