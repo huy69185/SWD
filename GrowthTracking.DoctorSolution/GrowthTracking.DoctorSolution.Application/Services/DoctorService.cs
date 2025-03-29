@@ -159,6 +159,28 @@ namespace GrowthTracking.DoctorSolution.Application.Services
             return mapper.Map<Doctor, DoctorResponse>(entity);
         }
 
+
+        public async Task<DoctorResponse> UpdateDoctorStatus(string doctorId, string newStatus)
+        {
+            var entity = await repo.GetByIdAsync(Guid.Parse(doctorId))
+                ?? throw new NotFoundException($"Doctor with ID {doctorId} not found.");
+
+            // Validate status value
+            if (!Enum.TryParse<DoctorStatus>(newStatus, out var status))
+                throw new ArgumentException($"Invalid status value: {newStatus}");
+
+            entity.Status = status.ToString();
+            entity.UpdatedAt = DateTime.UtcNow;
+
+            await repo.UpdateAsync(entity);
+            await repo.SaveAsync();
+
+            // Publish status change event
+            await doctorEventPublisher.PublishDoctorStatusChangedAsync(entity.DoctorId, entity.Status);
+
+            return mapper.Map<Doctor, DoctorResponse>(entity);
+        }
+
         public Task<DoctorResponse> UpdateDoctorStatus(string doctorId, string newStatus)
         {
             throw new NotImplementedException();
@@ -181,5 +203,7 @@ namespace GrowthTracking.DoctorSolution.Application.Services
                 UpdatedAt = DateTime.UtcNow
             };
         }
+
+
     }
 }

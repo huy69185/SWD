@@ -14,4 +14,16 @@ namespace GrowthTracking.DoctorSolution.Application.DTOs
         IFormFile? DocumentFile
     );
 
+    public class DoctorVerificationRequest
+    {
+        public bool IsApproved { get; set; }
+        public string? Remarks { get; set; }
+    }
+
+    public class DocumentVerificationRequest
+    {
+        public bool IsApproved { get; set; }
+        public string? Remarks { get; set; }
+    }
+
 }

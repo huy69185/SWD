@@ -27,5 +27,42 @@ namespace GrowthTracking.DoctorSolution.Application.Services
         {
             throw new NotImplementedException();
         }
+
+        public async Task<IdentityDocument> UpdateDocumentStatusAsync(string documentId, string newStatus, string adminId)
+        {
+            var document = await repo.GetByIdAsync(Guid.Parse(documentId))
+                ?? throw new NotFoundException($"Document with ID {documentId} not found.");
+
+            document.Status = newStatus;
+            document.UpdatedAt = DateTime.UtcNow;
+            document.VerifiedByAdminId = Guid.Parse(adminId);
+
+            await repo.UpdateAsync(document);
+            await repo.SaveAsync();
+
+            return document;
+        }
+
+        public async Task UpdateDoctorStatusIfVerified(string doctorId)
+        {
+            var documents = await repo.GetAllAsync(d => d.DoctorId == Guid.Parse(doctorId));
+
+            // Check if all documents are approved
+            bool allApproved = documents.All(d => d.Status == DocumentStatus.Approved.ToString());
+
+            if (allApproved)
+            {
+                // Update doctor status through IDoctorRepository
+                var doctor = await _doctorRepository.GetByIdAsync(Guid.Parse(doctorId))
+                    ?? throw new NotFoundException($"Doctor with ID {doctorId} not found.");
+
+                doctor.Status = DoctorStatus.Active.ToString();
+                doctor.UpdatedAt = DateTime.UtcNow;
+
+                await _doctorRepository.UpdateAsync(doctor);
+                await _doctorRepository.SaveAsync();
+            }
+        }
+
     }
 }
