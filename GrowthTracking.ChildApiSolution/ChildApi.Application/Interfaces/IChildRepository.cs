@@ -9,7 +9,7 @@ namespace ChildApi.Application.Interfaces
 {
     public interface IChildRepository
     {
-        Task<Response> CreateChildAsync(ChildDTO childDto);
+        Task<(Response Response, Guid? ChildId)> CreateChildAsync(ChildDTO childDto);
         Task<Response> UpdateChildAsync(ChildDTO childDto);
         Task<ChildDTO?> GetChildAsync(Guid childId);
         Task<IEnumerable<ChildDTO>> GetChildrenByParentAsync(Guid parentId);

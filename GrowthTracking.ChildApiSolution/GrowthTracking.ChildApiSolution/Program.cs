@@ -4,6 +4,9 @@ using ChildApi.Infrastructure.Repositories;
 using ChildApi.Application.Interfaces;
 using ChildApi.Application.Messaging;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +16,8 @@ builder.Services.AddControllers();
 // Thêm Swagger cho tài liệu API
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+// Đăng ký IEventPublisher với implementation EventPublisher
 builder.Services.AddSingleton<IEventPublisher, EventPublisher>();
 
 // Cấu hình DbContext với connection string từ file cấu hình (appsettings.json)
@@ -26,9 +31,28 @@ MapsterConfiguration.RegisterMappings();
 builder.Services.AddScoped<IChildRepository, ChildRepository>();
 builder.Services.AddScoped<IMilestoneRepository, MilestoneRepository>();
 
-// Đăng ký ParentIdCache và RabbitMQ Consumer (BackgroundService)
-builder.Services.AddSingleton<ParentIdCache>();
+// Đăng ký ParentIdCache với interface IParentIdCache và RabbitMQ Consumer (BackgroundService)
+builder.Services.AddSingleton<IParentIdCache, ParentIdCache>();
 builder.Services.AddHostedService<ParentEventConsumer>();
+
+// Cấu hình xác thực JWT
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+}).AddJwtBearer(options =>
+{
+    options.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateIssuer = true,
+        ValidateAudience = true,
+        ValidateLifetime = true,
+        ValidateIssuerSigningKey = true,
+        ValidIssuer = builder.Configuration["Authentication:Issuer"],
+        ValidAudience = builder.Configuration["Authentication:Audience"],
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Authentication:Key"]))
+    };
+});
 
 var app = builder.Build();
 
@@ -45,8 +69,8 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-// Nếu có xác thực thì kích hoạt Authentication
-// app.UseAuthentication();
+// Kích hoạt Authentication và Authorization middleware
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();

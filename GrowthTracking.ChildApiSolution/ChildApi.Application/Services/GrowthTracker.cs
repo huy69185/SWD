@@ -26,7 +26,7 @@ namespace ChildApi.Application.Services
             var currentDate = DateTime.Now;
 
             // Kiểm tra dữ liệu cơ bản
-            if (child.BirthWeight == null || child.BirthHeight == null || child.BirthHeight == 0)
+            if (child.BirthHeight == 0) // Remove null checks since BirthWeight and BirthHeight cannot be null
             {
                 analysis.Warning = "Insufficient data for growth analysis";
                 return analysis;
@@ -57,7 +57,7 @@ namespace ChildApi.Application.Services
                 analysis.Warning += "Warning: Birth height too high (> 55cm) | ";
 
             // Cảnh báo phát triển không đồng đều
-            var weightHeightRatio = child.BirthWeight.Value / child.BirthHeight.Value;
+            var weightHeightRatio = child.BirthWeight / child.BirthHeight; // Remove .Value
             if (weightHeightRatio < WeightHeightRatioMin || weightHeightRatio > WeightHeightRatioMax)
                 analysis.Warning += "Warning: Disproportionate growth detected | ";
 
@@ -82,8 +82,8 @@ namespace ChildApi.Application.Services
 
         private static decimal CalculateBMI(ChildDTO child)
         {
-            var heightInMeter = child.BirthHeight.Value / 100;
-            return Math.Round(child.BirthWeight.Value / (heightInMeter * heightInMeter), 2);
+            var heightInMeter = child.BirthHeight / 100; // Remove .Value
+            return Math.Round(child.BirthWeight / (heightInMeter * heightInMeter), 2); // Remove .Value
         }
     }
 

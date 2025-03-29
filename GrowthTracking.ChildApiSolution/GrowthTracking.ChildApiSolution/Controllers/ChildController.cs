@@ -1,6 +1,6 @@
 ﻿using ChildApi.Application.DTOs;
 using ChildApi.Application.Interfaces;
-using ChildApi.Application.Messaging; // Thêm namespace cho IEventPublisher
+using ChildApi.Application.Messaging;
 using ChildApi.Application.Services;
 using GrowthTracking.ShareLibrary.Response;
 using Microsoft.AspNetCore.Authorization;
@@ -17,10 +17,10 @@ namespace ChildApi.Presentation.Controllers
     public class ChildController : ControllerBase
     {
         private readonly IChildRepository _childRepository;
-        private readonly ParentIdCache _parentIdCache;
+        private readonly IParentIdCache _parentIdCache;
         private readonly IEventPublisher _eventPublisher;
 
-        public ChildController(IChildRepository childRepository, ParentIdCache parentIdCache, IEventPublisher eventPublisher)
+        public ChildController(IChildRepository childRepository, IParentIdCache parentIdCache, IEventPublisher eventPublisher)
         {
             _childRepository = childRepository;
             _parentIdCache = parentIdCache;
@@ -34,14 +34,20 @@ namespace ChildApi.Presentation.Controllers
             // Ghi đè ParentId trong DTO bằng giá trị từ cache (đã được cập nhật qua RabbitMQ)
             childDto = childDto with { ParentId = _parentIdCache.ParentId };
 
-            var result = await _childRepository.CreateChildAsync(childDto);
-            if (result.Flag && childDto.Id.HasValue)
+            // Gọi repository để tạo child và lấy thông tin đã tạo (bao gồm Id)
+            var (result, newChildId) = await _childRepository.CreateChildAsync(childDto);
+            if (result.Flag)
             {
-                _eventPublisher.PublishChildCreated(childDto.Id.Value, childDto.ParentId, childDto.FullName);
+                // Lấy thông tin child vừa tạo để đảm bảo có Id
+                var createdChild = await _childRepository.GetChildAsync(newChildId ?? Guid.Empty);
+                if (createdChild != null && createdChild.Id.HasValue)
+                {
+                    _eventPublisher.PublishChildCreated(createdChild.Id.Value, createdChild.ParentId, createdChild.FullName);
+                    return Ok(new ApiResponse { Success = true, Message = result.Message });
+                }
+                return StatusCode(StatusCodes.Status500InternalServerError, new ApiResponse { Success = false, Message = "Failed to retrieve created child" });
             }
-            return result.Flag
-                ? Ok(new ApiResponse { Success = true, Message = result.Message })
-                : StatusCode(StatusCodes.Status500InternalServerError, new ApiResponse { Success = false, Message = result.Message });
+            return StatusCode(StatusCodes.Status500InternalServerError, new ApiResponse { Success = false, Message = result.Message });
         }
 
         // GET: api/Child/{childId}
@@ -58,7 +64,6 @@ namespace ChildApi.Presentation.Controllers
         [HttpPut("{childId}")]
         public async Task<IActionResult> UpdateChild(Guid childId, [FromBody] ChildDTO childDto)
         {
-            // Gán Id từ route cho DTO
             childDto = childDto with { Id = childId };
             var result = await _childRepository.UpdateChildAsync(childDto);
             return result.Flag
@@ -92,7 +97,7 @@ namespace ChildApi.Presentation.Controllers
             if (child == null)
                 return NotFound(new ApiResponse { Success = false, Message = "Child not found" });
             var bmi = _childRepository.CalculateBMI(child);
-            return Ok(new ApiResponse { Success = true, Data = new { BMI = bmi } });
+            return Ok(new ApiResponse { Success = true, Data = new BmiResult { BMI = bmi } });
         }
 
         // GET: api/Child/growth/{childId}
@@ -104,5 +109,11 @@ namespace ChildApi.Presentation.Controllers
                 analysis.Warning = "No issues detected";
             return Ok(new ApiResponse { Success = true, Data = analysis });
         }
+    }
+
+    // Class mới để thay thế anonymous type trong GetChildBMI
+    public class BmiResult
+    {
+        public decimal? BMI { get; set; }
     }
 }

@@ -22,14 +22,15 @@ namespace ChildApi.Infrastructure.Repositories
             _context = context;
         }
 
-        public async Task<Response> CreateChildAsync(ChildDTO childDto)
+        public async Task<(Response Response, Guid? ChildId)> CreateChildAsync(ChildDTO childDto)
         {
             var child = childDto.Adapt<Child>();
             if (child.Id == Guid.Empty)
                 child.Id = Guid.NewGuid();
+
             _context.Children.Add(child);
             await _context.SaveChangesAsync();
-            return new Response(true, "Child created successfully");
+            return (new Response(true, "Child created successfully"), child.Id);
         }
 
         public async Task<Response> UpdateChildAsync(ChildDTO childDto)
@@ -73,12 +74,11 @@ namespace ChildApi.Infrastructure.Repositories
 
         public decimal? CalculateBMI(ChildDTO childDto)
         {
-            if (childDto.BirthHeight == null || childDto.BirthWeight == null || childDto.BirthHeight == 0)
+            if (childDto.BirthHeight == 0)
                 return null;
 
-            var heightInMeter = (decimal)childDto.BirthHeight / 100;
-            var bmi = (decimal)childDto.BirthWeight / (heightInMeter * heightInMeter);
-            return Math.Round(bmi, 2);
+            var heightInMeter = childDto.BirthHeight / 100;
+            return Math.Round(childDto.BirthWeight / (heightInMeter * heightInMeter), 2);
         }
 
         public async Task<GrowthAnalysis> AnalyzeGrowthAsync(Guid childId)

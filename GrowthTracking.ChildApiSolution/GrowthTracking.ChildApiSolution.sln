@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.12.35527.113 d17.12
+VisualStudioVersion = 17.12.35527.113
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrowthTracking.ChildApiSolution", "GrowthTracking.ChildApiSolution\GrowthTracking.ChildApiSolution.csproj", "{B05146A0-18A0-4A67-9AC0-ABB3464C850E}"
 EndProject
@@ -12,6 +12,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChildApi.Infrastructure", "ChildApi.Infrastructure\ChildApi.Infrastructure.csproj", "{21C552DB-2A14-451E-B3B2-9DB731C802FE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrowthTracking.ShareLibrary", "..\GrowthTracking.ShareLibrarySolution\GrowthTracking.ShareLibrary\GrowthTracking.ShareLibrary.csproj", "{3A9BDA46-89C2-4BA9-9513-8804C8BF8FDB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChildApi.Test", "ChildApi.Test\ChildApi.Test.csproj", "{98D4FA4C-3545-4B8C-9BD6-D0BFD6F660F9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{3A9BDA46-89C2-4BA9-9513-8804C8BF8FDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3A9BDA46-89C2-4BA9-9513-8804C8BF8FDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3A9BDA46-89C2-4BA9-9513-8804C8BF8FDB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{98D4FA4C-3545-4B8C-9BD6-D0BFD6F660F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{98D4FA4C-3545-4B8C-9BD6-D0BFD6F660F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{98D4FA4C-3545-4B8C-9BD6-D0BFD6F660F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{98D4FA4C-3545-4B8C-9BD6-D0BFD6F660F9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
