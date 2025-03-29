@@ -3,15 +3,16 @@ using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
 using System.Linq;
 using PaymentSolution.Application.Interfaces;
+using PaymentSolution.Infrastructure.DBContext;
 
 namespace PaymentSolution.Infrastructure.Repositories
 {
     public class GenericRepository<T> : IGenericRepository<T> where T : class
     {
-        protected readonly DbContext _context;
+        protected readonly SWD_GrowthTrackingSystemDbContext _context;
         protected readonly DbSet<T> _dbSet;
 
-        public GenericRepository(DbContext context)
+        public GenericRepository(SWD_GrowthTrackingSystemDbContext context)
         {
             _context = context ?? throw new ArgumentNullException(nameof(context));
             _dbSet = _context.Set<T>();

@@ -1,0 +1,6 @@
+services:
+  paymentsolution.presentation:
+    image: ${DOCKER_REGISTRY-}paymentsolutionpresentation
+    build:
+      context: .
+      dockerfile: PaymentSolution.Presentation/Dockerfile

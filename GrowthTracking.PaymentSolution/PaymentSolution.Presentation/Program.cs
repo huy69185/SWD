@@ -1,3 +1,4 @@
+using PaymentSolution.Application.DependencyInjection;
 using PaymentSolution.Infrastructure.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
