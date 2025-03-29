@@ -14,6 +14,8 @@ namespace AuthenticationApi.Infrastructure.Mapping
                 .MapWith(src => Guid.Parse(src));
 
             TypeAdapterConfig<AppUser, AppUserDTO>.NewConfig().MapToConstructor(true);
+            TypeAdapterConfig<BugReport, BugReportDTO>.NewConfig().MapToConstructor(true);
+            TypeAdapterConfig<Notification, NotificationDTO>.NewConfig().MapToConstructor(true);
 
             services.AddSingleton(TypeAdapterConfig.GlobalSettings);
             return services;

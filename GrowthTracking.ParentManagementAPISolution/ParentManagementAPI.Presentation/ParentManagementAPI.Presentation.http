@@ -1,0 +1,47 @@
+﻿### POST Create Parent
+POST http://localhost:5002/api/parent
+Content-Type: application/json
+
+{
+  "parentId": "00000000-0000-0000-0000-000000000000",
+  "fullName": "Nguyen Van A",
+  "dateOfBirth": "1980-01-01",
+  "gender": "Male",
+  "address": "123 Ha Noi",
+  "avatarUrl": "http://example.com/avatar.jpg",
+  "createdAt": "2025-03-07T00:00:00Z",
+  "updatedAt": "2025-03-07T00:00:00Z",
+  "isDeleted": false
+}
+
+### PUT Update Parent
+PUT http://localhost:5002/api/parent
+Content-Type: application/json
+
+{
+  "parentId": "00000000-0000-0000-0000-000000000000",
+  "fullName": "Nguyen Van B",
+  "dateOfBirth": "1980-01-01",
+  "gender": "Male",
+  "address": "456 Ho Chi Minh",
+  "avatarUrl": "http://example.com/new-avatar.jpg",
+  "createdAt": "2025-03-07T00:00:00Z",
+  "updatedAt": "2025-03-07T00:00:00Z",
+  "isDeleted": false
+}
+
+### GET Parent by ID (Requires Authorization)
+GET http://localhost:5002/api/parent/00000000-0000-0000-0000-000000000000
+Authorization: Bearer <your-jwt-token-here>
+
+### GET All Parents (Requires Authorization)
+GET http://localhost:5002/api/parent
+Authorization: Bearer <your-jwt-token-here>
+
+### DELETE Soft Delete Parent (Requires Authorization)
+DELETE http://localhost:5002/api/parent/00000000-0000-0000-0000-000000000000
+Authorization: Bearer <your-jwt-token-here>
+
+### GET Children by Parent ID (Requires Authorization)
+GET http://localhost:5002/api/parent/00000000-0000-0000-0000-000000000000/children
+Authorization: Bearer <your-jwt-token-here>
