@@ -1,4 +1,5 @@
 ﻿using AuthenticationApi.Application.DTOs;
+using AuthenticationApi.Domain.Entities;
 using GrowthTracking.ShareLibrary.Response;
 
 namespace AuthenticationApi.Application.Interfaces
@@ -18,6 +19,6 @@ namespace AuthenticationApi.Application.Interfaces
         Task<Response> VerifyEmail(string token);
         Task<Response> SendOtp(SendOtpDTO sendOtpDTO);
         Task<Response> VerifyPhoneNumber(VerifyPhoneDTO verifyPhoneDTO);
-        Task<IEnumerable<AppUserDTO>> GetUnverifiedUsersAsync();
+        Task<IEnumerable<AppUser>> GetUnverifiedUsersAsync();
     }
 }

@@ -98,7 +98,8 @@ namespace GrowthTracking.ShareLibrary.Middleware
                 await context.Response.WriteAsync(new ApiResponse
                 {
                     Success = false,
-                    Message = exception.Message
+                    Message = exception.Message,
+                    Data = exception.StackTrace.Split("\n").ToArray()
                 }.ToString() ?? string.Empty);
             }
         }
