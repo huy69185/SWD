@@ -1,10 +1,10 @@
-﻿using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.EntityFrameworkCore;
-using Serilog;
+﻿using GrowthTracking.ShareLibrary.Middleware;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
-using GrowthTracking.ShareLibrary.Middleware;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Serilog;
 
 namespace GrowthTracking.ShareLibrary.DependencyInjection
 {
@@ -73,7 +73,7 @@ namespace GrowthTracking.ShareLibrary.DependencyInjection
                 {
                     sqlserverOption.EnableRetryOnFailure(
                         maxRetryCount: 3,
-                        maxRetryDelay: TimeSpan.FromSeconds(30), 
+                        maxRetryDelay: TimeSpan.FromSeconds(30),
                         errorNumbersToAdd: null);
                     Log.Debug("Configured SQL Server with retry on failure.");
                 }));
