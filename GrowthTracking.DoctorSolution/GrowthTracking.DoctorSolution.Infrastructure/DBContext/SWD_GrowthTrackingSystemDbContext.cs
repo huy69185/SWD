@@ -18,6 +18,8 @@ public partial class SWD_GrowthTrackingSystemDbContext : DbContext
 
     public virtual DbSet<IdentityDocument> IdentityDocuments { get; set; }
 
+    public virtual DbSet<UserAccount> UserAccounts { get; set; }
+
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Doctor>(entity =>
@@ -109,6 +111,51 @@ public partial class SWD_GrowthTrackingSystemDbContext : DbContext
             entity.HasOne(d => d.Doctor).WithMany(p => p.IdentityDocuments)
                 .HasForeignKey(d => d.DoctorId)
                 .HasConstraintName("FK_IdentityDocument_Doctor");
+        });
+
+        modelBuilder.Entity<UserAccount>(entity =>
+        {
+            entity.HasKey(e => e.UserAccountId).HasName("PK__UserAcco__DA6C70BAF49DF5BB");
+
+            entity.ToTable("UserAccount");
+
+            entity.HasIndex(e => e.Email, "UQ__UserAcco__A9D10534FC074EC8").IsUnique();
+
+            entity.Property(e => e.UserAccountId)
+                .HasDefaultValueSql("(newid())")
+                .HasColumnName("UserAccountID");
+            entity.Property(e => e.Address).HasColumnType("text");
+            entity.Property(e => e.Bio).HasColumnType("text");
+            entity.Property(e => e.CreatedAt).HasColumnType("datetime");
+            entity.Property(e => e.Email).HasMaxLength(100);
+            entity.Property(e => e.EmailVerified).HasDefaultValue(false);
+            entity.Property(e => e.FullName).HasMaxLength(100);
+            entity.Property(e => e.IsActive).HasDefaultValue(true);
+            entity.Property(e => e.LastLoginAt).HasColumnType("datetime");
+            entity.Property(e => e.Oauth2FacebookId)
+                .HasMaxLength(255)
+                .IsUnicode(false)
+                .HasColumnName("OAuth2FacebookId");
+            entity.Property(e => e.Oauth2GoogleId)
+                .HasMaxLength(255)
+                .IsUnicode(false)
+                .HasColumnName("OAuth2GoogleId");
+            entity.Property(e => e.PasswordHash).HasMaxLength(255);
+            entity.Property(e => e.PhoneNumber).HasMaxLength(15);
+            entity.Property(e => e.ProfilePictureUrl)
+                .HasMaxLength(255)
+                .IsUnicode(false);
+            entity.Property(e => e.ResetToken)
+                .HasMaxLength(255)
+                .IsUnicode(false);
+            entity.Property(e => e.ResetTokenExpiry).HasColumnType("datetime");
+            entity.Property(e => e.Role).HasMaxLength(20);
+            entity.Property(e => e.UpdatedAt)
+                .HasDefaultValueSql("(getdate())")
+                .HasColumnType("datetime");
+            entity.Property(e => e.VerificationToken)
+                .HasMaxLength(255)
+                .IsUnicode(false);
         });
 
         OnModelCreatingPartial(modelBuilder);

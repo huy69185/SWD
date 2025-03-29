@@ -2,7 +2,7 @@
 using GrowthTracking.DoctorSolution.Domain.Enums;
 using GrowthTracking.ShareLibrary.Pagination;
 
-namespace GrowthTracking.DoctorSolution.Application.Services.Interfaces
+namespace GrowthTracking.DoctorSolution.Application.Interfaces
 {
     public interface IIdentityDocumentService
     {

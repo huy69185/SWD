@@ -1,6 +1,6 @@
-﻿using GrowthTracking.DoctorSolution.Application.MessageQueue;
+﻿using GrowthTracking.DoctorSolution.Application.Interfaces;
+using GrowthTracking.DoctorSolution.Application.MessageQueue;
 using GrowthTracking.DoctorSolution.Application.Services;
-using GrowthTracking.DoctorSolution.Application.Services.Interfaces;
 using GrowthTracking.ShareLibrary.Logs;
 using MassTransit;
 using Microsoft.Extensions.Configuration;
@@ -69,6 +69,9 @@ namespace GrowthTracking.DoctorSolution.Application.DependencyInjection
             {
                 builder.AddRetry(retryStrategy);
             });
+
+            services.AddScoped<IUserService, UserService>();
+            services.AddScoped<ITokenService, JWTokenService>();
         }
     }
 }

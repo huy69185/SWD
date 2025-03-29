@@ -1,5 +1,6 @@
 ﻿using GrowthTracking.ShareLibrary.Validation;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel.DataAnnotations;
 
 namespace GrowthTracking.DoctorSolution.Application.DTOs
@@ -19,9 +20,9 @@ namespace GrowthTracking.DoctorSolution.Application.DTOs
         string? Workplace,
         string? Biography,
         string? ProfilePhoto,
-        [Required] IFormFile IdCard,
-        [Required] IFormFile ProfessionalDegree,
-        [Required] IFormFile MedicalLicense
+        [FromForm, Required] IFormFile IdCard,
+        [FromForm, Required] IFormFile ProfessionalDegree,
+        [FromForm, Required] IFormFile MedicalLicense
         );
     public record DoctorUpdateRequest(
         string? FullName,

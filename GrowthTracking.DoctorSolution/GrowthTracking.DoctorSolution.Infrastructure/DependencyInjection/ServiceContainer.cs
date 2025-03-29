@@ -31,6 +31,7 @@ namespace GrowthTracking.DoctorSolution.Infrastructure.DependencyInjection
             services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
             services.AddScoped<IDoctorRepository, DoctorRepository>();
             services.AddScoped<IIdentityDocumentRepository, IdentityDocumentRepository>();
+            services.AddScoped<IUserRepository, UserRepository>();
 
             return services;
         }

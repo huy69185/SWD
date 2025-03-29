@@ -1,17 +1,18 @@
 ﻿using GrowthTracking.DoctorSolution.Application.DTOs;
-using GrowthTracking.DoctorSolution.Application.Services.Interfaces;
+using GrowthTracking.DoctorSolution.Application.Interfaces;
 using GrowthTracking.DoctorSolution.Domain.Constants;
 using GrowthTracking.ShareLibrary.Response;
 using GrowthTracking.ShareLibrary.Validation;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.ComponentModel.DataAnnotations;
 using System.Security.Claims;
 
 namespace GrowthTracking.DoctorSolution.Presentation.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize(Roles = Constants.DoctorAndAdmin)]
+    [Authorize(Roles = Consts.DoctorAndAdmin)]
     public class DoctorsController(IDoctorService doctorService) : ControllerBase
     {
         [HttpGet]
@@ -73,9 +74,12 @@ namespace GrowthTracking.DoctorSolution.Presentation.Controllers
 
         [HttpPost]
         [EndpointSummary("Create Doctor")]
-        public async Task<IActionResult> CreateDoctor([FromBody] DoctorCreateRequest doctor)
+        [AllowAnonymous]
+        [Consumes("multipart/form-data")]
+        public async Task<IActionResult> CreateDoctor(
+            [FromForm] DoctorCreateRequest doctor)
         {
-            var result = await doctorService.CreateDoctor(doctor);
+            var result = await doctorService.CreateDoctor(doctor, doctor.IdCard, doctor.ProfessionalDegree, doctor.MedicalLicense);
             return Ok(new ApiResponse()
             {
                 Success = true,
@@ -96,7 +100,7 @@ namespace GrowthTracking.DoctorSolution.Presentation.Controllers
         }
 
         [HttpDelete("{doctorId}")]
-        [Authorize(Roles = Constants.Admin)]
+        [Authorize(Roles = Consts.Admin)]
         [EndpointSummary("Delete Doctor")]
         public async Task<IActionResult> DeleteDoctor([GuidValidation] string doctorId)
         {

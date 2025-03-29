@@ -11,7 +11,7 @@
    "ProjectRootNamespace": "GrowthTracking.DoctorSolution.Infrastructure",
    "Schemas": null,
    "SelectedHandlebarsLanguage": 2,
-   "SelectedToBeGenerated": 1,
+   "SelectedToBeGenerated": 0,
    "T4TemplatePath": null,
    "Tables": [
       {
@@ -20,6 +20,10 @@
       },
       {
          "Name": "[dbo].[IdentityDocument]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[UserAccount]",
          "ObjectType": 0
       }
    ],
@@ -36,6 +40,7 @@
    "UseHandleBars": false,
    "UseHierarchyId": false,
    "UseInflector": true,
+   "UseInternalAccessModifiersForSprocsAndFunctions": false,
    "UseLegacyPluralizer": false,
    "UseManyToManyEntity": false,
    "UseNoDefaultConstructor": false,

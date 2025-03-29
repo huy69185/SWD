@@ -2,13 +2,13 @@
 using GrowthTracking.DoctorSolution.Application.Interfaces;
 using GrowthTracking.DoctorSolution.Application.Mapping;
 using GrowthTracking.DoctorSolution.Application.MessageQueue;
-using GrowthTracking.DoctorSolution.Application.Services.Interfaces;
 using GrowthTracking.DoctorSolution.Domain.Entities;
 using GrowthTracking.DoctorSolution.Domain.Enums;
 using GrowthTracking.ShareLibrary.Exceptions;
 using GrowthTracking.ShareLibrary.Pagination;
 using Microsoft.AspNetCore.Http;
 using System.Linq.Expressions;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace GrowthTracking.DoctorSolution.Application.Services
 {
@@ -19,7 +19,10 @@ namespace GrowthTracking.DoctorSolution.Application.Services
         IFileStorageService storageService,
         IDoctorEventPublisher doctorEventPublisher) : IDoctorService
     {
-        public async Task<DoctorResponse> CreateDoctor(DoctorCreateRequest request)
+        public async Task<DoctorResponse> CreateDoctor(DoctorCreateRequest request,
+            IFormFile IdCard,
+            IFormFile ProfessionalDegree,
+            IFormFile MedicalLicense)
         {
             // Step 1: Check if User Exists via User Microservice
             var userExists = await userService.CheckUserExists(request.DoctorId);

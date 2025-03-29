@@ -1,4 +1,4 @@
-﻿using GrowthTracking.DoctorSolution.Application.Services.Interfaces;
+﻿using GrowthTracking.DoctorSolution.Application.Interfaces;
 using GrowthTracking.DoctorSolution.Domain.Constants;
 using GrowthTracking.ShareLibrary.Response;
 using Microsoft.AspNetCore.Authorization;
@@ -13,7 +13,7 @@ namespace GrowthTracking.DoctorSolution.Presentation.Controllers
     {
         [Route("/api/admin/identity-documents/pending")]
         [HttpGet]
-        [Authorize(Roles = Constants.Admin)]
+        [Authorize(Roles = Consts.Admin)]
         [EndpointDescription("This api is use for admin to retrieve all pending documents")]
         public async Task<IActionResult> GetPendingDocuments(int page = 1, int pageSize = 10)
         {
@@ -36,7 +36,7 @@ namespace GrowthTracking.DoctorSolution.Presentation.Controllers
 
         [Route("/api/admin/identity-documents/{documentId}/{status}")]
         [HttpPatch]
-        [Authorize(Roles = Constants.Admin)]
+        [Authorize(Roles = Consts.Admin)]
         public async Task<IActionResult> UpdateDocumentStatus(string documentId, string status)
         {
             var adminId = User.FindFirst(ClaimTypes.NameIdentifier)!.Value;
