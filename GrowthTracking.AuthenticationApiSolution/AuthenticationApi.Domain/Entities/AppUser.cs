@@ -2,9 +2,8 @@
 
 namespace AuthenticationApi.Domain.Entities
 {
-    public class AppUser : BaseEntity
+    public class AppUser
     {
-        public override Guid Id { get; set; }
         public Guid UserAccountID { get; set; }
         public string? FullName { get; set; }
         public string? Email { get; set; }
